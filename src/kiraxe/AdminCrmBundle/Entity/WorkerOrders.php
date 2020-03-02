@@ -105,6 +105,14 @@ class WorkerOrders
     private $pricefr;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="pricefrAction", type="boolean", nullable=true)
+     */
+
+    private $pricefrAction;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="priceUnit", type="float", nullable=true)
@@ -228,13 +236,13 @@ class WorkerOrders
 
     public function setSalary($salary)
     {
-        if ($this->pricefr) {
+        if ($this->pricefrAction) {
             if ($this->marriage && !$this->fine) {
-                $this->salary = $this->pricefr - $this->marriage;
+                $this->salary = $this->pricefr - ($this->getMaterials()->getPriceUnit() * $this->marriage);
             } elseif (!$this->marriage && $this->fine) {
                 $this->salary = $this->pricefr - $this->fine;
             } elseif ($this->marriage && $this->fine) {
-                $this->salary = ($this->pricefr - $this->fine) - $this->marriage;
+                $this->salary = ($this->pricefr - $this->fine) - ($this->getMaterials()->getPriceUnit() * $this->marriage);
             } else {
                 $this->salary = $this->pricefr;
             }
@@ -314,6 +322,22 @@ class WorkerOrders
     public function getPricefr()
     {
         return $this->pricefr;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPricefrAction()
+    {
+        return $this->pricefrAction;
+    }
+
+    /**
+     * @param string $pricefrAction
+     */
+    public function setPricefrAction($pricefrAction)
+    {
+        $this->pricefrAction = $pricefrAction;
     }
 
     /**

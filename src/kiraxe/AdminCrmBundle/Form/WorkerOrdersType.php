@@ -66,6 +66,9 @@ class WorkerOrdersType extends AbstractType
                 'label' => 'Указать зарплату',
                 'required' => false,
             ])
+            ->add('pricefrAction', HiddenType::class, [
+                'data' => false,
+            ])
             ->add('amountOfMaterial', null, array(
                 'label' => 'Количество материала',
                 'required' => false

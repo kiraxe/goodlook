@@ -4,6 +4,16 @@
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/WorkerOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/WorkerOrders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/WorkerOrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/WorkerOrdersType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/entrypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/entrypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/Gilroy-Bold.743ea413.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/images/Gilroy-Bold.743ea413.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/Gilroy-Medium.5f4d7532.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/images/Gilroy-Medium.5f4d7532.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/Gilroy-Regular.a192dd86.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/images/Gilroy-Regular.a192dd86.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/images/Gilroy-Semibold.205abc1b.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/images/Gilroy-Semibold.205abc1b.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/js/ordersForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ordersForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,13 +305,20 @@
       <workItem from="1581341174846" duration="2000" />
       <workItem from="1581341242381" duration="5000" />
       <workItem from="1581405358713" duration="13521000" />
-    </task>
-    <task id="LOCAL-00124" summary="goodlook-crm first commit">
-      <created>1580390637480</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1580390637481</updated>
+      <workItem from="1582701553271" duration="2074000" />
+      <workItem from="1582802848421" duration="1153000" />
+      <workItem from="1582902374785" duration="85000" />
+      <workItem from="1582902494742" duration="5000" />
+      <workItem from="1582902648254" duration="173000" />
+      <workItem from="1582902861263" duration="483000" />
+      <workItem from="1582903364842" duration="368000" />
+      <workItem from="1582903765718" duration="2894000" />
+      <workItem from="1583132858836" duration="612000" />
+      <workItem from="1583133586159" duration="142000" />
+      <workItem from="1583133899741" duration="555000" />
+      <workItem from="1583134488477" duration="516000" />
+      <workItem from="1583136323935" duration="59000" />
+      <workItem from="1583136978714" duration="7984000" />
     </task>
     <task id="LOCAL-00125" summary="goodlook-crm first commit">
       <created>1580397391692</created>
@@ -639,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581414411673</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="goodlook-crm first commit">
+      <created>1581435114006</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1581435114006</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,10 +701,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="600" y="294" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580745502403" />
-    <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580986619624">
+    <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582902414803">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580986619624" />
+    <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1582902414803" />
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1580471016813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -689,10 +713,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581068364916" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1581414409356">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1581435112117">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581414409356" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581435112117" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1580385467581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -709,10 +733,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581064680556" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1581405495607">
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583136979712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581405495607" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583136979712" />
     <state x="667" y="154" width="586" height="732" key="find.popup" timestamp="1581322340575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
