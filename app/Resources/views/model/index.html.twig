@@ -9,45 +9,48 @@
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
+
                         <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('model_new') }}">Создать новую модель автомобиля</a>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('model_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
+
                     </ul>
                 </div>
                 <div class="col-md-12">
+                    <div class="table-hidden">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th scope="col" ><input onclick="event.stopPropagation()" type="checkbox"style="width:17px; height:17px; cursor:pointer;"></th>
                             <th scope="col" >Id</th>
                             <th scope="col" >Бренд</th>
                             <th scope="col">Модель</th>
                             <th scope="col">Год</th>
-                            <th scope="col">Действие</th>
+                            <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for model in pagination %}
-                            <tr>
+                            <tr onclick='window.location.href="{{ path('model_edit', { 'id': model.id }) }}"'>
+                                <td scope="col" ><input onclick="event.stopPropagation()" type="checkbox"style="width:17px; height:17px; cursor:pointer;"></td>
                                 <td><a href="{{ path('model_show', { 'id': model.id }) }}">{{ model.id }}</a></td>
                                 <td>{% if model.brandId %}{{ model.brandId.name }} {% endif %}</td>
                                 <td>{{ model.name}}</td>
                                 <td>{{ model.year}}</td>
-                                <td width="20%">
-                                    <ul style="list-style-type: none; margin:0; padding:0;">
-                                        <li>
+                                <td>
+                                    <ul style="list-style-type: none; margin:0; padding:0; display:flex; justify-content: center;">
+                                     <!--   <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('model_show', { 'id': model.id }) }}">Показать</a>
                                         </li>
                                         <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('model_edit', { 'id': model.id }) }}">Редактировать</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             {% for key, value in delete_form %}
                                                 {% if key == model.name %}
                                                     {{ form_start(value) }}
-                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    <input class="btn button-delete" type="submit" value="Удалить" id="btn-delete_{{model.name}}">
+                                                    <label class="btn-delete" for="btn-delete_{{model.name}}" style="margin: 0;"><img src="{{ asset('public/images/close.svg') }}" ></label>
                                                     {{ form_end(value) }}
                                                 {% endif %}
                                             {% endfor %}
@@ -58,21 +61,56 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                    <span class="delete-all-checkbox">Удалить выделенные</span>
+                </div>
                 </div>
                 <div class="pagination col-md-12">
                     {{ knp_pagination_render(pagination) }}
                 </div>
-                <div class="col-md-12">
-                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('model_new') }}">Создать новую модель автомобиля</a>
-                        </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
+
+
+    <script>
+        let fixedWidthCol = [];
+        let count2 = 0;
+
+        document.querySelectorAll(".table tr th").forEach(function (e) {
+
+            let widthCol = e.offsetWidth;
+            fixedWidthCol.push({id: count2++, width: widthCol + "px"});
+
+        });
+
+        let returnWidthCol;
+
+        if (JSON.parse(localStorage.getItem("fixedWidthCol6"))) {
+
+            returnWidthCol = JSON.parse(localStorage.getItem("fixedWidthCol6"));
+        } else {
+
+            localStorage.setItem('fixedWidthCol6', JSON.stringify(fixedWidthCol));
+            returnWidthCol = JSON.parse(localStorage.getItem('fixedWidthCol6'));
+        }
+
+
+        let colItemWidth = document.querySelectorAll(".table tr th");
+        for (let i = 0; i < fixedWidthCol.length; i++) {
+            colItemWidth[i].style.width = returnWidthCol[i]['width'];
+        }
+
+        document.querySelectorAll(".table tr th").forEach(function (e, id) {
+            e.onresize = function () {
+                fixedWidthCol[id]['width'] = e.style.width;
+                localStorage.setItem('fixedWidthCol6', JSON.stringify(fixedWidthCol));
+
+            }
+        })
+
+
+
+    </script>
+
 {% endblock %}

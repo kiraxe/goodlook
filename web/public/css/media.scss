@@ -1,5 +1,9 @@
+
+
+
 @media (min-width: 992px) {
    main {
+
        .navbar-expand-lg  {
            .sidenav {
              flex-direction: column;
@@ -15,34 +19,73 @@
            }
        }
      .content-wrapper {
-       margin-left: 230px;
      }
      .footer {
        width: calc(100% - 230px);
-       margin-left: 230px;
+       margin-left: 39px;
      }
    }
 }
+
+
+@media (max-width: 1280px) {
+  .print-content .showButton {
+    position: relative !important;
+    top: -31px !important;
+    left: 0 !important;
+  }
+
+  .print-content{
+    position: relative !important;
+    top:0 !important;
+    left:0 !important;
+    margin-top: 47px !important;
+    margin-bottom: 50px;
+
+  }
+
+  .table-hidden{
+    width:100%;
+    overflow-x:scroll;
+  }
+}
+
+
+
 @media (max-width: 992px) {
   body {
       main {
+
+        .navbar-dark .navbar-nav .nav-link{
+          margin-left:40px;
+        }
+
+        .navbar-collapse{
+          flex-basis:auto;
+        }
+
           .navbar-expand-lg {
+            .sidenav {
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 230px;
+              height: calc(100vh - 3.4rem);
+              margin-top: 3.9rem;
+              background: #000000;
+              box-sizing: border-box;
+              border-top: 1px solid rgba(0, 0, 0, 0.3);
+            }
               #bars {
-                .fa-bars {
-                  display: block!important;
-                }
+
               }
 
-              #navbarCollapse {
-                order: 3;
-              }
 
-              .logout {
-                order: 1;
-              }
           }
 
           .content-wrapper {
+
               .container {
                 max-width: 100%;
               }
@@ -52,3 +95,84 @@
       }
   }
 }
+@media screen and (max-width: 670px) {
+  .print-content .button-print{
+    position: static !important;
+    display: inline-block !important;
+  }
+
+  .print-content .showButton{
+    position: static !important;
+    top: 0px !important;
+    left: 0px !important;
+    margin-bottom: 15px;
+  }
+
+  .print-content .showButton .ShowOneTable, .print-content .showButton .ShowTwoTable{
+    border-radius: 5px;
+    border-bottom:1px solid grey !important;
+
+  }
+
+  .workorder-new-oreder{
+    width:570px !important;
+  }
+  .print-content{
+    width:100% !important;
+    overflow-x: scroll;
+  }
+
+  body main .navbar-expand-lg .logout .logout-btn{
+    padding:23px !important;
+  }
+  body main .content-wrapper #form .form-button ul li, body main .content-wrapper #show ul li, body main .content-wrapper #index ul li{
+    margin-bottom: 10px;
+  }
+
+  body main .content-wrapper #index div.pagination ul.pagination{
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  .logout{
+    font-size:12px;
+  }
+
+  .table{
+    font-size:12px;
+  }
+
+
+  body main .new-order form {
+    width: 100% !important;
+  }
+
+
+  body main .new-order form .formItem {
+    width: 100% !important;
+  }
+
+  body main .new-order form .formItem ul li .workerorder-box .form-group {
+    width: 100% !important;
+  }
+
+  #datatime {
+    display: none;
+  }
+
+  body main #logo {
+    position: static !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+
+  body main #logo img {
+    width: 115px !important;
+  }
+
+  .h1, h1 {
+    font-size: 1.5rem !important;
+  }
+}
+

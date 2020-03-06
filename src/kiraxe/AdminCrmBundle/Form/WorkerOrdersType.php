@@ -31,6 +31,13 @@ class WorkerOrdersType extends AbstractType
                 'placeholder' => 'Выберите сотрудника',
                 'label' => 'Сотрудник'
             ])
+            ->add('materials', EntityType::class , [
+                'class' => 'kiraxe\AdminCrmBundle\Entity\Materials',
+                'choice_label' => 'name',
+                'label' => 'Материал',
+                'placeholder' => 'Выберите материал',
+                'required' => false
+            ])
             ->add('servicesparent', EntityType::class , [
                 'class' => 'kiraxe\AdminCrmBundle\Entity\Services',
                 'query_builder' => function (EntityRepository $services) {
@@ -41,36 +48,8 @@ class WorkerOrdersType extends AbstractType
                 'label' => 'Вид услуг',
                 'placeholder' => 'Выберите вид услуг',
             ])
-            ->add('services', EntityType::class , [
-                'class' => 'kiraxe\AdminCrmBundle\Entity\Services',
-                'query_builder' => function (EntityRepository $services) {
-                    return $services->createQueryBuilder('u')
-                        ->where('u.parent IS NOT NULL');
-                },
-                'choice_label' => 'name',
-                'label' => 'Вид работы',
-                'placeholder' => 'Выберите вид работы',
-            ])
-            ->add('materials', EntityType::class , [
-                'class' => 'kiraxe\AdminCrmBundle\Entity\Materials',
-                'choice_label' => 'name',
-                'label' => 'Материал',
-                'placeholder' => 'Выберите материал',
-                'required' => false
-            ])
-            ->add('free', TextareaType::class , [
-                'label' => 'Свободный ввод',
-                'required' => false,
-            ])
-            ->add('pricefr', TextType::class , [
-                'label' => 'Указать зарплату',
-                'required' => false,
-            ])
-            ->add('pricefrAction', HiddenType::class, [
-                'data' => false,
-            ])
             ->add('amountOfMaterial', null, array(
-                'label' => 'Количество материала',
+                'label' => 'Кол-во',
                 'required' => false
             ))
             ->add('marriage', null, array(
@@ -81,8 +60,27 @@ class WorkerOrdersType extends AbstractType
                 'label' => 'Штраф',
                 'required' => false,
             ))
+            ->add('services', EntityType::class , [
+                'class' => 'kiraxe\AdminCrmBundle\Entity\Services',
+                'query_builder' => function (EntityRepository $services) {
+                    return $services->createQueryBuilder('u')
+                        ->where('u.parent IS NOT NULL');
+                },
+                'choice_label' => 'name',
+                'label' => 'Вид работы',
+                'placeholder' => 'Выберите вид работы',
+            ])
+            ->add('free', TextareaType::class , [
+                'label' => 'Свободный ввод',
+                'required' => false,
+            ])
+            ->add('pricefr', TextType::class , [
+                'label' => 'Указать зарплату',
+                'required' => false,
+            ])
             ->add('price', null, array('label' => 'Стоимость'))
-            ->add('salary', HiddenType::class, array('label' => 'Зарплата'));
+            ->add('salary', HiddenType::class, array('label' => 'Зарплата'))
+            ->add('pricefrAction', HiddenType::class, ['data' => false,]);
     }/**
      * {@inheritdoc}
      */

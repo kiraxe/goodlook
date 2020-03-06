@@ -10,40 +10,42 @@
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
                         <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('brand_new') }}">Создать новый бренд</a>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('brand_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
+
                     </ul>
                 </div>
                 <div class="col-md-12">
+                    <div class="table-hidden">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th scope="col" ><input onclick="event.stopPropagation()" type="checkbox"style="width:17px; height:17px; cursor:pointer;"></th>
                             <th scope="col" >Id</th>
                             <th scope="col" >Название</th>
-                            <th scope="col">Действие</th>
+                            <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for brand in pagination %}
-                            <tr>
+                            <tr onclick='window.location.href="{{ path('brand_edit', { 'id': brand.id }) }}"'>
+                                <td scope="col" ><input onclick="event.stopPropagation()" type="checkbox"style="width:17px; height:17px; cursor:pointer;"></td>
                                 <td><a href="{{ path('brand_show', { 'id': brand.id }) }}">{{ brand.id }}</a></td>
                                 <td>{{ brand.name }}</td>
                                 <td width="20%">
-                                    <ul style="list-style-type: none; margin:0; padding:0;">
-                                        <li>
+                                    <ul style="list-style-type: none; margin:0; padding:0; display:flex; justify-content: center;">
+                                     <!--   <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('brand_show', { 'id': brand.id }) }}">Показать</a>
                                         </li>
                                         <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('brand_edit', { 'id': brand.id }) }}">Редактировать</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             {% for key, value in delete_form %}
                                                 {% if key == brand.name %}
                                                     {{ form_start(value) }}
-                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    <input  class="btn button-delete" type="submit" value="Удалить" id="btn-delete_{{brand.name}}">
+                                                    <label class="btn-delete" for="btn-delete_{{brand.name}}" style="margin: 0;"><img src="{{ asset('public/images/close.svg') }}" ></label>
                                                     {{ form_end(value) }}
                                                 {% endif %}
                                             {% endfor %}
@@ -54,22 +56,56 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                    <span class="delete-all-checkbox">Удалить выделенные</span>
+                </div>
                 </div>
                 <div class="pagination col-md-12">
                     {{ knp_pagination_render(pagination) }}
                 </div>
-                <div class="col-md-12">
-                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('brand_new') }}">Создать новый бренд</a>
-                        </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
+
+    <script>
+        let fixedWidthCol = [];
+        let count2 = 0;
+
+        document.querySelectorAll(".table tr th").forEach(function (e) {
+
+            let widthCol = e.offsetWidth;
+            fixedWidthCol.push({id: count2++, width: widthCol + "px"});
+
+        });
+
+        let returnWidthCol;
+
+        if (JSON.parse(localStorage.getItem("fixedWidthCol5"))) {
+
+            returnWidthCol = JSON.parse(localStorage.getItem("fixedWidthCol5"));
+        } else {
+
+            localStorage.setItem('fixedWidthCol5', JSON.stringify(fixedWidthCol));
+            returnWidthCol = JSON.parse(localStorage.getItem('fixedWidthCol5'));
+        }
+
+
+        let colItemWidth = document.querySelectorAll(".table tr th");
+        for (let i = 0; i < fixedWidthCol.length; i++) {
+            colItemWidth[i].style.width = returnWidthCol[i]['width'];
+        }
+
+        document.querySelectorAll(".table tr th").forEach(function (e, id) {
+            e.onresize = function () {
+                fixedWidthCol[id]['width'] = e.style.width;
+                localStorage.setItem('fixedWidthCol5', JSON.stringify(fixedWidthCol));
+
+            }
+        })
+
+
+
+    </script>
+
 {% endblock %}
 

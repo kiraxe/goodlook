@@ -42,6 +42,18 @@ $(document).ready(function(){
             $(this).find('.fa-angle-right').addClass('fa-angle-right-active');
         }
     });
+	
+	$(".sidenav").mouseleave(function () {
+        if ($(".sidenav").width() > 50) {
+            $('.nav-link-collapse').removeClass('nav-link-show');
+            $("#collapseSubItems2,#collapseSubItems4").removeClass('show');
+        }
+    })
+	
+	$(".nav-item").click(function () {
+        $(".nav-item").removeClass("active");
+        $(this).not($(".avto,.settings")).toggleClass("active");
+    });
 
 
 
@@ -52,6 +64,28 @@ $(document).ready(function(){
             }
         });
     });
+	
+	/*Кнопка фильтра на orders*/
+
+    $(".active-filter").click(function () {
+        $(".filter-table").fadeToggle(300);
+    });
+
+    /*Кнопка фильтра на Колонок*/
+
+    $(".active-filtre-col").click(function () {
+        $(".buttonCols").fadeToggle(300);
+    });
+
+
+    $("#clearForm").click(function () {
+        $("#filter-date input, #filter-date select ").not($("input[type=submit],input[type=button]")).val("");
+    });
+
+
+    /*Кнопки пагинации*/
+    $(".pagination .page-item:first-child .page-link").html("Пред.");
+    $(".pagination .page-item:last-child .page-link").html("След.");
 
     /*$("select[id$='servicesparent']").each(function () {
         $(this).attr('disabled','disabled');
@@ -477,5 +511,59 @@ $(document).ready(function(){
         }
 
     })
+	
+	
+	if(document.querySelector('.table tr th input')){
+    document.querySelector('.table tr th input').addEventListener('click', function () {
+        if (document.querySelector('.table tr th input').checked === true) {
+            allDeleteButton.style.display = 'inline-block';
+            document.querySelectorAll('.table tr td input:first-child').forEach(function (e) {
+                e.checked = true;
+
+            })
+        } else {
+            allDeleteButton.style.display = 'none';
+            document.querySelectorAll('.table tr td input:first-child').forEach(function (e) {
+                e.checked = false;
+            })
+        }
+    })
+
+    let allDeleteButton = document.querySelector('.delete-all-checkbox');
+    let checkedInput = document.querySelectorAll('.table tr td input:first-child')
+
+
+    let countChecked = 0;
+    checkedInput.forEach(function (e) {
+        e.addEventListener('click', function () {
+
+            if (this.checked === true) {
+
+                allDeleteButton.style.display = 'inline-block';
+                countChecked++
+
+            } else {
+                countChecked--
+            }
+
+            if (countChecked === 0) {
+                allDeleteButton.style.display = 'none';
+            }
+
+
+        })
+    })
+
+    allDeleteButton.addEventListener('click', function (event) {
+        checkedInput.forEach(function (e) {
+
+            if (e.checked === true) {
+                let clickDelete = e.parentElement.parentElement.querySelector(".btn");
+                clickDelete.click();
+
+            }
+        })
+    })
+}
 
 });

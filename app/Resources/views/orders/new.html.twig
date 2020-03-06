@@ -7,43 +7,71 @@
                 <div class="col-md-12">
                     <h1>Создать заказ-наряд</h1>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 new-order">
                     {{ form_start(form) }}
-                    <div class="formItem">{% if form.dateOpen %}{{ form_row(form.dateOpen) }}{% endif %}</div>
-                    <div class="formItem">{{ form_row(form.workeropen) }}</div>
-                    <div class="formItem">{% if form.dateClose %}{{ form_row(form.dateClose) }}{% endif %}</div>
-                    <div class="formItem">{% if form.datePayment %}{{ form_row(form.datePayment) }}{% endif %}</div>
-                    <div class="formItem">{{ form_row(form.workerclose) }}</div>
-                    <div class="formItem">{{ form_row(form.name) }}</div>
-                    <div class="formItem">{{ form_row(form.brandId) }}</div>
-                    <div class="formItem">{{ form_row(form.carId) }}</div>
-                    <div class="formItem">{{ form_row(form.bodyId) }}</div>
-                    <div class="formItem">{{ form_row(form.color) }}</div>
-                    <div class="formItem">{{ form_row(form.number) }}</div>
-                    <div class="formItem">{{ form_row(form.vin) }}</div>
-                    <div class="formItem">{{ form_row(form.description) }}</div>
-                    <div class="formItem">{{ form_row(form.damages) }}</div>
-                    <div class="formItem">{{ form_row(form.phone) }}</div>
-                    <div class="formItem">{{ form_row(form.email) }}</div>
-                    <div class="formItem">{{ form_row(form.payment) }}</div>
-                    <div class="formItem">{{ form_row(form.price) }}</div>
                     <div class="formItem">
+                        <img src="{{ asset('public/images/new-order/1.svg') }}">
+                        {{ form_row(form.workeropen) }}
+                    </div>
+                    <div class="formItem">
+                        <img src="{{ asset('public/images/new-order/2.svg') }}">
+                        {% if form.dateOpen %}{{ form_row(form.dateOpen) }}{% endif %}</div>
+                    <div class="formItem">
+                        <img src="{{ asset('public/images/new-order/3.svg') }}">
+                        {{ form_row(form.workerclose) }}</div>
+                    <div class="formItem">
+                        <img src="{{ asset('public/images/new-order/4.svg') }}">
+                        {% if form.dateClose %}{{ form_row(form.dateClose) }}{% endif %}</div>
+
+                    <div class="order-subtitle">Автомобиль</div>
+
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/5.svg') }}">{{ form_row(form.brandId) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/6.svg') }}">{{ form_row(form.vin) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/7.svg') }}">{{ form_row(form.carId) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/8.svg') }}">{{ form_row(form.name) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/9.svg') }}">{{ form_row(form.bodyId) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/10.svg') }}">{{ form_row(form.number) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/11.svg') }}">{{ form_row(form.color) }}</div>
+
+                    <div class="formItem full-width"><img src="{{ asset('public/images/new-order/12.svg') }}">{{ form_row(form.description) }}</div>
+                    <div class="formItem full-width" ><img src="{{ asset('public/images/new-order/13.svg') }}">{{ form_row(form.damages) }}</div>
+
+                    <div class="order-subtitle">Контакты</div>
+
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/14.svg') }}">{{ form_row(form.phone) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/15.svg') }}">{{ form_row(form.email) }}</div>
+
+                    <div class="order-subtitle">Оплата</div>
+
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/16.svg') }}">{{ form_row(form.payment) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/17.svg') }}">{% if form.datePayment %}{{ form_row(form.datePayment) }}{% endif %}</div>
+
+                    <div class="formItem">{{ form_row(form.price) }}</div>
+                    <div class="formItem full-width">
+
+                        {% set foo = '<div class="order-subtitle">Сотрудник</div>' %}
+
                         <ul style="list-style-type: none" id="workerorders-fields-list"
-                            data-prototype="{{ form_widget(form.workerorders.vars.prototype)|e('html_attr') }}"
+
+
+                            data-prototype="{{ foo }}{{  form_widget(form.workerorders.vars.prototype)|e('html_attr') }}"
                             data-widget-tags="{{ '<li></li>'|e }}">
                             {% for workerordersField in form.workerorders %}
+
+
                                 <li>
                                     {{ form_row(workerordersField) }}
                                 </li>
                             {% endfor %}
                         </ul>
                         <div><button type="button" class="add-another-collection-widget btn btn-info" data-list="#workerorders-fields-list">Добавить сотрудника и услугу</button></div>
+
                     </div>
                     <div class="formItem">{{ form_row(form.close) }}</div>
-                    <div class="formItem form-button">
-                        <ul>
-                            <li><input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Создать" /></li>
-                            <li><a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('orders_index') }}">Назад</a></li>
+                    <div class="formItem form-button button-block">
+                        <ul class="button-class">
+                            <li><input class="btn" type="submit" value="Создать" /></li>
+                           <!-- <li><a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('orders_index') }}">Назад</a></li> -->
                         </ul>
                     </div>
                     {{ form_end(form) }}
@@ -51,7 +79,153 @@
             </div>
         </div>
     </div>
+
+
+    <!-- //////////////////////////////////////////////-->
+
+<!-- //////////////////////////////////////////////-->
+
     <script src="{{ asset('public/js/ajaxAutocomplete.js') }}"></script>
+<!--<script>
+
+        //Заказ принял
+        let getOrders = document.querySelector("#kiraxe_admincrmbundle_orders_workeropen");
+
+        getOrders.addEventListener('change',function () {
+            let getOrderPrint = document.querySelectorAll(".getOrder");
+            getOrderPrint[0].innerHTML = this.options[this.selectedIndex].innerHTML
+            getOrderPrint[1].innerHTML = this.options[this.selectedIndex].innerHTML
+
+
+        })
+
+        //Закрытие заказа
+
+        let getBay = document.querySelector("#kiraxe_admincrmbundle_orders_workerclose");
+
+        getBay.addEventListener('change',function () {
+            let getBayPrint = document.querySelector(".getBay");
+            getBayPrint.innerHTML = this.options[this.selectedIndex].innerHTML
+        })
+
+        //Скрок оплаты
+
+        let getTimeBay = document.querySelector("#kiraxe_admincrmbundle_orders_datePayment_date");
+
+        getTimeBay.addEventListener('change',function () {
+            let getTimeBayPrint = document.querySelector(".timeBay");
+            getTimeBayPrint.innerHTML = this.value;
+        })
+
+        //Заказчик
+
+        let getClient = document.querySelector("#kiraxe_admincrmbundle_orders_name");
+
+        getClient.addEventListener('keyup',function () {
+            let getClientPrint = document.querySelectorAll(".client");
+
+
+            getClientPrint.forEach(function (element) {
+                element.innerHTML = getClient.value;
+            })
+        })
+
+        //Телефон клиента
+
+        let getPhone = document.querySelector("#kiraxe_admincrmbundle_orders_phone");
+
+        getPhone.addEventListener('keyup',function () {
+            let getPhonePrint = document.querySelector(".phoneClient");
+            getPhonePrint.innerHTML = this.value;
+        })
+
+        //Email Клиента
+        let getEmail = document.querySelector("#kiraxe_admincrmbundle_orders_email");
+
+        getEmail.addEventListener('keyup',function () {
+            let getEmailPrint = document.querySelector(".EmailClient");
+            getEmailPrint.innerHTML = this.value;
+        })
+
+        //Марка автомобиля
+        let getMarka = document.querySelector("#kiraxe_admincrmbundle_orders_brandId");
+
+        getMarka.addEventListener('change',function () {
+            let getMarkaPrint = document.querySelector(".mark");
+            getMarkaPrint.innerHTML = this.options[this.selectedIndex].innerHTML;
+        })
+
+//Тип кузова
+
+        let getTypeCar = document.querySelector("#kiraxe_admincrmbundle_orders_bodyId");
+
+        getTypeCar.addEventListener('change',function () {
+            let getTypeCarPrint = document.querySelector(".TypeCar");
+            getTypeCarPrint.innerHTML = this.options[this.selectedIndex].innerHTML;
+        })
+
+        //Цвет
+        let getColor = document.querySelector("#kiraxe_admincrmbundle_orders_color");
+
+        getColor.addEventListener('keyup',function () {
+            let getColorPrint = document.querySelector(".Color");
+            getColorPrint.innerHTML = this.value;
+        })
+
+        //Гос номер
+        let getGosNumber = document.querySelector("#kiraxe_admincrmbundle_orders_number");
+
+        getGosNumber.addEventListener('keyup',function () {
+            let GosNumberPrint = document.querySelector(".GosNumber");
+            GosNumberPrint.innerHTML = this.value;
+        })
+
+        //VIN
+        let getVin = document.querySelector("#kiraxe_admincrmbundle_orders_vin");
+
+        getVin.addEventListener('keyup',function () {
+            let GosVinPrint = document.querySelector(".VIN");
+            GosVinPrint.innerHTML = this.value;
+        })
+
+        //Комплекность
+        let getComplect = document.querySelector("#kiraxe_admincrmbundle_orders_description");
+
+        getComplect.addEventListener('keyup',function () {
+            let GosComplectPrint = document.querySelector(".complates");
+            GosComplectPrint.innerHTML = this.value;
+        })
+
+        //Повреждения
+        let getDangeros = document.querySelector("#kiraxe_admincrmbundle_orders_damages");
+
+        getDangeros.addEventListener('keyup',function () {
+            let GosDangerosPrint = document.querySelector(".dangeros");
+            GosDangerosPrint.innerHTML = this.value;
+        })
+//////////////////////////////////////
+
+        let elementSecond = document.querySelector('.myBt');
+        let printZone = document.querySelectorAll('.print-content');
+
+
+        elementSecond.addEventListener('click',function () {
+            printZone[0].style.display="none";
+            printZone.classList.add("active-print");
+            window.print();
+
+        })
+
+    </script> -->
+
+
 
 {% endblock %}
 {% block ordersform %}{% endblock %}
+
+
+
+
+
+
+

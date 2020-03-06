@@ -9,16 +9,25 @@
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
+
                         <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('orders_new') }}">Создать новый заказ-наряд</a>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('orders_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
                         <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders active-filter" ><img width="30px" src="{{ asset('public/images/new-order-top-button/searchPanel.svg') }}"></a>
                         </li>
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders active-filtre-col" ><img width="30px" src="{{ asset('public/images/new-order-top-button/settingsCols.svg') }}"></a>
+                        </li>
+
+
                     </ul>
                 </div>
                 <div class="col-md-12">
-                    <table>
+                    <div class="buttonCols">
+
+                    </div>
+                    <table class="filter-table">
                         <tr>
                             <td>
                                 {{ form_start(form) }}
@@ -30,36 +39,43 @@
                                         <li>{{ form_row(form.manager) }}</li>
                                         <li>{{ form_row(form.worker) }}</li>
                                         <li>{{ form_row(form.close) }}</li>
-                                        <li><input style="margin-top: 20px;" class="btn btn-secondary" type="submit" value="Фильтр" /></li>
+                                        <li><div class="form-group">
+                                                <label for="form_someinput">Услуги</label>
+                                                <input type="text" id="form_someinput" class="form-control hasDatepicker">
+                                            </div></li>
+                                        <li class="input-li"><input  class="btn btn-secondary" type="submit" value="Фильтр" />
+                                            <input  class="btn btn-secondary" id="clearForm" type="button" value="Сбросить" /></li>
                                     </ul>
                                 {{ form_end(form) }}
                             </td>
                         </tr>
                     </table>
-                    <table class="table table-bordered">
+                    <div class="table-hidden">
+                    <table class="table table-bordered" >
                         <thead>
                         <tr>
+                            <th scope="col"><input onclick="event.stopPropagation()" type="checkbox" style="width:17px; height:17px; cursor: pointer;"></th>
                             <th scope="col">Id</th>
-                            <th scope="col">Дата и время открытия</th>
+                            <th scope="col">Время открытия</th>
                             <th scope="col">Заказ открыл</th>
-                            <th scope="col">Дата и время закрытия</th>
-                            <th scope="col">Дата и время оплаты</th>
+                            <th scope="col">Время закрытия</th>
+                            <th scope="col">Время оплаты</th>
                             <th scope="col">Заказ закрыл</th>
-                            <th scope="col">ФИО владельца авто</th>
-                            <th scope="col">Бренд автомобиля</th>
+                            <th scope="col">ФИО</th>
+                            <th scope="col">Бренд</th>
                             <th scope="col">Автомобиль</th>
-                            <th scope="col">Тип кузова</th>
-                            <th scope="col">Номер авто</th>
+                            <th scope="col">Кузов</th>
+                            <th scope="col">Гос. номер</th>
                             <th scope="col">Телефон</th>
                             <th scope="col">Стоимость</th>
-                            <th scope="col">Закрыт</th>
-                            <th scope="col">Действие</th>
+                            <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for order in pagination %}
-                            <tr>
-                                <td scope="row"><a href="{{ path('orders_show', { 'id': order.id }) }}">{{ order.id }}</a></td>
+                            <tr onclick='window.location.href="{{ path('orders_edit', { 'id': order.id }) }}"'>
+                                <td scope="row" ><input onclick="event.stopPropagation()" type="checkbox"style="width:17px; height:17px; cursor:pointer;"></td>
+                                <td scope="row"  {% if order.close %}style="background: #02C68C"{% else %}style="background: #D16223"{% endif %}>  <a href="{{ path('orders_show', { 'id': order.id }) }}">{{ order.id }}</a></td>
                                 <td>{% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d H:i:s') }}{% endif %}</td>
                                 <td>
                                     {% if order.workeropen  %}
@@ -80,26 +96,33 @@
                                 <td>{{ order.number }}</td>
                                 <td>{{ order.phone }}</td>
                                 <td>{{ order.price }}</td>
-                                <td>{% if order.close %}Да{% else %}Нет{% endif %}</td>
-                                <td width="20%">
-                                    <ul style="list-style-type: none; margin:0; padding:0;">
-                                        <li>
+
+                                <td>
+                                    <ul style="list-style-type: none; margin:0; padding:0;" class="button-active">
+                                       <!-- <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('orders_show', { 'id': order.id }) }}">Показать</a>
                                         </li>
                                         <li>
-                                            <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('orders_edit', { 'id': order.id }) }}">Редактировать</a>
-                                        </li>
-                                        <li>
+                                            <a style="display:block; margin-top: 20px; position:relative; left:-1px;" class=" button-edit" href="{{ path('orders_edit', { 'id': order.id }) }}"><img  src="{{ asset('public/images/edit.svg') }}"></a>
+                                        </li>-->
+                                        <li >
                                             {% for key, value in delete_form %}
                                                 {% if key == order.id %}
                                                     {{ form_start(value) }}
                                                         {% if not order.close %}
-                                                            <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                            <input  style="margin-top: 20px;" class="btn button-delete" type="submit" value="" id="btn-delete_{{ order.id }}">
+                                                            <label   class="btn-delete" for="btn-delete_{{ order.id }}"><img src="{{ asset('public/images/close.svg') }}"></label>
+
+
                                                         {% else %}
                                                             {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                                                <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                                <input  style="margin-top: 20px;" class="btn button-delete" type="submit" value="" id="btn-delete_{{ order.id }}">
+                                                                <label  class="btn-delete" for="btn-delete_{{ order.id }}"><img src="{{ asset('public/images/close.svg') }}"></label>
+
                                                             {% else %}
-                                                                <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить" disabled>
+                                                                <input  class="btn button-delete" type="submit" value="" id="btn-delete_{{ order.id }}"  disabled>
+                                                                <label  class="btn-delete" for="btn-delete_{{ order.id }}"><img src="{{ asset('public/images/close.svg') }}"></label>
+
                                                             {% endif %}
                                                         {% endif %}
                                                     {{ form_end(value) }}
@@ -112,23 +135,167 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                     <span class="delete-all-checkbox">Удалить выделенные</span>
+
+
+
+
+                    </div>
+
                 </div>
                 <div class="pagination col-md-12">
                     {{ knp_pagination_render(pagination) }}
                 </div>
-                <div class="col-md-12">
-                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('orders_new') }}">Создать новый заказ-наряд</a>
-                        </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
+    <script>
+        let fixedWidthCol = [];
+        let count2 = 0;
+
+        document.querySelectorAll(".table tr th").forEach(function (e) {
+
+            let widthCol = e.offsetWidth;
+            fixedWidthCol.push({id: count2++, width: widthCol + "px"});
+
+        });
+
+        let returnWidthCol;
+
+        if (JSON.parse(localStorage.getItem("fixedWidthCol"))) {
+
+            returnWidthCol = JSON.parse(localStorage.getItem("fixedWidthCol"));
+        } else {
+
+            localStorage.setItem('fixedWidthCol', JSON.stringify(fixedWidthCol));
+            returnWidthCol = JSON.parse(localStorage.getItem('fixedWidthCol'));
+        }
+
+
+        let colItemWidth = document.querySelectorAll(".table tr th");
+        for (let i = 0; i < fixedWidthCol.length; i++) {
+            colItemWidth[i].style.width = returnWidthCol[i]['width'];
+        }
+
+        document.querySelectorAll(".table tr th").forEach(function (e, id) {
+            e.onresize = function () {
+                fixedWidthCol[id]['width'] = e.style.width;
+                localStorage.setItem('fixedWidthCol', JSON.stringify(fixedWidthCol));
+
+            }
+        })
+
+
+
+    </script>
+
+
+    <script>
+
+        let posts = [];
+        let count = 0;
+        document.querySelectorAll(".table tr th").forEach(function (e) {
+            let textMessage = e.innerText;
+            if (textMessage === "") {
+                textMessage = e.firstChild.tagName.toLowerCase();
+            } else {
+                textMessage = e.innerText;
+            }
+            posts.push({id: count++, message: textMessage, select: 0});
+
+
+        });
+
+        let countLengthPosts = posts.length - 1;
+        let countLocalStoragePosts = JSON.parse(localStorage.getItem("posts"));
+        let returnObj;
+        if (localStorage.getItem("posts")) {
+            if (countLengthPosts !== (countLocalStoragePosts.length - 1)) {
+                localStorage.setItem('posts', JSON.stringify(posts));
+                returnObj = JSON.parse(localStorage.getItem("posts"));
+            } else {
+                returnObj = JSON.parse(localStorage.getItem('posts'));
+            }
+        } else {
+            localStorage.setItem('posts', JSON.stringify(posts));
+            returnObj = JSON.parse(localStorage.getItem("posts"));
+        }
+
+
+        for (let i = 0; i < returnObj.length; i++) {
+            document.querySelectorAll(".table-bordered tr").forEach(function (e) {
+                if (returnObj[i]['select'] === 1) {
+                    e.children[i].style.display = "none";
+                }
+            })
+        }
+
+        /*Удаление колонки*/
+        function deleteColms(id) {
+            document.querySelectorAll(".table-bordered tr").forEach(function (e) {
+
+                e.children[id].style.display = "none";
+                localStorage.setItem('posts', JSON.stringify(returnObj));
+            })
+        }
+
+        /*добавление колонки*/
+        function addColms(id) {
+            document.querySelectorAll(".table-bordered tr").forEach(function (e) {
+
+                e.children[id].style.display = "table-cell";
+                localStorage.setItem('posts', JSON.stringify(returnObj));
+            })
+        }
+        //let colItem = returnObj.map(p => p.select ? "<span style='background: #D16223;' class='" + p.id + "'>" + p.message + "</span>" : "<span class='" + p.id + "'>" + p.message + "</span>");
+        let divf;
+        let colItem = returnObj.map(p => {
+            if(!p.select){
+                divf = document.createElement('span');
+                divf.className = p.id;
+                divf.innerText= p.message;
+                return divf
+            } else {
+                divf = document.createElement('span');
+                divf.className = p.id;
+                divf.innerText= p.message;
+                divf.style.background = "#D16223";
+                return divf
+            }
+        });
+
+
+
+
+
+       let buttonBlock = document.querySelector(".buttonCols");
+        for(let i=0;i<colItem.length;i++){
+            buttonBlock.append(colItem[i]);
+        }
+
+
+        document.querySelectorAll(".buttonCols span").forEach(function (e) {
+            e.addEventListener('click',function (event) {
+                let attrButtonId = this.getAttribute('class');
+                if (returnObj[attrButtonId]['select'] === 0) {
+                    returnObj[attrButtonId]['select'] = 1;
+                    this.style.background = '#D16223';
+                    deleteColms(attrButtonId);
+
+                } else if (returnObj[attrButtonId]['select'] === 1) {
+                    returnObj[attrButtonId]['select'] = 0;
+                    this.style.background = '#02C68C';
+
+
+                    addColms(attrButtonId);
+                }
+
+            });
+        })
+
+    </script>
+
 {% endblock %}
 
 

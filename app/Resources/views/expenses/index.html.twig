@@ -10,22 +10,22 @@
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
                         <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('expenses_new') }}">Создать новый расход</a>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('expenses_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
+
+
                     </ul>
                 </div>
                 <div class="col-md-12">
                     <table>
                         <tr>
+
                             <td>
                                 {{ form_start(form) }}
                                 <ul id="filter-date">
                                     <li>{{ form_row(form.dateFrom)}}</li>
                                     <li>{{ form_row(form.dateTo)}}</li>
-                                    <li><input style="margin-top: 20px;" class="btn btn-secondary" type="submit" value="Подсчитать" /></li>
+                                    <li><input style="margin-top: -3px;" class="btn btn-secondary" type="submit" value="Подсчитать" /></li>
                                 </ul>
                                 {{ form_end(form) }}
                             </td>
@@ -34,37 +34,40 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th scope="col" ><input onclick="event.stopPropagation()" type="checkbox"style="width:17px; height:17px; cursor:pointer;"></th>
                             <th scope="col">Id</th>
                             <th scope="col">Название</th>
                             <th scope="col">Сумма</th>
                             <th scope="col">Тип оплаты</th>
                             <th scope="col">Дата</th>
                             <th scope="col">Комментарий</th>
-                            <th scope="col">Действие</th>
+                            <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for expense in pagination %}
-                            <tr>
+                            <tr onclick='window.location.href="{{ path('expenses_edit', { 'id': expense.id }) }}"'>
+                                <td scope="col" ><input onclick="event.stopPropagation()" type="checkbox"style="width:17px; height:17px; cursor:pointer;"></td>
                                 <td><a href="{{ path('expenses_show', { 'id': expense.id }) }}">{{ expense.id }}</a></td>
                                 <td>{{ expense.name }}</td>
                                 <td>{{ expense.amount }}</td>
                                 <td>{% if expense.type %}Безналичный{% else %}Наличный{% endif %}</td>
                                 <td>{% if expense.date %}{{ expense.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                                 <td>{{ expense.comment }}</td>
-                                <td width="20%">
-                                    <ul style="list-style-type: none; margin:0; padding:0;">
-                                        <li>
+                                <td>
+                                    <ul style="list-style-type: none; margin:0; padding:0; display:flex; justify-content: center;">
+                                    <!--    <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('expenses_show', { 'id': expense.id }) }}">Показать</a>
                                         </li>
                                         <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('expenses_edit', { 'id': expense.id }) }}">Редактировать</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             {% for key, value in delete_form %}
                                                 {% if key == expense.id %}
                                                     {{ form_start(value) }}
-                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    <input class="btn button-delete" type="submit" value="Удалить" id="btn-delete_{{expense.id}}">
+                                                    <label class="btn-delete" for="btn-delete_{{expense.id}}" style="margin: 0;"><img src="{{ asset('public/images/close.svg') }}" ></label>
                                                     {{ form_end(value) }}
                                                 {% endif %}
                                             {% endfor %}
@@ -75,23 +78,19 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                    <span class="delete-all-checkbox">Удалить выделенные</span>
                 </div>
                 <div class="pagination col-md-12">
                     {{ knp_pagination_render(pagination) }}
                 </div>
-                <div class="col-md-12">
-                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('expenses_new') }}">Создать новый расход</a>
-                        </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
+
+
+
+
 {% endblock %}
 
 

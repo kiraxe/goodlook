@@ -8,31 +8,46 @@
                 <div class="col-md-12">
                     <h1>Редактировать заказ-наряд</h1>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 new-order">
                     {{ form_start(edit_form) }}
-                    <div class="formItem">{% if edit_form.dateOpen %}{{ form_row(edit_form.dateOpen) }}{% endif %}</div>
-                    <div class="formItem">{{ form_row(edit_form.workeropen)}}</div>
-                    <div class="formItem">{% if edit_form.dateClose %}{{ form_row(edit_form.dateClose) }}{% endif %}</div>
-                    <div class="formItem">{% if edit_form.datePayment %}{{ form_row(edit_form.datePayment) }}{% endif %}</div>
-                    <div class="formItem">{{ form_row(edit_form.workerclose) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.name) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.brandId) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.carId) }}</div>
-                    <div class="formItem">{% if edit_form.bodyId %}{{ form_row(edit_form.bodyId) }}{% endif %}</div>
-                    <div class="formItem">{{ form_row(edit_form.color) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.number) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.vin) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.description) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.damages) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.phone) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.email) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.payment) }}</div>
-                    <div class="formItem">{{ form_row(edit_form.price) }}</div>
-                    <div class="formItem">
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/1.svg') }}">{{ form_row(edit_form.workeropen) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/2.svg') }}">{% if edit_form.dateOpen %}{{ form_row(edit_form.dateOpen) }}{% endif %}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/3.svg') }}">{{ form_row(edit_form.workerclose) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/4.svg') }}">{% if edit_form.dateClose %}{{ form_row(edit_form.dateClose) }}{% endif %}</div>
+
+                    <div class="order-subtitle">Автомобиль</div>
+
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/5.svg') }}">{{ form_row(edit_form.brandId) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/6.svg') }}">{{ form_row(edit_form.vin) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/7.svg') }}">{{ form_row(edit_form.carId) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/8.svg') }}">{{ form_row(edit_form.name) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/9.svg') }}">{% if edit_form.bodyId %}{{ form_row(edit_form.bodyId) }}{% endif %}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/10.svg') }}">{{ form_row(edit_form.number) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/11.svg') }}">{{ form_row(edit_form.color) }}</div>
+                    <div class="formItem full-width"><img src="{{ asset('public/images/new-order/12.svg') }}">{{ form_row(edit_form.description) }}</div>
+                    <div class="formItem full-width"><img src="{{ asset('public/images/new-order/13.svg') }}">{{ form_row(edit_form.damages) }}</div>
+
+                    <div class="order-subtitle">Контакты</div>
+
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/14.svg') }}">{{ form_row(edit_form.phone) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/15.svg') }}">{{ form_row(edit_form.email) }}</div>
+
+                    <div class="order-subtitle">Оплата</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/16.svg') }}">{{ form_row(edit_form.payment) }}</div>
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/17.svg') }}">{% if edit_form.datePayment %}{{ form_row(edit_form.datePayment) }}{% endif %}</div>
+
+                    <div class="formItem"><img src="{{ asset('public/images/new-order/18.svg') }}">{{ form_row(edit_form.price) }}</div>
+
+
+                    <div class="formItem full-width">
+                        {% set foo = '<div class="order-subtitle">Сотрудник</div>' %}
+
                         <ul style="list-style-type: none" id="workerorders-fields-list"
-                            data-prototype="{{ form_widget(edit_form.workerorders.vars.prototype)|e('html_attr') }}"
+
+                            data-prototype="{{foo}}{{  form_widget(edit_form.workerorders.vars.prototype)|e('html_attr') }}"
                             data-widget-tags="{{ '<li></li>'|e }}">
                             {% for workerordersField in edit_form.workerorders %}
+                                <div class="order-subtitle">Сотрудник</div>
                                 <li>
                                     {{ form_errors(workerordersField) }}
                                     {{ form_widget(workerordersField) }}
@@ -52,34 +67,29 @@
                             <div class="formItem" style="display: none;">{{ form_row(edit_form.close, {'attr': {'checked': 'checked'}}) }}</div>
                         {% endif %}
                     {% endif %}
-                    <div class="formItem">
-                        <a data-toggl="2" style="margin-top: 20px; display: block;" href='#'>Распечатать Наряд на работу</a>
-                    </div>
-                    <div class="formItem">
-                        <a data-toggl="1" style="margin-top: 20px; display: block;" href='#'>Распечатать {% if not order.close %} предварительный {% endif %} Заказ-наряд</a>
-                    </div>
-                    <div class="formItem form-button">
+
+                    <div class="formItem form-button" style="width:100%">
                         <ul>
                             <li>
                                 {% if not order.close %}
-                                    <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" />
+                                    <input style="margin-top: 20px;" class="btn btn-primary" type="submit" value="Сохранить" />
                                 {% else %}
                                     {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                        <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить"/>
+                                        <input style="margin-top: 20px;" class="btn btn-primary" type="submit" value="Сохранить"/>
                                     {% else %}
-                                        <input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Сохранить" disabled />
+                                        <input style="margin-top: 20px;" class="btn btn-primary" type="submit" value="Сохранить" disabled />
                                     {% endif %}
                                 {% endif %}
                                 {{ form_end(edit_form) }}
                             </li>
                             <li>{{ form_start(delete_form) }}
                                 {% if not order.close %}
-                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                    <input style="margin-top: 20px; width:100%;" class="btn btn-primary" type="submit" value="Удалить">
                                 {% else %}
                                     {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                        <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                        <input style="margin-top: 20px; width:100%;" class="btn btn-primary" type="submit" value="Удалить">
                                     {% else %}
-                                        <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить" disabled>
+                                        <input style="margin-top: 20px; width:100%;" class="btn btn-primary" type="submit" value="Удалить" disabled>
                                     {% endif %}
                                 {% endif %}
                             </li>
@@ -92,6 +102,265 @@
             </div>
         </div>
     </div>
+
+
+     <div class="print-content one-table">
+          <div class="showButton">
+        <span class="ShowOneTable" style="background: #fff; color:black;">Наряд на работу</span>
+         <span class="ShowTwoTable">Заказ наряд</span>
+          </div>
+
+      <div class="workorder-new-oreder">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        <p>ИП Манков Вячеслав Вячеславович</p>
+                        <p>Телефон: +79268546655</p>
+                        <p>Email: info@good-look.moscow</p>
+                        <p>Сайт: www.good-look.moscow</p>
+                    </td>
+                    <td style="text-align: right;">
+                        <img alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMiIgYmFzZVByb2ZpbGU9InRpbnkiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgoJIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjY0LjRweCIgaGVpZ2h0PSI2MC42NDhweCIgdmlld0JveD0iMCAwIDI2NC40IDYwLjY0OCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTUzLjYxMSw0MS45OGMtNC41MjEsMC04LjM3MS0xLjU5NC0xMS41NTMtNC43NzFjLTMuMTg0LTMuMTg0LTQuNzczLTcuMDM5LTQuNzczLTExLjU1MwoJCWMwLTQuNTIxLDEuNTktOC4zNzEsNC43NzMtMTEuNTUzYzMuMTgyLTMuMTg2LDcuMDMxLTQuNzc3LDExLjU1My00Ljc3N2M0LjUxNiwwLDguMzY3LDEuNTkyLDExLjU1MSw0Ljc3NwoJCWMzLjE4MywzLjE4Miw0Ljc3MSw3LjAzMSw0Ljc3MSwxMS41NTNjMCw0LjUxNC0xLjU4OCw4LjM2OS00Ljc3MSwxMS41NTNDNjEuOTc5LDQwLjM4Nyw1OC4xMjcsNDEuOTgsNTMuNjExLDQxLjk4eiBNNjAuMjA3LDMyLjI1MgoJCWMxLjgyLTEuODI0LDIuNzMtNC4wMiwyLjczLTYuNTk2YzAtMi41NzgtMC45MS00Ljc3NS0yLjczLTYuNmMtMS44MjMtMS44MjItNC4wMjMtMi43My02LjU5Ni0yLjczYy0yLjU3OCwwLTQuNzczLDAuOTA4LTYuNiwyLjczCgkJYy0xLjgxOCwxLjgyNC0yLjczLDQuMDIxLTIuNzMsNi42YzAsMi41NzYsMC45MTIsNC43NzEsMi43Myw2LjU5NmMxLjgyNywxLjgyLDQuMDIyLDIuNzM0LDYuNiwyLjczNAoJCUM1Ni4xODQsMzQuOTg2LDU4LjM4NCwzNC4wNzIsNjAuMjA3LDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik05MC45MjcsNDEuOThjLTQuNTIxLDAtOC4zNzMtMS41OTQtMTEuNTQ4LTQuNzcxQzc2LjE5MSwzNC4wMjUsNzQuNiwzMC4xNyw3NC42LDI1LjY1NgoJCWMwLTQuNTIxLDEuNTkyLTguMzcxLDQuNzc5LTExLjU1M2MzLjE3NS0zLjE4Niw3LjAyNy00Ljc3NywxMS41NDgtNC43NzdjNC41MTYsMCw4LjM3LDEuNTkyLDExLjU0OSw0Ljc3NwoJCWMzLjE4NCwzLjE4Miw0Ljc3NSw3LjAzMSw0Ljc3NSwxMS41NTNjMCw0LjUxNC0xLjU5Miw4LjM2OS00Ljc3NSwxMS41NTNDOTkuMjk3LDQwLjM4Nyw5NS40NDMsNDEuOTgsOTAuOTI3LDQxLjk4eiBNOTcuNTIzLDMyLjI1MgoJCWMxLjgxOC0xLjgyNCwyLjczMi00LjAyLDIuNzMyLTYuNTk2YzAtMi41NzgtMC45MTQtNC43NzUtMi43MzItNi42Yy0xLjgyNC0xLjgyMi00LjAyNS0yLjczLTYuNTk2LTIuNzMKCQljLTIuNTc4LDAtNC43NzcsMC45MDgtNi42MDEsMi43M2MtMS44MTcsMS44MjQtMi43MjksNC4wMjEtMi43MjksNi42YzAsMi41NzYsMC45MTIsNC43NzEsMi43MjksNi41OTYKCQljMS44MjQsMS44Miw0LjAyMywyLjczNCw2LjYwMSwyLjczNEM5My40OTgsMzQuOTg2LDk1LjY5OSwzNC4wNzIsOTcuNTIzLDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiNGOUI1MTciIGQ9Ik0xNi4zMjYsNDEuOThjLTQuNTIsMC04LjM2OS0xLjU5NC0xMS41NTEtNC43NzFDMS41OSwzNC4wMjUsMCwzMC4xNywwLDI1LjY1NgoJCWMwLTQuNTIxLDEuNTktOC4zNzEsNC43NzUtMTEuNTUzYzMuMTgyLTMuMTg2LDcuMDMxLTQuNzc3LDExLjU1MS00Ljc3N2M0LjUxNywwLDguMzY5LDEuNTkyLDExLjU1MSw0Ljc3NwoJCWMzLjE4NCwzLjE4Miw0Ljc3NSw3LjAzMSw0Ljc3NSwxMS41NTNjMCw0LjUxNC0xLjU5Miw4LjM2OS00Ljc3NSwxMS41NTNDMjQuNjk1LDQwLjM4NywyMC44NDMsNDEuOTgsMTYuMzI2LDQxLjk4eiBNMjIuOTIsMzIuMjUyCgkJYzEuODIyLTEuODI0LDIuNzM0LTQuMDIsMi43MzQtNi41OTZjMC0yLjU3OC0wLjkxMi00Ljc3NS0yLjczNC02LjZjLTEuODE4LTEuODIyLTQuMDItMi43My02LjU5NC0yLjczCgkJYy0yLjU3MiwwLTQuNzcyLDAuOTA4LTYuNTk2LDIuNzNDNy45MSwyMC44ODEsNywyMy4wNzgsNywyNS42NTZjMCwyLjU3NiwwLjkxLDQuNzcxLDIuNzMsNi41OTYKCQljMS44MjQsMS44Miw0LjAyMywyLjczNCw2LjU5NiwyLjczNEMxOC45LDM0Ljk4NiwyMS4xMDIsMzQuMDcyLDIyLjkyLDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNDQuNTY0LDI1LjY1NmMwLDQuNTE0LTEuNTkyLDguMzY5LTQuNzcxLDExLjU1M2MtMy4xODQsMy4xNzgtNy4wMzQsNC43NzEtMTEuNTUzLDQuNzcxCgkJYy00LjUyLDAtOC4zNjktMS41OTQtMTEuNTUxLTQuNzcxYy0zLjE4NC0zLjE4NC00Ljc3My03LjAzOS00Ljc3My0xMS41NTNjMC00LjUyMSwxLjU5LTguMzcxLDQuNzczLTExLjU1MwoJCWMzLjE4Mi0zLjE4Niw3LjAzMS00Ljc3NywxMS41NTEtNC43NzdjMy41MjEsMCw2LjYzMywwLjk1OSw5LjMzLDIuODc5VjBoNi45OTRWMjUuNjU2eiBNMTM0LjgzNCwzMi4yNTIKCQljMS44MjYtMS44MjQsMi43MzYtNC4wMiwyLjczNi02LjU5NmMwLTIuNTc4LTAuOTEtNC43NzUtMi43MzYtNi42Yy0xLjgyLTEuODIyLTQuMDItMi43My02LjU5NC0yLjczCgkJYy0yLjU3NiwwLTQuNzc1LDAuOTA4LTYuNTk0LDIuNzNjLTEuODI0LDEuODI0LTIuNzM0LDQuMDIxLTIuNzM0LDYuNmMwLDIuNTc2LDAuOTEsNC43NzEsMi43MzQsNi41OTYKCQljMS44MTgsMS44Miw0LjAxOCwyLjczNCw2LjU5NCwyLjczNEMxMzAuODE0LDM0Ljk4NiwxMzMuMDE0LDM0LjA3MiwxMzQuODM0LDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNTcuMTE3LDB2NDEuOThoLTdWMEgxNTcuMTE3eiIvPgoJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTE3OC4xMDUsNDEuOThjLTQuNTIxLDAtOC4zNjktMS41OTQtMTEuNTU0LTQuNzcxYy0zLjE4My0zLjE4NC00Ljc3Mi03LjAzOS00Ljc3Mi0xMS41NTMKCQljMC00LjUyMSwxLjU5LTguMzcxLDQuNzcyLTExLjU1M2MzLjE4NS0zLjE4Niw3LjAzMi00Ljc3NywxMS41NTQtNC43NzdjNC41MiwwLDguMzY5LDEuNTkyLDExLjU1MSw0Ljc3NwoJCWMzLjE4MiwzLjE4Miw0Ljc3NSw3LjAzMSw0Ljc3NSwxMS41NTNjMCw0LjUxNC0xLjU5NCw4LjM2OS00Ljc3NSwxMS41NTNDMTg2LjQ3NSw0MC4zODcsMTgyLjYyNSw0MS45OCwxNzguMTA1LDQxLjk4egoJCSBNMTg0LjY5OSwzMi4yNTJjMS44Mi0xLjgyNCwyLjczMi00LjAyLDIuNzMyLTYuNTk2YzAtMi41NzgtMC45MTItNC43NzUtMi43MzItNi42Yy0xLjgyLTEuODIyLTQuMDIyLTIuNzMtNi41OTQtMi43MwoJCWMtMi41NzgsMC00Ljc3NSwwLjkwOC02LjU5NSwyLjczYy0xLjgyNSwxLjgyNC0yLjczNSw0LjAyMS0yLjczNSw2LjZjMCwyLjU3NiwwLjkxLDQuNzcxLDIuNzM1LDYuNTk2CgkJYzEuODE5LDEuODIsNC4wMTcsMi43MzQsNi41OTUsMi43MzRDMTgwLjY3NywzNC45ODYsMTgyLjg3OSwzNC4wNzIsMTg0LjY5OSwzMi4yNTJ6Ii8+Cgk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMjE1LjQxOCw0MS45OGMtNC41MTgsMC04LjM2Ny0xLjU5NC0xMS41NDktNC43NzFjLTMuMTgtMy4xODQtNC43NzYtNy4wMzktNC43NzYtMTEuNTUzCgkJYzAtNC41MjEsMS41OTctOC4zNzEsNC43NzYtMTEuNTUzYzMuMTgyLTMuMTg2LDcuMDMxLTQuNzc3LDExLjU0OS00Ljc3N2M0LjUyMSwwLDguMzcxLDEuNTkyLDExLjU1NSw0Ljc3NwoJCWMzLjE4LDMuMTgyLDQuNzczLDcuMDMxLDQuNzczLDExLjU1M2MwLDQuNTE0LTEuNTk0LDguMzY5LTQuNzczLDExLjU1M0MyMjMuNzg5LDQwLjM4NywyMTkuOTM5LDQxLjk4LDIxNS40MTgsNDEuOTh6CgkJIE0yMjIuMDE2LDMyLjI1MmMxLjgyNC0xLjgyNCwyLjczNC00LjAyLDIuNzM0LTYuNTk2YzAtMi41NzgtMC45MS00Ljc3NS0yLjczNC02LjZjLTEuODItMS44MjItNC4wMi0yLjczLTYuNTk4LTIuNzMKCQljLTIuNTc1LDAtNC43NzEsMC45MDgtNi41OTQsMi43M2MtMS44MiwxLjgyNC0yLjczMiw0LjAyMS0yLjczMiw2LjZjMCwyLjU3NiwwLjkxMiw0Ljc3MSwyLjczMiw2LjU5NgoJCWMxLjgyMiwxLjgyLDQuMDE5LDIuNzM0LDYuNTk0LDIuNzM0QzIxNy45OTYsMzQuOTg2LDIyMC4xOTUsMzQuMDcyLDIyMi4wMTYsMzIuMjUyeiIvPgoJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTI0My40MSwyNC4zNGwxMi42NDItMTUuMDE0aDguMzQ5bC0xNS42LDE5LjI3OWwxNS42LDEzLjM3NWgtOS4zMzRsLTExLjY1Ni05LjMyOHY5LjMyOGgtN1YwaDdWMjQuMzR6Ii8+Cgk8cGF0aCBmaWxsPSIjRjlCNTE3IiBkPSJNMjUuNjM5LDQ0LjM4OWMwLjAwMiwwLjA0NSwwLjAxNiwwLjA4NiwwLjAxNiwwLjEzOWMwLDIuNTc4LTAuOTEyLDQuNzczLTIuNzM0LDYuNTk0CgkJYy0xLjgxOCwxLjgyMi00LjAyLDIuNzM2LTYuNTk0LDIuNzM2Yy0yLjU3MiwwLTQuNzcyLTAuOTE0LTYuNTk2LTIuNzM2QzcuOTEsNDkuMzAxLDcsNDcuMTA1LDcsNDQuNTI3CgkJYzAtMC4wNTMsMC4wMDgtMC4wOTQsMC4wMTEtMC4xMzlIMC4wMDhjMCwwLjA0NS0wLjAwOCwwLjA5LTAuMDA4LDAuMTM5YzAsNC41MTYsMS41OSw4LjM2OSw0Ljc3NSwxMS41NTEKCQljMy4xODIsMy4xODQsNy4wMzEsNC43NzMsMTEuNTUxLDQuNzczYzQuNTE3LDAsOC4zNjktMS41OSwxMS41NTEtNC43NzNjMy4xODQtMy4xODIsNC43NzUtNy4wMzUsNC43NzUtMTEuNTUxCgkJYzAtMC4wNDktMC4wMDgtMC4wOTQtMC4wMDgtMC4xMzlIMjUuNjM5eiIvPgoJPGc+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTk1LjgxNiw1Ny4xNzhoMS4xMDV2My40NzFoLTEuMzc5di0yLjE0M2gtNnYyLjE0M2gtMS4zNzV2LTMuNDcxaDAuOTc3CgkJCWMwLjUxMi0wLjcwNSwwLjc3LTEuNjk3LDAuNzctMi45NTl2LTMuNzE1aDUuOTAyVjU3LjE3OHogTTk0LjQ0Myw1Ny4xNzh2LTUuMzc3aC0zLjE1NHYyLjQxOGMwLDEuMTk3LTAuMTkxLDIuMTc2LTAuNTYxLDIuOTU5CgkJCUg5NC40NDN6Ii8+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTk5LjA3LDU1LjE0NWMwLjI3NSwxLjQyNCwxLjM3OSwyLjI1OCwyLjg5NiwyLjI1OGMxLjA1NywwLDEuODI2LTAuMzg1LDIuMzA1LTEuMTY4bDEuMTgyLDAuNjcyCgkJCWMtMC43ODEsMS4xOTktMS45NDcsMS44MDctMy41MTYsMS44MDdjLTEuMjY4LDAtMi4zMDktMC40LTMuMTA1LTEuMTg2Yy0wLjc4MS0wLjc5NS0xLjE4Ni0xLjgwNy0xLjE4Ni0zLjAyMwoJCQljMC0xLjE5NywwLjM4NS0yLjIwNywxLjE3LTMuMDA2YzAuNzgzLTAuNzk5LDEuNzkxLTEuMjAxLDMuMDIzLTEuMjAxYzEuMTY4LDAsMi4xMjgsMC40MTYsMi44NjMsMS4yNQoJCQljMC43NSwwLjgxNCwxLjEyMSwxLjgwNywxLjEyMSwyLjk3M2MwLDAuMjA5LTAuMDE2LDAuNDE4LTAuMDQ3LDAuNjI1SDk5LjA3eiBNOTkuMDcsNTMuOTI4aDUuMzQ0CgkJCWMtMC4yNC0xLjUxNi0xLjI5My0yLjMyLTIuNTc0LTIuMzJDMTAwLjM1Miw1MS42MDcsOTkuMzEzLDUyLjUyMSw5OS4wNyw1My45Mjh6Ii8+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTExMy4wNDcsNTAuNTA0djEuMzQ2aC0yLjcxOXY2LjY1NmgtMS4zOTNWNTEuODVoLTIuNzMydi0xLjM0NkgxMTMuMDQ3eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xMTQuOTE2LDU1LjE0NWMwLjI3LDEuNDI0LDEuMzczLDIuMjU4LDIuODkxLDIuMjU4YzEuMDU5LDAsMS44MjYtMC4zODUsMi4zMDktMS4xNjhsMS4xODQsMC42NzIKCQkJYy0wLjc4NSwxLjE5OS0xLjk1NiwxLjgwNy0zLjUyLDEuODA3Yy0xLjI2OCwwLTIuMzA3LTAuNC0zLjEwNS0xLjE4NmMtMC43ODMtMC43OTUtMS4xODItMS44MDctMS4xODItMy4wMjMKCQkJYzAtMS4xOTcsMC4zODEtMi4yMDcsMS4xNjYtMy4wMDZzMS43OTEtMS4yMDEsMy4wMjEtMS4yMDFjMS4xNzIsMCwyLjEzMSwwLjQxNiwyLjg2NiwxLjI1YzAuNzU0LDAuODE0LDEuMTE5LDEuODA3LDEuMTE5LDIuOTczCgkJCWMwLDAuMjA5LTAuMDE2LDAuNDE4LTAuMDQ1LDAuNjI1SDExNC45MTZ6IE0xMTQuOTE2LDUzLjkyOGg1LjM0MmMtMC4yMzgtMS41MTYtMS4yOTUtMi4zMi0yLjU3OS0yLjMyCgkJCUMxMTYuMTg5LDUxLjYwNywxMTUuMTU0LDUyLjUyMSwxMTQuOTE2LDUzLjkyOHoiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMTI5LjA2NCw1MC41MDRoMS4xMjN2OC4wMDJoLTEuMzc1di01LjYxOWwtNC40MzYsNS42MTloLTEuMTE4di04LjAwMmgxLjM3NXY1LjYxN0wxMjkuMDY0LDUwLjUwNHoKCQkJIE0xMjQuNTcyLDQ5LjMwN1Y0OC4wOWg0LjMxOHYxLjIxN0gxMjQuNTcyeiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xMzguOTYzLDUwLjUwNHY4LjAwMmgtMS4zOTNWNTEuODVoLTMuMTV2My4yNjRjMCwyLjYyMy0xLjEwNCwzLjU2OC0zLjAyNSwzLjM5M3YtMS4zMTQKCQkJYzEuMDg4LDAuMTQ1LDEuNjM1LTAuNCwxLjYzNS0yLjExMXYtNC41NzZIMTM4Ljk2M3oiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMTQ2Ljg3Nyw1MC41MDRoMS4xMTd2OC4wMDJoLTEuMzczdi01LjYxOWwtNC40MzYsNS42MTloLTEuMTE3di04LjAwMmgxLjM3NXY1LjYxN0wxNDYuODc3LDUwLjUwNHoiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMTU1LjYzMyw1MC41MDRoMS4zOTV2OC4wMDJoLTEuMzk1VjU1LjE2aC00LjE0M3YzLjM0NmgtMS4zODd2LTguMDAyaDEuMzg3djMuMzNoNC4xNDNWNTAuNTA0eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNjQuMzc3LDUwLjUwNHYxLjM0NmgtMy44NTR2Ni42NTZoLTEuMzk1di04LjAwMkgxNjQuMzc3eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNzYuMzA0LDU3LjE3OGgxLjMxN3YzLjQ3MWgtMS4zNzl2LTIuMTQzaC02LjY1NHYtOC4wMDJoMS4zODl2Ni42NzRoMy45Mzh2LTYuNjc0aDEuMzlWNTcuMTc4eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNzkuNzU0LDU1LjE0NWMwLjI3NSwxLjQyNCwxLjM3NywyLjI1OCwyLjg5NSwyLjI1OGMxLjA2MSwwLDEuODI2LTAuMzg1LDIuMzA3LTEuMTY4bDEuMTg0LDAuNjcyCgkJCWMtMC43ODEsMS4xOTktMS45NTEsMS44MDctMy41MjEsMS44MDdjLTEuMjYyLDAtMi4zMDMtMC40LTMuMTA0LTEuMTg2Yy0wLjc4MS0wLjc5NS0xLjE4Ni0xLjgwNy0xLjE4Ni0zLjAyMwoJCQljMC0xLjE5NywwLjM4Ny0yLjIwNywxLjE3LTMuMDA2YzAuNzg3LTAuNzk5LDEuNzkzLTEuMjAxLDMuMDI1LTEuMjAxYzEuMTY4LDAsMi4xMjcsMC40MTYsMi44NjIsMS4yNQoJCQljMC43NTMsMC44MTQsMS4xMTgsMS44MDcsMS4xMTgsMi45NzNjMCwwLjIwOS0wLjAxLDAuNDE4LTAuMDQzLDAuNjI1SDE3OS43NTR6IE0xNzkuNzU0LDUzLjkyOGg1LjM0NgoJCQljLTAuMjQtMS41MTYtMS4yOTgtMi4zMi0yLjU3Ni0yLjMyQzE4MS4wMzUsNTEuNjA3LDE3OS45OTQsNTIuNTIxLDE3OS43NTQsNTMuOTI4eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xOTMuNjM0LDUwLjUwNGgxLjM5MnY4LjAwMmgtMS4zOTJWNTUuMTZoLTQuMTQ0djMuMzQ2SDE4OC4xdi04LjAwMmgxLjM5MXYzLjMzaDQuMTQ0VjUwLjUwNHoiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMjAzLjA4Miw1MC41MDR2MS4zNDZoLTIuNzIxdjYuNjU2aC0xLjM5MVY1MS44NWgtMi43Mzh2LTEuMzQ2SDIwMy4wODJ6Ii8+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTIxMS41Nyw1MS41MjljMC43ODMsMC44MTQsMS4xODYsMS44MDcsMS4xODYsMi45NzVzLTAuNDAyLDIuMTc2LTEuMTg2LDIuOTkycy0xLjc0NCwxLjIxNy0yLjg2MSwxLjIxNwoJCQljLTEuMzMsMC0yLjMzOC0wLjUyOS0zLjAyNy0xLjU4NHY0LjU3NmgtMS4zOTNWNTAuNTA0aDEuMzkzdjEuMzc5YzAuNjg5LTEuMDU5LDEuNjk3LTEuNTg2LDMuMDI3LTEuNTg2CgkJCUMyMDkuODI2LDUwLjI5NywyMTAuNzg3LDUwLjcxMywyMTEuNTcsNTEuNTI5eiBNMjEwLjU0OSw1Ni41NTVjMC41NDEtMC41NjMsMC44MTYtMS4yMzIsMC44MTYtMi4wNTEKCQkJYzAtMC44MTYtMC4yNzUtMS40ODgtMC44MTYtMi4wMzNjLTAuNTQ1LTAuNTU5LTEuMjE3LTAuODMtMi4wMTgtMC44M2MtMC44MTgsMC0xLjQ4NCwwLjI3MS0yLjAyNywwLjgzCgkJCWMtMC41NDcsMC41NDUtMC44MjIsMS4yMTctMC44MjIsMi4wMzNjMCwwLjgxOCwwLjI3NSwxLjQ4OCwwLjgyMiwyLjA1MWMwLjU0MywwLjU0MSwxLjIwOSwwLjgxNiwyLjAyNywwLjgxNgoJCQlDMjA5LjMzMiw1Ny4zNzEsMjEwLjAwNCw1Ny4wOTYsMjEwLjU0OSw1Ni41NTV6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==">
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="padding-top: 10px; padding-bottom: 10px;"><p><b>{% if not order.close %}Предварительный {% endif %} Заказ-Наряд №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Заказ принял: <span style="border-bottom: 1px solid #000;">{% if order.workeropen  %}{{ order.workeropen.name }}{% endif %} {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d H:i:s') }}{% endif %}</span></p>
+                    <p>Срок оплаты: <span style="border-bottom: 1px solid #000;">{% if order.datePayment %}{{ order.datePayment|date('Y-m-d') }}{% endif %}</span></p>
+                    <p>Заказ закрыл: <span style="border-bottom: 1px solid #000;">{% if order.workerclose  %}{{ order.workerclose.name }}{% endif %} {% if order.dateClose %}{{ order.dateClose|date('Y-m-d H:i:s') }}{% endif %}</span></p>
+                    <br/>
+                    <p>Заказчик: <span style="border-bottom: 1px solid #000;">{{ order.name }}</span></p>
+                    <p>Телефон: <span style="border-bottom: 1px solid #000;">{{ order.phone }}</span></p>
+                    <p>Email: <span style="border-bottom: 1px solid #000;"></span>{{ order.email }}</p>
+                </td>
+                <td style="vertical-align: top;">
+                    <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.brandId.name }} {{ order.carId.name }}</span></p>
+                    <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{% if order.bodyId %}{{ order.bodyId.name }}{% endif %}</span></p>
+                    <p>Цвет: <span style="border-bottom: 1px solid #000;">{{ order.color}}</span></p>
+                    <p>Гос. <span style="border-bottom: 1px solid #000;">{{ order.number }}</span></p>
+                    <p>VIN: <span style="border-bottom: 1px solid #000;">{{ order.vin }}</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-top: 15px; padding-bottom: 15px;">
+                    <p style="text-align:left; padding:0 0 10px 0">
+                        <b>Перечень выполняемых работ:</b>
+                    </p>
+                    <table border="1" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th>№</th>
+                            <th>Вид работы</th>
+                            <th>Исполнитель</th>
+                            <th>Материал</th>
+                            <!--<th>Расход</th>-->
+                            <th>Сумма, без НДС</th>
+                        </tr>
+                        {% for workerorder in order.workerorders %}
+                            {% set amount =  workerorder.amountOfMaterial + workerorder.marriage  %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{%  if workerorder.services %}
+                                        {% if workerorder.services.free %}
+                                            {{ workerorder.free }}
+                                        {% elseif workerorder.services.pricefr  %}
+                                            {{ workerorder.pricefr }}
+                                        {% elseif workerorder.services.pricefr and workerorder.services.free %}
+                                            {{ workerorder.free }}
+                                            {{ workerorder.pricefr }}
+                                        {% else %}
+                                            {{ workerorder.services.name }}
+                                        {% endif %}
+                                    {% endif %}</td>
+                                <td>{{ workerorder.workers.name }}</td>
+                                <td>{% if workerorder.materials %}{{ workerorder.materials.name }}{% endif %}</td>
+                                <!--<td>{{ amount }}</sup></td>-->
+                                <td>{{ workerorder.price }}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="4">Общая сумма:</td>
+                            <td>{{ order.price }}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><b>Комплектность ДТС, ценные вещи, которые в нем находятся:</b> {% if order.description %}{{ order.description }}{% endif %}</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><b>При приеме ДТС имеет следующие повреждения:</b> {% if order.damages %}{{ order.damages }}{% endif %}</p>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td style="width: 50%;padding-top: 10px; padding-bottom: 10px;">
+                    <p>От исполнителя:</p>
+                    <p style="border-bottom: 1px solid #000; padding-top: 10px;">Манков В.В</p>
+                    <p>Фамилия, имя, отчество <span style="float: right;">подпись</span></p>
+                </td>
+                <td style="width: 50%; padding-top: 10px; padding-bottom: 10px;">
+                    <p>От заказчика:</p>
+                    <p style="border-bottom: 1px solid #000; padding-top: 10px;">{{ order.name }}</p>
+                    <p>Фамилия, имя, отчество <span style="float: right;">подпись</span></p>
+                </td>
+            </tr>
+            </tfoot>
+
+        </table>
+    </div>
+         <a class="button-print" data-toggl="1" style=" display: block;" href='#'>Распечатать</a>
+    </div>
+
+
+
+    <div class="print-content two-table">
+        <div class="showButton">
+            <span class="ShowOneTable">Наряд на работу</span>
+            <span class="ShowTwoTable" style="background: #fff; color:black;">Заказ наряд</span>
+        </div>
+
+
+        <div class="workorder-new-oreder">
+            <table>
+                <thead>
+                <tr>
+                    <td>
+                        <p>ИП Манков Вячеслав Вячеславович</p>
+                        <p>Телефон: +79268546655</p>
+                        <p>Email: info@good-look.moscow</p>
+                        <p>Сайт: www.good-look.moscow</p>
+                    </td>
+                    <td style="text-align: right;">
+                        <img alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMiIgYmFzZVByb2ZpbGU9InRpbnkiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgoJIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjY0LjRweCIgaGVpZ2h0PSI2MC42NDhweCIgdmlld0JveD0iMCAwIDI2NC40IDYwLjY0OCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTUzLjYxMSw0MS45OGMtNC41MjEsMC04LjM3MS0xLjU5NC0xMS41NTMtNC43NzFjLTMuMTg0LTMuMTg0LTQuNzczLTcuMDM5LTQuNzczLTExLjU1MwoJCWMwLTQuNTIxLDEuNTktOC4zNzEsNC43NzMtMTEuNTUzYzMuMTgyLTMuMTg2LDcuMDMxLTQuNzc3LDExLjU1My00Ljc3N2M0LjUxNiwwLDguMzY3LDEuNTkyLDExLjU1MSw0Ljc3NwoJCWMzLjE4MywzLjE4Miw0Ljc3MSw3LjAzMSw0Ljc3MSwxMS41NTNjMCw0LjUxNC0xLjU4OCw4LjM2OS00Ljc3MSwxMS41NTNDNjEuOTc5LDQwLjM4Nyw1OC4xMjcsNDEuOTgsNTMuNjExLDQxLjk4eiBNNjAuMjA3LDMyLjI1MgoJCWMxLjgyLTEuODI0LDIuNzMtNC4wMiwyLjczLTYuNTk2YzAtMi41NzgtMC45MS00Ljc3NS0yLjczLTYuNmMtMS44MjMtMS44MjItNC4wMjMtMi43My02LjU5Ni0yLjczYy0yLjU3OCwwLTQuNzczLDAuOTA4LTYuNiwyLjczCgkJYy0xLjgxOCwxLjgyNC0yLjczLDQuMDIxLTIuNzMsNi42YzAsMi41NzYsMC45MTIsNC43NzEsMi43Myw2LjU5NmMxLjgyNywxLjgyLDQuMDIyLDIuNzM0LDYuNiwyLjczNAoJCUM1Ni4xODQsMzQuOTg2LDU4LjM4NCwzNC4wNzIsNjAuMjA3LDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik05MC45MjcsNDEuOThjLTQuNTIxLDAtOC4zNzMtMS41OTQtMTEuNTQ4LTQuNzcxQzc2LjE5MSwzNC4wMjUsNzQuNiwzMC4xNyw3NC42LDI1LjY1NgoJCWMwLTQuNTIxLDEuNTkyLTguMzcxLDQuNzc5LTExLjU1M2MzLjE3NS0zLjE4Niw3LjAyNy00Ljc3NywxMS41NDgtNC43NzdjNC41MTYsMCw4LjM3LDEuNTkyLDExLjU0OSw0Ljc3NwoJCWMzLjE4NCwzLjE4Miw0Ljc3NSw3LjAzMSw0Ljc3NSwxMS41NTNjMCw0LjUxNC0xLjU5Miw4LjM2OS00Ljc3NSwxMS41NTNDOTkuMjk3LDQwLjM4Nyw5NS40NDMsNDEuOTgsOTAuOTI3LDQxLjk4eiBNOTcuNTIzLDMyLjI1MgoJCWMxLjgxOC0xLjgyNCwyLjczMi00LjAyLDIuNzMyLTYuNTk2YzAtMi41NzgtMC45MTQtNC43NzUtMi43MzItNi42Yy0xLjgyNC0xLjgyMi00LjAyNS0yLjczLTYuNTk2LTIuNzMKCQljLTIuNTc4LDAtNC43NzcsMC45MDgtNi42MDEsMi43M2MtMS44MTcsMS44MjQtMi43MjksNC4wMjEtMi43MjksNi42YzAsMi41NzYsMC45MTIsNC43NzEsMi43MjksNi41OTYKCQljMS44MjQsMS44Miw0LjAyMywyLjczNCw2LjYwMSwyLjczNEM5My40OTgsMzQuOTg2LDk1LjY5OSwzNC4wNzIsOTcuNTIzLDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiNGOUI1MTciIGQ9Ik0xNi4zMjYsNDEuOThjLTQuNTIsMC04LjM2OS0xLjU5NC0xMS41NTEtNC43NzFDMS41OSwzNC4wMjUsMCwzMC4xNywwLDI1LjY1NgoJCWMwLTQuNTIxLDEuNTktOC4zNzEsNC43NzUtMTEuNTUzYzMuMTgyLTMuMTg2LDcuMDMxLTQuNzc3LDExLjU1MS00Ljc3N2M0LjUxNywwLDguMzY5LDEuNTkyLDExLjU1MSw0Ljc3NwoJCWMzLjE4NCwzLjE4Miw0Ljc3NSw3LjAzMSw0Ljc3NSwxMS41NTNjMCw0LjUxNC0xLjU5Miw4LjM2OS00Ljc3NSwxMS41NTNDMjQuNjk1LDQwLjM4NywyMC44NDMsNDEuOTgsMTYuMzI2LDQxLjk4eiBNMjIuOTIsMzIuMjUyCgkJYzEuODIyLTEuODI0LDIuNzM0LTQuMDIsMi43MzQtNi41OTZjMC0yLjU3OC0wLjkxMi00Ljc3NS0yLjczNC02LjZjLTEuODE4LTEuODIyLTQuMDItMi43My02LjU5NC0yLjczCgkJYy0yLjU3MiwwLTQuNzcyLDAuOTA4LTYuNTk2LDIuNzNDNy45MSwyMC44ODEsNywyMy4wNzgsNywyNS42NTZjMCwyLjU3NiwwLjkxLDQuNzcxLDIuNzMsNi41OTYKCQljMS44MjQsMS44Miw0LjAyMywyLjczNCw2LjU5NiwyLjczNEMxOC45LDM0Ljk4NiwyMS4xMDIsMzQuMDcyLDIyLjkyLDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNDQuNTY0LDI1LjY1NmMwLDQuNTE0LTEuNTkyLDguMzY5LTQuNzcxLDExLjU1M2MtMy4xODQsMy4xNzgtNy4wMzQsNC43NzEtMTEuNTUzLDQuNzcxCgkJYy00LjUyLDAtOC4zNjktMS41OTQtMTEuNTUxLTQuNzcxYy0zLjE4NC0zLjE4NC00Ljc3My03LjAzOS00Ljc3My0xMS41NTNjMC00LjUyMSwxLjU5LTguMzcxLDQuNzczLTExLjU1MwoJCWMzLjE4Mi0zLjE4Niw3LjAzMS00Ljc3NywxMS41NTEtNC43NzdjMy41MjEsMCw2LjYzMywwLjk1OSw5LjMzLDIuODc5VjBoNi45OTRWMjUuNjU2eiBNMTM0LjgzNCwzMi4yNTIKCQljMS44MjYtMS44MjQsMi43MzYtNC4wMiwyLjczNi02LjU5NmMwLTIuNTc4LTAuOTEtNC43NzUtMi43MzYtNi42Yy0xLjgyLTEuODIyLTQuMDItMi43My02LjU5NC0yLjczCgkJYy0yLjU3NiwwLTQuNzc1LDAuOTA4LTYuNTk0LDIuNzNjLTEuODI0LDEuODI0LTIuNzM0LDQuMDIxLTIuNzM0LDYuNmMwLDIuNTc2LDAuOTEsNC43NzEsMi43MzQsNi41OTYKCQljMS44MTgsMS44Miw0LjAxOCwyLjczNCw2LjU5NCwyLjczNEMxMzAuODE0LDM0Ljk4NiwxMzMuMDE0LDM0LjA3MiwxMzQuODM0LDMyLjI1MnoiLz4KCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNTcuMTE3LDB2NDEuOThoLTdWMEgxNTcuMTE3eiIvPgoJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTE3OC4xMDUsNDEuOThjLTQuNTIxLDAtOC4zNjktMS41OTQtMTEuNTU0LTQuNzcxYy0zLjE4My0zLjE4NC00Ljc3Mi03LjAzOS00Ljc3Mi0xMS41NTMKCQljMC00LjUyMSwxLjU5LTguMzcxLDQuNzcyLTExLjU1M2MzLjE4NS0zLjE4Niw3LjAzMi00Ljc3NywxMS41NTQtNC43NzdjNC41MiwwLDguMzY5LDEuNTkyLDExLjU1MSw0Ljc3NwoJCWMzLjE4MiwzLjE4Miw0Ljc3NSw3LjAzMSw0Ljc3NSwxMS41NTNjMCw0LjUxNC0xLjU5NCw4LjM2OS00Ljc3NSwxMS41NTNDMTg2LjQ3NSw0MC4zODcsMTgyLjYyNSw0MS45OCwxNzguMTA1LDQxLjk4egoJCSBNMTg0LjY5OSwzMi4yNTJjMS44Mi0xLjgyNCwyLjczMi00LjAyLDIuNzMyLTYuNTk2YzAtMi41NzgtMC45MTItNC43NzUtMi43MzItNi42Yy0xLjgyLTEuODIyLTQuMDIyLTIuNzMtNi41OTQtMi43MwoJCWMtMi41NzgsMC00Ljc3NSwwLjkwOC02LjU5NSwyLjczYy0xLjgyNSwxLjgyNC0yLjczNSw0LjAyMS0yLjczNSw2LjZjMCwyLjU3NiwwLjkxLDQuNzcxLDIuNzM1LDYuNTk2CgkJYzEuODE5LDEuODIsNC4wMTcsMi43MzQsNi41OTUsMi43MzRDMTgwLjY3NywzNC45ODYsMTgyLjg3OSwzNC4wNzIsMTg0LjY5OSwzMi4yNTJ6Ii8+Cgk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMjE1LjQxOCw0MS45OGMtNC41MTgsMC04LjM2Ny0xLjU5NC0xMS41NDktNC43NzFjLTMuMTgtMy4xODQtNC43NzYtNy4wMzktNC43NzYtMTEuNTUzCgkJYzAtNC41MjEsMS41OTctOC4zNzEsNC43NzYtMTEuNTUzYzMuMTgyLTMuMTg2LDcuMDMxLTQuNzc3LDExLjU0OS00Ljc3N2M0LjUyMSwwLDguMzcxLDEuNTkyLDExLjU1NSw0Ljc3NwoJCWMzLjE4LDMuMTgyLDQuNzczLDcuMDMxLDQuNzczLDExLjU1M2MwLDQuNTE0LTEuNTk0LDguMzY5LTQuNzczLDExLjU1M0MyMjMuNzg5LDQwLjM4NywyMTkuOTM5LDQxLjk4LDIxNS40MTgsNDEuOTh6CgkJIE0yMjIuMDE2LDMyLjI1MmMxLjgyNC0xLjgyNCwyLjczNC00LjAyLDIuNzM0LTYuNTk2YzAtMi41NzgtMC45MS00Ljc3NS0yLjczNC02LjZjLTEuODItMS44MjItNC4wMi0yLjczLTYuNTk4LTIuNzMKCQljLTIuNTc1LDAtNC43NzEsMC45MDgtNi41OTQsMi43M2MtMS44MiwxLjgyNC0yLjczMiw0LjAyMS0yLjczMiw2LjZjMCwyLjU3NiwwLjkxMiw0Ljc3MSwyLjczMiw2LjU5NgoJCWMxLjgyMiwxLjgyLDQuMDE5LDIuNzM0LDYuNTk0LDIuNzM0QzIxNy45OTYsMzQuOTg2LDIyMC4xOTUsMzQuMDcyLDIyMi4wMTYsMzIuMjUyeiIvPgoJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTI0My40MSwyNC4zNGwxMi42NDItMTUuMDE0aDguMzQ5bC0xNS42LDE5LjI3OWwxNS42LDEzLjM3NWgtOS4zMzRsLTExLjY1Ni05LjMyOHY5LjMyOGgtN1YwaDdWMjQuMzR6Ii8+Cgk8cGF0aCBmaWxsPSIjRjlCNTE3IiBkPSJNMjUuNjM5LDQ0LjM4OWMwLjAwMiwwLjA0NSwwLjAxNiwwLjA4NiwwLjAxNiwwLjEzOWMwLDIuNTc4LTAuOTEyLDQuNzczLTIuNzM0LDYuNTk0CgkJYy0xLjgxOCwxLjgyMi00LjAyLDIuNzM2LTYuNTk0LDIuNzM2Yy0yLjU3MiwwLTQuNzcyLTAuOTE0LTYuNTk2LTIuNzM2QzcuOTEsNDkuMzAxLDcsNDcuMTA1LDcsNDQuNTI3CgkJYzAtMC4wNTMsMC4wMDgtMC4wOTQsMC4wMTEtMC4xMzlIMC4wMDhjMCwwLjA0NS0wLjAwOCwwLjA5LTAuMDA4LDAuMTM5YzAsNC41MTYsMS41OSw4LjM2OSw0Ljc3NSwxMS41NTEKCQljMy4xODIsMy4xODQsNy4wMzEsNC43NzMsMTEuNTUxLDQuNzczYzQuNTE3LDAsOC4zNjktMS41OSwxMS41NTEtNC43NzNjMy4xODQtMy4xODIsNC43NzUtNy4wMzUsNC43NzUtMTEuNTUxCgkJYzAtMC4wNDktMC4wMDgtMC4wOTQtMC4wMDgtMC4xMzlIMjUuNjM5eiIvPgoJPGc+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTk1LjgxNiw1Ny4xNzhoMS4xMDV2My40NzFoLTEuMzc5di0yLjE0M2gtNnYyLjE0M2gtMS4zNzV2LTMuNDcxaDAuOTc3CgkJCWMwLjUxMi0wLjcwNSwwLjc3LTEuNjk3LDAuNzctMi45NTl2LTMuNzE1aDUuOTAyVjU3LjE3OHogTTk0LjQ0Myw1Ny4xNzh2LTUuMzc3aC0zLjE1NHYyLjQxOGMwLDEuMTk3LTAuMTkxLDIuMTc2LTAuNTYxLDIuOTU5CgkJCUg5NC40NDN6Ii8+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTk5LjA3LDU1LjE0NWMwLjI3NSwxLjQyNCwxLjM3OSwyLjI1OCwyLjg5NiwyLjI1OGMxLjA1NywwLDEuODI2LTAuMzg1LDIuMzA1LTEuMTY4bDEuMTgyLDAuNjcyCgkJCWMtMC43ODEsMS4xOTktMS45NDcsMS44MDctMy41MTYsMS44MDdjLTEuMjY4LDAtMi4zMDktMC40LTMuMTA1LTEuMTg2Yy0wLjc4MS0wLjc5NS0xLjE4Ni0xLjgwNy0xLjE4Ni0zLjAyMwoJCQljMC0xLjE5NywwLjM4NS0yLjIwNywxLjE3LTMuMDA2YzAuNzgzLTAuNzk5LDEuNzkxLTEuMjAxLDMuMDIzLTEuMjAxYzEuMTY4LDAsMi4xMjgsMC40MTYsMi44NjMsMS4yNQoJCQljMC43NSwwLjgxNCwxLjEyMSwxLjgwNywxLjEyMSwyLjk3M2MwLDAuMjA5LTAuMDE2LDAuNDE4LTAuMDQ3LDAuNjI1SDk5LjA3eiBNOTkuMDcsNTMuOTI4aDUuMzQ0CgkJCWMtMC4yNC0xLjUxNi0xLjI5My0yLjMyLTIuNTc0LTIuMzJDMTAwLjM1Miw1MS42MDcsOTkuMzEzLDUyLjUyMSw5OS4wNyw1My45Mjh6Ii8+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTExMy4wNDcsNTAuNTA0djEuMzQ2aC0yLjcxOXY2LjY1NmgtMS4zOTNWNTEuODVoLTIuNzMydi0xLjM0NkgxMTMuMDQ3eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xMTQuOTE2LDU1LjE0NWMwLjI3LDEuNDI0LDEuMzczLDIuMjU4LDIuODkxLDIuMjU4YzEuMDU5LDAsMS44MjYtMC4zODUsMi4zMDktMS4xNjhsMS4xODQsMC42NzIKCQkJYy0wLjc4NSwxLjE5OS0xLjk1NiwxLjgwNy0zLjUyLDEuODA3Yy0xLjI2OCwwLTIuMzA3LTAuNC0zLjEwNS0xLjE4NmMtMC43ODMtMC43OTUtMS4xODItMS44MDctMS4xODItMy4wMjMKCQkJYzAtMS4xOTcsMC4zODEtMi4yMDcsMS4xNjYtMy4wMDZzMS43OTEtMS4yMDEsMy4wMjEtMS4yMDFjMS4xNzIsMCwyLjEzMSwwLjQxNiwyLjg2NiwxLjI1YzAuNzU0LDAuODE0LDEuMTE5LDEuODA3LDEuMTE5LDIuOTczCgkJCWMwLDAuMjA5LTAuMDE2LDAuNDE4LTAuMDQ1LDAuNjI1SDExNC45MTZ6IE0xMTQuOTE2LDUzLjkyOGg1LjM0MmMtMC4yMzgtMS41MTYtMS4yOTUtMi4zMi0yLjU3OS0yLjMyCgkJCUMxMTYuMTg5LDUxLjYwNywxMTUuMTU0LDUyLjUyMSwxMTQuOTE2LDUzLjkyOHoiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMTI5LjA2NCw1MC41MDRoMS4xMjN2OC4wMDJoLTEuMzc1di01LjYxOWwtNC40MzYsNS42MTloLTEuMTE4di04LjAwMmgxLjM3NXY1LjYxN0wxMjkuMDY0LDUwLjUwNHoKCQkJIE0xMjQuNTcyLDQ5LjMwN1Y0OC4wOWg0LjMxOHYxLjIxN0gxMjQuNTcyeiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xMzguOTYzLDUwLjUwNHY4LjAwMmgtMS4zOTNWNTEuODVoLTMuMTV2My4yNjRjMCwyLjYyMy0xLjEwNCwzLjU2OC0zLjAyNSwzLjM5M3YtMS4zMTQKCQkJYzEuMDg4LDAuMTQ1LDEuNjM1LTAuNCwxLjYzNS0yLjExMXYtNC41NzZIMTM4Ljk2M3oiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMTQ2Ljg3Nyw1MC41MDRoMS4xMTd2OC4wMDJoLTEuMzczdi01LjYxOWwtNC40MzYsNS42MTloLTEuMTE3di04LjAwMmgxLjM3NXY1LjYxN0wxNDYuODc3LDUwLjUwNHoiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMTU1LjYzMyw1MC41MDRoMS4zOTV2OC4wMDJoLTEuMzk1VjU1LjE2aC00LjE0M3YzLjM0NmgtMS4zODd2LTguMDAyaDEuMzg3djMuMzNoNC4xNDNWNTAuNTA0eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNjQuMzc3LDUwLjUwNHYxLjM0NmgtMy44NTR2Ni42NTZoLTEuMzk1di04LjAwMkgxNjQuMzc3eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNzYuMzA0LDU3LjE3OGgxLjMxN3YzLjQ3MWgtMS4zNzl2LTIuMTQzaC02LjY1NHYtOC4wMDJoMS4zODl2Ni42NzRoMy45Mzh2LTYuNjc0aDEuMzlWNTcuMTc4eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xNzkuNzU0LDU1LjE0NWMwLjI3NSwxLjQyNCwxLjM3NywyLjI1OCwyLjg5NSwyLjI1OGMxLjA2MSwwLDEuODI2LTAuMzg1LDIuMzA3LTEuMTY4bDEuMTg0LDAuNjcyCgkJCWMtMC43ODEsMS4xOTktMS45NTEsMS44MDctMy41MjEsMS44MDdjLTEuMjYyLDAtMi4zMDMtMC40LTMuMTA0LTEuMTg2Yy0wLjc4MS0wLjc5NS0xLjE4Ni0xLjgwNy0xLjE4Ni0zLjAyMwoJCQljMC0xLjE5NywwLjM4Ny0yLjIwNywxLjE3LTMuMDA2YzAuNzg3LTAuNzk5LDEuNzkzLTEuMjAxLDMuMDI1LTEuMjAxYzEuMTY4LDAsMi4xMjcsMC40MTYsMi44NjIsMS4yNQoJCQljMC43NTMsMC44MTQsMS4xMTgsMS44MDcsMS4xMTgsMi45NzNjMCwwLjIwOS0wLjAxLDAuNDE4LTAuMDQzLDAuNjI1SDE3OS43NTR6IE0xNzkuNzU0LDUzLjkyOGg1LjM0NgoJCQljLTAuMjQtMS41MTYtMS4yOTgtMi4zMi0yLjU3Ni0yLjMyQzE4MS4wMzUsNTEuNjA3LDE3OS45OTQsNTIuNTIxLDE3OS43NTQsNTMuOTI4eiIvPgoJCTxwYXRoIGZpbGw9IiMwMTAxMDEiIGQ9Ik0xOTMuNjM0LDUwLjUwNGgxLjM5MnY4LjAwMmgtMS4zOTJWNTUuMTZoLTQuMTQ0djMuMzQ2SDE4OC4xdi04LjAwMmgxLjM5MXYzLjMzaDQuMTQ0VjUwLjUwNHoiLz4KCQk8cGF0aCBmaWxsPSIjMDEwMTAxIiBkPSJNMjAzLjA4Miw1MC41MDR2MS4zNDZoLTIuNzIxdjYuNjU2aC0xLjM5MVY1MS44NWgtMi43Mzh2LTEuMzQ2SDIwMy4wODJ6Ii8+CgkJPHBhdGggZmlsbD0iIzAxMDEwMSIgZD0iTTIxMS41Nyw1MS41MjljMC43ODMsMC44MTQsMS4xODYsMS44MDcsMS4xODYsMi45NzVzLTAuNDAyLDIuMTc2LTEuMTg2LDIuOTkycy0xLjc0NCwxLjIxNy0yLjg2MSwxLjIxNwoJCQljLTEuMzMsMC0yLjMzOC0wLjUyOS0zLjAyNy0xLjU4NHY0LjU3NmgtMS4zOTNWNTAuNTA0aDEuMzkzdjEuMzc5YzAuNjg5LTEuMDU5LDEuNjk3LTEuNTg2LDMuMDI3LTEuNTg2CgkJCUMyMDkuODI2LDUwLjI5NywyMTAuNzg3LDUwLjcxMywyMTEuNTcsNTEuNTI5eiBNMjEwLjU0OSw1Ni41NTVjMC41NDEtMC41NjMsMC44MTYtMS4yMzIsMC44MTYtMi4wNTEKCQkJYzAtMC44MTYtMC4yNzUtMS40ODgtMC44MTYtMi4wMzNjLTAuNTQ1LTAuNTU5LTEuMjE3LTAuODMtMi4wMTgtMC44M2MtMC44MTgsMC0xLjQ4NCwwLjI3MS0yLjAyNywwLjgzCgkJCWMtMC41NDcsMC41NDUtMC44MjIsMS4yMTctMC44MjIsMi4wMzNjMCwwLjgxOCwwLjI3NSwxLjQ4OCwwLjgyMiwyLjA1MWMwLjU0MywwLjU0MSwxLjIwOSwwLjgxNiwyLjAyNywwLjgxNgoJCQlDMjA5LjMzMiw1Ny4zNzEsMjEwLjAwNCw1Ny4wOTYsMjEwLjU0OSw1Ni41NTV6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==">
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="padding-top: 10px; padding-bottom: 10px;"><p><b>Наряд на работу №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Заказ принял: <span style="border-bottom: 1px solid #000;">{% if order.workeropen  %}{{ order.workeropen.name }}{% endif %} {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d H:i:s') }}{% endif %}</span></p>
+                        <p>Срок оплаты: <span style="border-bottom: 1px solid #000;">{% if order.datePayment %}{{ order.datePayment|date('Y-m-d') }}{% endif %}</span></p>
+                        <p>Заказ закрыл: <span style="border-bottom: 1px solid #000;">{% if order.workerclose  %}{{ order.workerclose.name }}{% endif %} {% if order.dateClose %}{{ order.dateClose|date('Y-m-d H:i:s') }}{% endif %}</span></p>
+                        <br/>
+                        <p>Заказчик: <span style="border-bottom: 1px solid #000;">{{ order.name }}</span></p>
+                        <p>Телефон: <span style="border-bottom: 1px solid #000;">{{ order.phone }}</span></p>
+                        <p>Email: <span style="border-bottom: 1px solid #000;">{{ order.email }}</span></p>
+                    </td>
+                    <td style="vertical-align: top;">
+                        <p>Марка и модель: <span style="border-bottom: 1px solid #000;">{{ order.brandId.name }} {{ order.carId.name }}</span></p>
+                        <p>Тип кузова: <span style="border-bottom: 1px solid #000;">{% if order.bodyId %}{{ order.bodyId.name }}{% endif %}</span></p>
+                        <p>Цвет: <span style="border-bottom: 1px solid #000;">{{ order.color }}</span></p>
+                        <p>Гос. <span style="border-bottom: 1px solid #000;">{{ order.number }}</span></p>
+                        <p>VIN: <span style="border-bottom: 1px solid #000;">{{ order.vin }}</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-top: 15px; padding-bottom: 15px;">
+                        <p style="text-align:left; padding:0 0 10px 0">
+                            <b>Перечень выполняемых работ:</b>
+                        </p>
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th>№</th>
+                                <th>Вид работы</th>
+                                <th>Исполнитель</th>
+                                <th>Материал</th>
+                                <th>Расход</th>
+                                <th>ЗП</th>
+                                <th>Сумма, без НДС</th>
+                            </tr>
+                            {% for workerorder in order.workerorders  %}
+                                {% set amount =  workerorder.amountOfMaterial + workerorder.marriage  %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{%  if workerorder.services %}
+                                            {% if workerorder.services.free %}
+                                                {{ workerorder.free }}
+                                            {% else %}
+                                                {{ workerorder.services.name }}
+                                            {% endif %}
+                                        {% endif %}</td>
+                                    <td>{{ workerorder.workers.name }}</td>
+                                    <td>{% if workerorder.materials %}{{ workerorder.materials.name }}{% endif %}</td>
+                                    <td>{{ amount }}</sup></td>
+                                    <td>{{ workerorder.salary|round(1, 'floor') }}</sup></td>
+                                    <td>{{ workerorder.price }}</td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="6">Общая сумма:</td>
+                                <td>{{ order.price }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-top: 10px; padding-bottom: 15px;">
+                        <p style="text-align:left; padding:0 0 10px 0">
+                            <b>Общая зарплата сотрудников:</b>
+                        </p>
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th>№</th>
+                                <th>ФИО</th>
+                                <th>Зарплата</th>
+                            </tr>
+                            {% for workerCart in workerCart  %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ workerCart.name }}</td>
+                                    <td>{{ workerCart.salary }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p><b>Комплектность ДТС, ценные вещи, которые в нем находятся:</b> {% if order.description %}{{ order.description }}{% endif %}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p><b>При приеме ДТС имеет следующие повреждения:</b> {% if order.damages %}{{ order.damages }}{% endif %}</p>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td style="width: 50%;padding-top: 10px; padding-bottom: 10px;">
+                        <p>От исполнителя:</p>
+                        <p style="border-bottom: 1px solid #000; padding-top: 10px;">Манков В.В</p>
+                        <p>Фамилия, имя, отчество <span style="float: right;">подпись</span></p>
+                    </td>
+                    <td style="width: 50%; padding-top: 10px; padding-bottom: 10px;">
+                        <p>От заказчика:</p>
+                        <p style="border-bottom: 1px solid #000; padding-top: 10px;">{{ order.name }}</p>
+                        <p>Фамилия, имя, отчество <span style="float: right;">подпись</span></p>
+                    </td>
+                </tr>
+                </tfoot>
+
+            </table>
+        </div>
+        <a class="button-print" data-toggl="2" style=" display: block;" href='#'>Распечатать</a>
+    </div>
+
+
+
 {% endblock %}
 {% block ordersform %}{% endblock %}
 {% block print %}
@@ -348,5 +617,40 @@
 
             return false;
         }*/
+'use strict'
+
+        let oneTable = document.querySelector(".one-table");
+        let twoTable = document.querySelector(".two-table");
+        let showOneTable = document.querySelectorAll(".ShowOneTable");
+        let showTwoTable = document.querySelectorAll(".ShowTwoTable");
+
+
+
+        showOneTable[0].addEventListener('click',function () {
+
+            oneTable.style.display = 'block';
+            twoTable.style.display = 'none';
+        })
+
+        showTwoTable[0].addEventListener('click',function () {
+            oneTable.style.display = 'none';
+            twoTable.style.display = 'block';
+        })
+
+        showOneTable[1].addEventListener('click',function () {
+
+            oneTable.style.display = 'block';
+            twoTable.style.display = 'none';
+        })
+
+        showTwoTable[1].addEventListener('click',function () {
+            oneTable.style.display = 'none';
+            twoTable.style.display = 'block';
+        })
+
+
+
+
+
     </script>
 {% endblock %}

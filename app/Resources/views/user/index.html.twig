@@ -10,29 +10,14 @@
                 <div class="col-md-12">
                     <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
                         <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('user_new') }}">Создать нового пользователя</a>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('user_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('user_getdump') }}">Скачать базу данных</a>
-                        </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
+
+
                     </ul>
-                    <table>
-                        <tr>
-                            <td>
-                                {{ form_start(form) }}
-                                <ul id="filter-date">
-                                    <li>{{ form_row(form.brochure)}}</li>
-                                    <li><input style="margin-top: 20px;" class="btn btn-secondary" type="submit" value="Отправить" /></li>
-                                </ul>
-                                {{ form_end(form) }}
-                            </td>
-                        </tr>
-                    </table>
                 </div>
                 <div class="col-md-12">
+                    <div class="table-hidden">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -40,29 +25,30 @@
                             <th scope="col">Логин</th>
                             <th scope="col">Почта</th>
                             <th scope="col">Активность</th>
-                            <th scope="col">Действия</th>
+                            <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for user in pagination %}
-                            <tr>
+                            <tr onclick='window.location.href="{{ path('user_edit', { 'id': user.id }) }}"'>
                                 <td scope="row"><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
                                 <td>{{ user.username }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>{% if user.isActive %}Да{% else %}Нет{% endif %}</td>
-                                <td width="20%">
-                                    <ul style="list-style-type: none; margin:0; padding:0;">
-                                        <li>
+                                <td>
+                                    <ul style="list-style-type: none; margin:0; padding:0; display:flex; justify-content: center;">
+                                    <!--    <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-info" href="{{ path('user_show', { 'id': user.id }) }}">Показать</a>
                                         </li>
                                         <li>
                                             <a style="display:block; margin-top: 20px;" class="btn btn-success" href="{{ path('user_edit', { 'id': user.id }) }}">Редактировать</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             {% for key, value in delete_form %}
                                                 {% if key == user.username %}
                                                     {{ form_start(value) }}
-                                                    <input style="margin-top: 20px; width:100%;" class="btn btn-danger" type="submit" value="Удалить">
+                                                    <input  type="submit"  id="btn-delete_{{user.username}}" class="btn button-delete">
+                                                    <label class="btn-delete" for="btn-delete_{{user.username}}" style="margin: 0;"><img src="{{ asset('public/images/close.svg') }}" ></label>
                                                     {{ form_end(value) }}
                                                 {% endif %}
                                             {% endfor %}
@@ -73,26 +59,57 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                        <span class="delete-all-checkbox">Удалить выделенные</span>
+                    </div>
                 </div>
                 <div class="pagination col-md-12">
                     {{ knp_pagination_render(pagination) }}
                 </div>
-                <div class="col-md-12">
-                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('user_new') }}">Создать нового пользователя</a>
-                        </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('user_getdump') }}">Скачать базу данных</a>
-                        </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="btn btn-primary" href="{{ path('kiraxe_admin_crm_homepage') }}">Назад</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
+
+
+    <script>
+        let fixedWidthCol = [];
+        let count2 = 0;
+
+        document.querySelectorAll(".table tr th").forEach(function (e) {
+
+            let widthCol = e.offsetWidth;
+            fixedWidthCol.push({id: count2++, width: widthCol + "px"});
+
+        });
+
+        let returnWidthCol;
+
+        if (JSON.parse(localStorage.getItem("fixedWidthCol8"))) {
+
+            returnWidthCol = JSON.parse(localStorage.getItem("fixedWidthCol8"));
+        } else {
+
+            localStorage.setItem('fixedWidthCol8', JSON.stringify(fixedWidthCol));
+            returnWidthCol = JSON.parse(localStorage.getItem('fixedWidthCol8'));
+        }
+
+
+        let colItemWidth = document.querySelectorAll(".table tr th");
+        for (let i = 0; i < fixedWidthCol.length; i++) {
+            colItemWidth[i].style.width = returnWidthCol[i]['width'];
+        }
+
+        document.querySelectorAll(".table tr th").forEach(function (e, id) {
+            e.onresize = function () {
+                fixedWidthCol[id]['width'] = e.style.width;
+                localStorage.setItem('fixedWidthCol8', JSON.stringify(fixedWidthCol));
+
+            }
+        })
+
+
+
+    </script>
 {% endblock %}
 
 

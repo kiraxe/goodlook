@@ -5,33 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/48f9136f03.js"></script>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="print" href="{{ asset('public/css/print.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('public/build/app.css') }}" />
-    <script src="https://kit.fontawesome.com/48f9136f03.js"></script>
+
+
+    <script type="text/javascript">
+        $(function() {
+
+            $(' th').resizable({
+                alsoResize: "#astor img",
+                minWidth:20,
+                maxHeight:50
+            });
+
+
+
+        });
+    </script>
 </head>
 <body>
 <main>
     {% if app.request.requestUri != '/login/' %}
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+        <div id="datatime" style="color:#fff">
+
+            {%if "now"|date("w") == 1  %}
+                <span>Понедельник</span>
+            {% else %}  {%if "now"|date("w") == 2  %}
+                <span>Вторник</span>
+            {% else %}  {%if "now"|date("w") == 3  %}
+                <span>Среда</span>
+            {% else %}  {%if "now"|date("w") == 4  %}
+                <span>Четверг</span>
+            {% else %}  {%if "now"|date("w") == 5 %}
+                <span>Пятница</span>
+            {% else %}  {%if "now"|date("w") == 6 %}
+                <span>Суббота</span>
+            {% else %}  {%if "now"|date("w") == 7 %}
+                <span>Воскресенье</span>
+
+            {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
+
+
+            {{ "now"|date("m-d-Y H:i:s ") }}</div>
         <div id="logo"><a href="/admin"><img src="{{ asset('public/images/logotype.svg') }}"></a></div>
         <div id="bars"><i class="fas fa-bars"></i></div>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class=" navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
-                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/">Главная</a></li>
+                <li class="nav-item"> <img src="{{ asset('public/images/home.svg') }}"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/">Главная</a></li>
                 {% if tables %}
                     {% for key, table in tables %}
                         {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                            <li class="nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
                         {% else %}
                             {% if key != "workers" and key != "expenses"%}
-                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                <li class="nav-item"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
                             {% endif %}
                         {% endif  %}
                     {% endfor %}
                 {% endif %}
-                <li class="nav-item">
+                <li class="nav-item avto"><img src="{{ asset('public/images/money.svg') }}"><a class="nav-link" style="display: block; text-decoration: none;" href="#">Доходы</a></li>
+                <li class="nav-item avto"><img src="{{ asset('public/images/avto.svg') }}">
                     <a
                             class="nav-link nav-link-collapse"
                             href="#"
@@ -44,13 +84,14 @@
                     <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
                         {% if tables %}
                             {% for key, tableCars in tableCars %}
-                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{tableCars}}</a></li>
+
+                                <li class="nav-item"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{tableCars}}</a></li>
                             {% endfor %}
                         {% endif %}
                     </ul>
                 </li>
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
-                    <li class="nav-item">
+                    <li class="nav-item settings"><img src="{{ asset('public/images/settings.svg') }}">
                         <a
                                 class="nav-link nav-link-collapse"
                                 href="#"
@@ -71,7 +112,7 @@
                 {% endif %}
             </ul>
         </div>
-        <div class="logout"><span>Привет,{{ user.username }}</span> <a class="btn btn-light" href="{{ path('kiraxe_admin_crm_logout') }}">Выход</a></div>
+        <div class="logout"><span>Привет, {{ user.username }}</span> <a class="logout-btn" href="{{ path('kiraxe_admin_crm_logout') }}"><img src="{{ asset('public/images/logout.svg') }}"></a></div>
     </nav>
 
     <div class="content-wrapper">
@@ -83,7 +124,7 @@
     <footer class="footer">
         <div class="container">
             <div class="text-center">
-                <span>Create by <a href="https://creart-design.ru">creart-design.ru</a>, 2019</span>
+                <span>Create by <a href="https://creart-design.ru">creart-design.ru</a>, 2020</span>
             </div>
         </div>
     </footer>
