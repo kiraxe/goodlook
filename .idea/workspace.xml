@@ -2,101 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/18.7f00f727.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/19.c405fbb6.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/20.58958fbb.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/21.492dec0d.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/22.71e9355f.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/23.a3462989.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/24.39bb23bb.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/build/images/25.856651dd.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/avto.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/clientele.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/close.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/detail.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/edit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/expenses.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/home.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/logout.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/materials.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/money.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order-top-button/AddOrder.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order-top-button/searchPanel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order-top-button/settingsCols.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/10.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/11.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/12.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/13.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/14.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/15.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/16.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/17.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/18.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/19.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/20.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/21.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/22.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/23.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/24.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/25.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/5.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/6.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/7.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/8.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/new-order/9.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/orders.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/services.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/settings.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/workers.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig.save" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig.save" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/bodytype/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/bodytype/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/bodytype/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/bodytype/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/bodytype/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/bodytype/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/brand/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/brand/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/brand/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/brand/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/brand/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/brand/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/clientele/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/clientele/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/materials/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/measure/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/measure/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/measure/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/measure/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/measure/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/measure/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/measure/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/measure/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/model/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/model/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/model/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/model/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/model/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/model/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/services/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/services/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/services/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/workers/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/workers/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/workers/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/workers/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/workers/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/workers/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/workers/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/workers/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/WorkerOrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/WorkerOrdersType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/public/css/media.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/media.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,14 +317,8 @@
       <workItem from="1583245959185" duration="632000" />
       <workItem from="1583320865919" duration="1286000" />
       <workItem from="1583481931466" duration="657000" />
-      <workItem from="1583501037974" duration="2616000" />
-    </task>
-    <task id="LOCAL-00126" summary="goodlook-crm first commit">
-      <created>1580461388335</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1580461388335</updated>
+      <workItem from="1583501037974" duration="4665000" />
+      <workItem from="1583824493375" duration="1779000" />
     </task>
     <task id="LOCAL-00127" summary="goodlook-crm first commit">
       <created>1580486290839</created>
@@ -753,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583157647211</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="goodlook-crm first commit">
+      <created>1583506540509</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1583506540510</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -803,10 +713,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581068364916" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1583157638181">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1583506533284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583157638181" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583506533284" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1583321494899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -823,10 +733,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581064680556" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583501038023">
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583824493268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583501038023" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583824493268" />
     <state x="667" y="154" width="586" height="732" key="find.popup" timestamp="1581322340575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
