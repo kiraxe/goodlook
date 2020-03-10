@@ -45,9 +45,9 @@
                                 {% if page > 0 %}
                                     {% set index =  page ~ key %}
 
-                                    <td class="{% if material.residue < arithmeticMea[index] %}b-red{% elseif material.residue <= ((arithmeticMea[index] / 3) + arithmeticMea[index]) and material.residue > arithmeticMea[index] %}b-yellow{% else %}b-green{% endif %}">{{ material.residue }} {% if material.measureId %}{{ material.measureId.getName() }} {% endif %} </td>
+                                    <td class="{% if material.residue < arithmeticMea[index] %}b-red{% elseif material.residue <= ((arithmeticMea[index] / 3) + arithmeticMea[index]) and material.residue > arithmeticMea[index] %}b-yellow{% else %}b-green{% endif %}">{{ material.residue|round(1, 'common') }} {% if material.measureId %}{{ material.measureId.getName() }} {% endif %} </td>
                                 {% else %}
-                                    <td class="{% if material.residue < arithmeticMea[key] %}b-red{% elseif material.residue <= ((arithmeticMea[key] / 3) + arithmeticMea[key]) and material.residue > arithmeticMea[key] %}b-yellow{% else %}b-green{% endif %}">{{ material.residue }} {{ material.measureId.getName() }}</td>
+                                    <td class="{% if material.residue < arithmeticMea[key] %}b-red{% elseif material.residue <= ((arithmeticMea[key] / 3) + arithmeticMea[key]) and material.residue > arithmeticMea[key] %}b-yellow{% else %}b-green{% endif %}">{{ material.residue|round(1, 'common') }} {{ material.measureId.getName() }}</td>
                                 {% endif %}
                                 <td>{{ material.pricepackage }}</td>
                                 <!--<td>{{ material.serviceId.name }}</td>-->
