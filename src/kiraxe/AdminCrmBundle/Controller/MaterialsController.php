@@ -82,7 +82,6 @@ class MaterialsController extends Controller
             echo $material->getResidue() . "<br/>";
         }*/
 
-
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $materials, /* query NOT result */

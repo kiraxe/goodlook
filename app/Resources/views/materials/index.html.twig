@@ -51,7 +51,7 @@
                                 {% endif %}
                                 <td>{{ material.pricepackage }}</td>
                                 <!--<td>{{ material.serviceId.name }}</td>-->
-                                <td>{{ material.priceUnit }}</td>
+                                <td>{{ material.priceUnit|round(1, 'common') }}</td>
                                 <!--<td>{% if material.measureId %}{{ material.measureId.name |raw }}{% endif %}</td>-->
                                 <!--<td>{{ material.rating }}</td>-->
                                 <!--<td>{{ material.totalsize }}</td>-->

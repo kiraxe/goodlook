@@ -182,6 +182,11 @@ class DefaultController extends Controller
                     }
                 }
             }
+
+            for ($i = 0; $i < count($workerCart); $i++) {
+                $workerCart[$i]['salary'] = round($workerCart[$i]['salary'], 1, PHP_ROUND_HALF_EVEN);
+            }
+
         }
 
         $earnings = $price - ($totalExpenses + $interestpayments);
@@ -198,18 +203,18 @@ class DefaultController extends Controller
 
         return $this->render('default/index.html.twig', array(
             'form' => $form->createView(),
-            'price' => $price,
-            'salary' => $salary,
-            'totalExpenses' => $partExpenses,
-            'earnings' => $earnings,
-            'earningsOne' => $earningsOne,
-            'earningsSecond' => $earningsSecond,
+            'price' => round($price, 1, PHP_ROUND_HALF_EVEN),
+            'salary' => round($salary, 1, PHP_ROUND_HALF_EVEN),
+            'totalExpenses' => round($partExpenses, 1, PHP_ROUND_HALF_EVEN),
+            'earnings' => round($earnings, 1, PHP_ROUND_HALF_EVEN),
+            'earningsOne' => round($earningsOne, 1, PHP_ROUND_HALF_EVEN),
+            'earningsSecond' => round($earningsSecond, 1, PHP_ROUND_HALF_EVEN),
             'tables' => $tableName,
             'user' => $user,
             'tableSettingsName' => $tableSettingsName,
             'tableCars' => $tableCars,
             'workerCart' => $workerCart,
-            'interestpayments'  => $interestpayments           
+            'interestpayments'  => round($interestpayments, 1, PHP_ROUND_HALF_EVEN)
         ));
     }
 
