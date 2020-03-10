@@ -70,7 +70,6 @@ $(document).ready(function(){
     $(".active-filter").click(function () {
         $(".filter-table").fadeToggle(300);
     });
-
     /*Кнопка фильтра на Колонок*/
 
     $(".active-filtre-col").click(function () {
