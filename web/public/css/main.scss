@@ -914,6 +914,7 @@ body {
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
           width: max-content;
+          table-layout: fixed;
           max-width: 1700px;
 
           thead {

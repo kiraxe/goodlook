@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,14 +318,7 @@
       <workItem from="1583320865919" duration="1286000" />
       <workItem from="1583481931466" duration="657000" />
       <workItem from="1583501037974" duration="4665000" />
-      <workItem from="1583824493375" duration="6048000" />
-    </task>
-    <task id="LOCAL-00131" summary="goodlook-crm first commit">
-      <created>1580895455253</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1580895455253</updated>
+      <workItem from="1583824493375" duration="8905000" />
     </task>
     <task id="LOCAL-00132" summary="goodlook-crm first commit">
       <created>1580896127571</created>
@@ -660,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583839975628</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="goodlook-crm first commit">
+      <created>1583841808637</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1583841808637</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,10 +713,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581068364916" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1583839971013">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1583841805450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583839971013" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583841805450" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1583321494899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
