@@ -49,7 +49,7 @@ class MeasureController extends Controller
         $pagination = $paginator->paginate(
             $measures, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            50 /*limit per page*/
         );
 
         return $this->render('measure/index.html.twig', array(

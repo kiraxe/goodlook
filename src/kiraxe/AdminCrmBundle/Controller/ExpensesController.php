@@ -102,7 +102,7 @@ class ExpensesController extends Controller
         $pagination = $paginator->paginate(
             $expenses, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            50 /*limit per page*/
         );
 
         return $this->render('expenses/index.html.twig', array(

@@ -87,7 +87,7 @@ class MaterialsController extends Controller
         $pagination = $paginator->paginate(
             $materials, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            50 /*limit per page*/
         );
 
         return $this->render('materials/index.html.twig', array(

@@ -92,7 +92,7 @@ class UserController extends Controller
         $pagination = $paginator->paginate(
             $users, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            50 /*limit per page*/
         );
 
         return $this->render('user/index.html.twig', array(

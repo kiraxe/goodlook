@@ -217,7 +217,7 @@ class OrdersController extends Controller
         $pagination = $paginator->paginate(
             $orders, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            50 /*limit per page*/
         );
 
         return $this->render('orders/index.html.twig', array(
@@ -465,7 +465,7 @@ class OrdersController extends Controller
             $em->persist($order);
             $em->flush();
 
-            return $this->redirectToRoute('orders_show', array('id' => $order->getId()));
+            return $this->redirectToRoute('orders_edit', array('id' => $order->getId()));
         }
 
         return $this->render('orders/new.html.twig', array(
