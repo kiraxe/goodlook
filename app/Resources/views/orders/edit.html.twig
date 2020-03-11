@@ -57,6 +57,7 @@
                         </ul>
 
                         <div><button type="button" class="add-another-collection-widget btn btn-info" data-list="#workerorders-fields-list">Добавить сотрудника и услугу</button></div>
+                        <div class="total"><span>Сумма:</span></div>
                     </div>
                     {% if not order.close %}
                         <div class="formItem">{{ form_row(edit_form.close) }}</div>
@@ -67,6 +68,7 @@
                             <div class="formItem" style="display: none;">{{ form_row(edit_form.close, {'attr': {'checked': 'checked'}}) }}</div>
                         {% endif %}
                     {% endif %}
+
 
                     <div class="formItem form-button" style="width:100%">
                         <ul>

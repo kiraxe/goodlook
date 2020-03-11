@@ -1,5 +1,10 @@
 "use strict";
 $(document).ready(function(){
+
+    var price = $('input[id*="workerorders"][id$="price"]');
+
+    /* Добавить услугу */
+
     $('.add-another-collection-widget').click(function (e) {
         var list = $($(this).attr('data-list'));
         // Try to find the counter of the list or use the length of the list
@@ -21,11 +26,63 @@ $(document).ready(function(){
         var remove_tag = '<a href="#" class="remove-tag btn btn-danger">Удалить</a>';
         newElem.append(remove_tag);
         newElem.appendTo(list);
+
+        price = $('input[id*="workerorders"][id$="price"]');
+
+        getSum();
     });
+
+    /* Сумма */
+
+    function getSum() {
+
+        let elementTotal = $('.total');
+        let total = 0;
+        let prs = 0;
+
+        if (price.length != 0) {
+            price.each(function (step) {
+                if (typeof $(this).val() == "undefined" || $(this).val() == "" ) {
+                    prs = 0;
+                } else {
+                    prs = parseInt($(this).val());
+                }
+                total = total + prs;
+            });
+
+            elementTotal.html("<span>Сумма:</span> " + total + " руб.");
+        } else {
+            elementTotal.html("<span>Сумма:</span> " + 0 + " руб.");
+        }
+
+        price.on('blur', function(e){
+            total = 0;
+            price.each(function(step){
+                if (typeof $(this).val() == "undefined" || $(this).val() == "") {
+                    prs = 0;
+                } else {
+                    prs = parseInt($(this).val());
+                }
+                total = total + prs;
+            });
+
+            elementTotal.html("<span>Сумма:</span> " + total + " руб.");
+        });
+
+    }
+
+    getSum();
+
+    /* Удалить услугу */
+
     $('body').on( 'click', '.remove-tag', function(e) {
         e.preventDefault();
 
         $(this).parent().remove();
+
+        price = $('input[id*="workerorders"][id$="price"]');
+
+        getSum();
 
         return false;
     });
@@ -330,9 +387,6 @@ $(document).ready(function(){
     /*$('form').on('change', '#kiraxe_admincrmbundle_workers_typeworkers', function(){
         $('.btn-success').trigger('click');
     })*/
-
-
-
 
     $('#kiraxe_admincrmbundle_orders_number').on('keypress', function() {
         var that = this;
