@@ -2,8 +2,7 @@
 
 namespace kiraxe\AdminCrmBundle\Controller;
 
-use kiraxe\AdminCrmBundle\Entity\Expenses;
-use kiraxe\AdminCrmBundle\Services\DumpDbs;
+use kiraxe\AdminCrmBundle\Entity\Certificates;
 use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -11,13 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * Expense controller.
+ * Certificates controller.
  *
  */
-class ExpensesController extends Controller
+class CertificatesController extends Controller
 {
     /**
-     * Lists all expense entities.
+     * Lists all certificates entities.
      *
      */
     public function indexAction(Request $request, TableMeta $tableMeta)
@@ -29,12 +28,12 @@ class ExpensesController extends Controller
 
         $tableName = $tableMeta->getTableName($em);
 
-        $expenses = $em->getRepository('kiraxeAdminCrmBundle:Expenses')->findBy(array(),array('date' => 'DESC'));//findAll();
+        $certificates = $em->getRepository('kiraxeAdminCrmBundle:Certificates')->findBy(array(),array('date' => 'DESC'));//findAll();
 
         $deleteForm = [];
 
-        for($i = 0; $i < count($expenses); $i++) {
-            $deleteForm[$expenses[$i]->getId()] = $this->createDeleteForm($expenses[$i])->createView();
+        for($i = 0; $i < count($certificates); $i++) {
+            $deleteForm[$certificates[$i]->getId()] = $this->createDeleteForm($certificates[$i])->createView();
         }
 
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -42,18 +41,18 @@ class ExpensesController extends Controller
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
 
-        $sqlExpenses = "SELECT e FROM kiraxeAdminCrmBundle:Expenses e where";
+        $sqlCertificates = "SELECT e FROM kiraxeAdminCrmBundle:Certificates e where";
 
         if (!empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['dateTo'])) {
             $dateFrom = $request->query->get('form')['dateFrom'];
             $dateFrom = str_replace("-", "", $dateFrom);
-            $sqlExpenses .= " date(e.date) =".$dateFrom;
+            $sqlCertificates .= " date(e.date) =".$dateFrom;
         }
 
         if (empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
             $dateTo = $request->query->get('form')['dateTo'];
             $dateTo = str_replace("-", "", $dateTo);
-            $sqlExpenses .= " date(e.date) =".$dateTo;
+            $sqlCertificates .= " date(e.date) =".$dateTo;
         }
 
         if (!empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
@@ -61,11 +60,11 @@ class ExpensesController extends Controller
             $dateTo = $request->query->get('form')['dateTo'];
             $dateFrom = str_replace("-", "", $dateFrom);
             $dateTo = str_replace("-", "", $dateTo);
-            $sqlExpenses .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
+            $sqlCertificates .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
         }
 
         if (!empty($request->query->get('form')['dateFrom'])) {
-            $expenses = $em->createQuery($sqlExpenses)->getResult();
+            $certificates = $em->createQuery($sqlCertificates)->getResult();
         }
 
         $form = $this->get("form.factory")->createNamedBuilder("form")
@@ -85,13 +84,13 @@ class ExpensesController extends Controller
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $expenses, /* query NOT result */
+            $certificates, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
             50 /*limit per page*/
         );
 
-        return $this->render('expenses/index.html.twig', array(
-            'expenses' => $expenses,
+        return $this->render('certificates/index.html.twig', array(
+            'certificates' => $certificates,
             'form' => $form->createView(),
             'delete_form' => $deleteForm,
             'tables' => $tableName,
@@ -101,13 +100,13 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Creates a new expense entity.
+     * Creates a new certificates entity.
      *
      */
     public function newAction(Request $request, TableMeta $tableMeta)
     {
-        $expense = new Expenses();
-        $form = $this->createForm('kiraxe\AdminCrmBundle\Form\ExpensesType', $expense);
+        $certificates = new Certificates();
+        $form = $this->createForm('kiraxe\AdminCrmBundle\Form\CertificatesType', $certificates);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
 
@@ -119,14 +118,14 @@ class ExpensesController extends Controller
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($expense);
+            $em->persist($certificates);
             $em->flush();
 
-            return $this->redirectToRoute('expenses_show', array('id' => $expense->getId()));
+            return $this->redirectToRoute('сertificates_show', array('id' => $certificates->getId()));
         }
 
-        return $this->render('expenses/new.html.twig', array(
-            'expense' => $expense,
+        return $this->render('certificates/new.html.twig', array(
+            'certificates' => $certificates,
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
@@ -134,12 +133,12 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Finds and displays a expense entity.
+     * Finds and displays a certificates entity.
      *
      */
-    public function showAction(Expenses $expense, TableMeta $tableMeta)
+    public function showAction(Certificates $certificates, TableMeta $tableMeta)
     {
-        $deleteForm = $this->createDeleteForm($expense);
+        $deleteForm = $this->createDeleteForm($certificates);
 
         $em = $this->getDoctrine()->getManager();
 
@@ -150,8 +149,8 @@ class ExpensesController extends Controller
         $user = $this->getUser();
 
 
-        return $this->render('expenses/show.html.twig', array(
-            'expense' => $expense,
+        return $this->render('certificates/show.html.twig', array(
+            'certificates' => $certificates,
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
@@ -159,22 +158,22 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing expense entity.
+     * Displays a form to edit an existing certificates entity.
      *
      */
-    public function editAction(Request $request, Expenses $expense, TableMeta $tableMeta)
+    public function editAction(Request $request, Certificates $certificates, TableMeta $tableMeta)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
         $tableName = $tableMeta->getTableName($entityManager);
-        $deleteForm = $this->createDeleteForm($expense);
-        $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\ExpensesType', $expense);
+        $deleteForm = $this->createDeleteForm($certificates);
+        $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\CertificatesType', $certificates);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('expenses_edit', array('id' => $expense->getId()));
+            return $this->redirectToRoute('сertificates_edit', array('id' => $certificates->getId()));
         }
 
         $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
@@ -182,8 +181,8 @@ class ExpensesController extends Controller
         $user = $this->getUser();
 
 
-        return $this->render('expenses/edit.html.twig', array(
-            'expense' => $expense,
+        return $this->render('certificates/edit.html.twig', array(
+            'certificates' => $certificates,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
@@ -192,36 +191,36 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Deletes a expense entity.
+     * Deletes a certificates entity.
      *
      */
-    public function deleteAction(Request $request, Expenses $expense)
+    public function deleteAction(Request $request, Certificates $certificates)
     {
-        $form = $this->createDeleteForm($expense);
+        $form = $this->createDeleteForm($certificates);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($expense);
+            $em->remove($certificates);
             $em->flush();
         }
 
-        return $this->redirectToRoute('expenses_index');
+        return $this->redirectToRoute('сertificates_index');
     }
 
     /**
-     * Creates a form to delete a expense entity.
+     * Creates a form to delete a certificates entity.
      *
-     * @param Expenses $expense The expense entity
+     * @param Certificates $certificates The certificates entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Expenses $expense)
+    private function createDeleteForm(Certificates $certificates)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('expenses_delete', array('id' => $expense->getId())))
+            ->setAction($this->generateUrl('сertificates_delete', array('id' => $certificates->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

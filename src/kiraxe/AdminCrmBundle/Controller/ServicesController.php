@@ -3,6 +3,7 @@
 namespace kiraxe\AdminCrmBundle\Controller;
 
 use kiraxe\AdminCrmBundle\Entity\Services;
+use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\Query\Expr\Join;
@@ -17,9 +18,11 @@ class ServicesController extends Controller
      * Lists all service entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, TableMeta $tableMeta)
     {
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
 
         /*$services = $em->getRepository('kiraxeAdminCrmBundle:Services');
 
@@ -48,20 +51,7 @@ class ServicesController extends Controller
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
+
 
         for($i = 0; $i < count($services); $i++) {
             $deleteForm[$services[$i]->getId()] = $this->createDeleteForm($services[$i])->createView();
@@ -73,8 +63,6 @@ class ServicesController extends Controller
             'tables' => $tableName,
             'pagination' => $pagination,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -82,7 +70,7 @@ class ServicesController extends Controller
      * Creates a new service entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, TableMeta $tableMeta)
     {
         $service = new Services();
         $form = $this->createForm('kiraxe\AdminCrmBundle\Form\ServicesType', $service, [
@@ -100,31 +88,16 @@ class ServicesController extends Controller
         }
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-
 
         return $this->render('services/new.html.twig', array(
             'service' => $service,
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -132,34 +105,20 @@ class ServicesController extends Controller
      * Finds and displays a service entity.
      *
      */
-    public function showAction(Services $service)
+    public function showAction(Services $service, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($service);
         $em = $this->getDoctrine()->getManager();
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
+
 
         return $this->render('services/show.html.twig', array(
             'service' => $service,
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -167,7 +126,7 @@ class ServicesController extends Controller
      * Displays a form to edit an existing service entity.
      *
      */
-    public function editAction(Request $request, Services $service)
+    public function editAction(Request $request, Services $service, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($service);
         $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\ServicesType', $service, [
@@ -182,23 +141,10 @@ class ServicesController extends Controller
         }
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
         return $this->render('services/edit.html.twig', array(
             'service' => $service,
@@ -206,8 +152,6 @@ class ServicesController extends Controller
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 

@@ -3,6 +3,7 @@
 namespace kiraxe\AdminCrmBundle\Controller;
 
 use kiraxe\AdminCrmBundle\Entity\Calendar;
+use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -18,9 +19,11 @@ class CalendarController extends Controller
      * Lists all calendar entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, TableMeta $tableMeta)
     {
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
 
         $calendars = $em->getRepository('kiraxeAdminCrmBundle:Calendar')->findAll();
 
@@ -39,18 +42,6 @@ class CalendarController extends Controller
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
 
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
         if(!empty($request->request->get('kiraxe_admincrmbundle_calendar')['id'])) {
             $id = $request->request->get('kiraxe_admincrmbundle_calendar')['id'];
@@ -88,9 +79,7 @@ class CalendarController extends Controller
             'calendars' => $cldr,
             'calendar' => $calendar,
             'form' => $form->createView(),
-            'tableCars' => $tableCars,
             'tables' => $tableName,
-            'tableSettingsName' => $tableSettingsName,
             'user' => $user
         ));
     }

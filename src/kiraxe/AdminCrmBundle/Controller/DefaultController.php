@@ -3,6 +3,7 @@
 namespace kiraxe\AdminCrmBundle\Controller;
 
 use Doctrine\ORM\EntityRepository;
+use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -22,26 +23,13 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="admin_index", methods={"GET"})
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, TableMeta $tableMeta)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableCars = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
+        $tableName = $tableMeta->getTableName($em);
 
 
         $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where o.close = 1";
@@ -211,8 +199,6 @@ class DefaultController extends Controller
             'earningsSecond' => round($earningsSecond, 1, PHP_ROUND_HALF_EVEN),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
             'workerCart' => $workerCart,
             'interestpayments'  => round($interestpayments, 1, PHP_ROUND_HALF_EVEN)
         ));

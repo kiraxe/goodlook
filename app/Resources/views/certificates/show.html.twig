@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="show">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Сертификат</h1>
+                </div>
+                <div class="col-lg-12">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Id</th>
+                            <td scope="col">{{ certificates.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Название</th>
+                            <td scope="col">{{ certificates.name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Сумма</th>
+                            <td scope="col">{{ certificates.amount }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Тип</th>
+                            <td scope="col">{% if certificates.type %}Безналичный{% else %}Наличный{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Дата</th>
+                            <td scope="col">{% if certificates.date %}{{ certificates.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Комментарий</th>
+                            <td scope="col">{{ certificates.comment }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12">
+                    <ul style="list-style-type: none; margin:0; padding:0;">
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-success" href="{{ path('сertificates_edit', { 'id': certificates.id }) }}">Редактировать</a>
+                        </li>
+                        <li>
+                            {{ form_start(delete_form) }}
+                            <input style="margin-top: 20px;" class="btn btn-danger" type="submit" value="Удалить">
+                            {{ form_end(delete_form) }}
+                        </li>
+                        <li>
+                            <a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('сertificates_index') }}">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

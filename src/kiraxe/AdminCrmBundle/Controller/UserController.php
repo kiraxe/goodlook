@@ -4,6 +4,7 @@ namespace kiraxe\AdminCrmBundle\Controller;
 
 use kiraxe\AdminCrmBundle\Entity\User;
 use kiraxe\AdminCrmBundle\Form\SqlType;
+use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -30,9 +31,11 @@ class UserController extends Controller
      * Lists all user entities.
      *
      */
-    public function indexAction(Request $request, KernelInterface $kernel, FileUploader $fileUploader)
+    public function indexAction(Request $request, KernelInterface $kernel, FileUploader $fileUploader, TableMeta $tableMeta)
     {
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
 
         $users = $em->getRepository('kiraxeAdminCrmBundle:User')->findAll();
 
@@ -73,20 +76,7 @@ class UserController extends Controller
         $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
+
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -102,8 +92,6 @@ class UserController extends Controller
             'tables' => $tableName,
             'user' => $user,
             'pagination' => $pagination,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -111,7 +99,7 @@ class UserController extends Controller
      * Creates a new user entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, TableMeta $tableMeta)
     {
         $passwordEncoder = $this->get('security.password_encoder');
         $user = new User();
@@ -131,30 +119,17 @@ class UserController extends Controller
         }
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
+
 
         return $this->render('user/new.html.twig', array(
             'user' => $user,
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -162,35 +137,22 @@ class UserController extends Controller
      * Finds and displays a user entity.
      *
      */
-    public function showAction(User $user)
+    public function showAction(User $user, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($user);
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
+
 
         return $this->render('user/show.html.twig', array(
             'user' => $user,
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -198,7 +160,7 @@ class UserController extends Controller
      * Displays a form to edit an existing user entity.
      *
      */
-    public function editAction(Request $request, User $user)
+    public function editAction(Request $request, User $user, TableMeta $tableMeta)
     {
         $passwordEncoder = $this->get('security.password_encoder');
         $deleteForm = $this->createDeleteForm($user);
@@ -216,31 +178,17 @@ class UserController extends Controller
         }
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
         return $this->render('user/edit.html.twig', array(
             'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 

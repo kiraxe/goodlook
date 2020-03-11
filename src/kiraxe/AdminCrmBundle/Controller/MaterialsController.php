@@ -5,6 +5,7 @@ namespace kiraxe\AdminCrmBundle\Controller;
 //use http\Env\Response;
 use kiraxe\AdminCrmBundle\Entity\Materials;
 use kiraxe\AdminCrmBundle\Entity\Orders;
+use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,29 +20,17 @@ class MaterialsController extends Controller
      * Lists all material entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, TableMeta $tableMeta)
     {
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
 
         $materials = $em->getRepository('kiraxeAdminCrmBundle:Materials')->findBy(array('active' => '1'), array('name' => 'ASC'));
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
 
         $arithmeticMean = [];
         $residue = 0;
@@ -95,9 +84,7 @@ class MaterialsController extends Controller
             'tables' => $tableName,
             'user' => $user,
             'pagination' => $pagination,
-            'tableSettingsName' => $tableSettingsName,
             'delete_form' => $deleteForm,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -105,30 +92,18 @@ class MaterialsController extends Controller
      * Creates a new material entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, TableMeta $tableMeta)
     {
         $material = new Materials();
         $form = $this->createForm('kiraxe\AdminCrmBundle\Form\MaterialsType', $material);
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             $material->setResidue($material->getTotalsize());
@@ -153,8 +128,6 @@ class MaterialsController extends Controller
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -162,35 +135,21 @@ class MaterialsController extends Controller
      * Finds and displays a material entity.
      *
      */
-    public function showAction(Materials $material)
+    public function showAction(Materials $material, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($material);
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
         return $this->render('materials/show.html.twig', array(
             'material' => $material,
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -198,7 +157,7 @@ class MaterialsController extends Controller
      * Displays a form to edit an existing material entity.
      *
      */
-    public function editAction($id,Request $request, Materials $material)
+    public function editAction($id,Request $request, Materials $material, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($material);
         $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\MaterialsType', $material);
@@ -206,26 +165,14 @@ class MaterialsController extends Controller
         $editForm->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         //$user = $this->getUser();
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
         $residue = 0;
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
 
 
         $workerorders = $em->createQuery(
@@ -265,8 +212,6 @@ class MaterialsController extends Controller
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 

@@ -62,54 +62,57 @@
                 {% if tables %}
                     {% for key, table in tables %}
                         {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <li class="nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                            {% if table is iterable %}
+                                <li class="nav-item {% if key == "Настройки" %}settings{% endif %}"><img src="{{ asset('public/images/')}}{% if key == "Настройки" %}settings{% elseif key == "Автомобиль" %}avto{% endif %}.svg">
+                                    <a
+                                            class="nav-link nav-link-collapse"
+                                            href="#"
+                                            id="hasSubItems"
+                                            data-toggle="collapse"
+                                            data-target="#collapseSubItems{{key}}"
+                                            aria-controls="collapseSubItems{{key}}"
+                                            aria-expanded="false"
+                                    >{{key}} <i class="fas fa-angle-right"></i></a>
+                                    <ul class="nav-second-level collapse" id="collapseSubItems{{key}}" data-parent="#navAccordion">
+                                        {% if table %}
+                                            {% for key, table in table %}
+                                                <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                            {% endif %}
                         {% else %}
-                            {% if key != "workers" and key != "expenses"%}
-                                <li class="nav-item"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                            {% if key != "workers" and key != "expenses" and key != "settings" %}
+                                {% if table is iterable %}
+                                    <li class="nav-item settings"><img src="{{ asset('public/images/')}}{{key}}.svg">
+                                        <a
+                                                class="nav-link nav-link-collapse"
+                                                href="#"
+                                                id="hasSubItems"
+                                                data-toggle="collapse"
+                                                data-target="#collapseSubItems{{key}}"
+                                                aria-controls="collapseSubItems{{key}}"
+                                                aria-expanded="false"
+                                        >{{key}} <i class="fas fa-angle-right"></i></a>
+                                        <ul class="nav-second-level collapse" id="collapseSubItems{{key}}" data-parent="#navAccordion">
+                                            {% if table %}
+                                                {% for key, table in table %}
+                                                    <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                {% endif %}
                             {% endif %}
                         {% endif  %}
                     {% endfor %}
                 {% endif %}
                 <li class="nav-item avto"><img src="{{ asset('public/images/money.svg') }}"><a class="nav-link" style="display: block; text-decoration: none;" href="#">Доходы</a></li>
-                <li class="nav-item avto"><img src="{{ asset('public/images/avto.svg') }}">
-                    <a
-                            class="nav-link nav-link-collapse"
-                            href="#"
-                            id="hasSubItems"
-                            data-toggle="collapse"
-                            data-target="#collapseSubItems2"
-                            aria-controls="collapseSubItems2"
-                            aria-expanded="false"
-                    >Автомобили <i class="fas fa-angle-right"></i></a>
-                    <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
-                        {% if tables %}
-                            {% for key, tableCars in tableCars %}
-
-                                <li class="nav-item"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{tableCars}}</a></li>
-                            {% endfor %}
-                        {% endif %}
-                    </ul>
-                </li>
-                {% if is_granted('ROLE_SUPER_ADMIN') %}
-                    <li class="nav-item settings"><img src="{{ asset('public/images/settings.svg') }}">
-                        <a
-                                class="nav-link nav-link-collapse"
-                                href="#"
-                                id="hasSubItems"
-                                data-toggle="collapse"
-                                data-target="#collapseSubItems4"
-                                aria-controls="collapseSubItems4"
-                                aria-expanded="false"
-                        >Настройки <i class="fas fa-angle-right"></i></a>
-                        <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
-                            {% if tables %}
-                                {% for key, tableSettingsName in tableSettingsName %}
-                                    <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{tableSettingsName}}</a></li>
-                                {% endfor %}
-                            {% endif %}
-                        </ul>
-                    </li>
-                {% endif %}
             </ul>
         </div>
         <div class="logout"><span>Привет, {{ user.username }}</span> <a class="logout-btn" href="{{ path('kiraxe_admin_crm_logout') }}"><img src="{{ asset('public/images/logout.svg') }}"></a></div>

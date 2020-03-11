@@ -23,6 +23,8 @@ use PhpOffice\PhpWord\TemplateProcessor;
 use PhpOffice\PhpWord\PhpWord;
 use Symfony\Component\Form\FormEvents;
 
+use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
+
 
 /**
  * Order controller.
@@ -34,10 +36,12 @@ class OrdersController extends Controller
      * Lists all order entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, TableMeta $tableMeta)
     {
         $em = $this->getDoctrine()->getManager();
         $deleteForm = null;
+
+        $tableName = $tableMeta->getTableName($em);
 
         $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where";
 
@@ -193,21 +197,6 @@ class OrdersController extends Controller
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
         for($i = 0; $i < count($orders); $i++) {
             $deleteForm[$orders[$i]->getId()] = $this->createDeleteForm($orders[$i])->createView();
@@ -227,8 +216,6 @@ class OrdersController extends Controller
             'tables' => $tableName,
             'pagination' => $pagination,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -236,7 +223,7 @@ class OrdersController extends Controller
      * Creates a new order entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, TableMeta $tableMeta)
     {
         $order = new Orders();
         $managerorder = new ManagerOrders();
@@ -247,27 +234,15 @@ class OrdersController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        $tableName = $tableMeta->getTableName($em);
+
         $serviceparent = null;
         $price = null;
         $unitprice = null;
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
         if ($form->isValid()) {
 
             foreach ($order->getWorkerorders() as $workerorders) {
@@ -473,8 +448,6 @@ class OrdersController extends Controller
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -482,13 +455,15 @@ class OrdersController extends Controller
      * Finds and displays a order entity.
      *
      */
-    public function showAction(Orders $orders)
+    public function showAction(Orders $orders, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($orders);
 
         $em = $this->getDoctrine()->getManager();
 
         $originalTags = new ArrayCollection();
+
+        $tableName = $tableMeta->getTableName($em);
 
         // Create an ArrayCollection of the current Tag objects in the database
         foreach ($orders->getWorkerorders() as $workerorders) {
@@ -546,21 +521,7 @@ class OrdersController extends Controller
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
         return $this->render('orders/show.html.twig', array(
             'order' => $orders,
             'workerCart' => $workerCart,
@@ -568,8 +529,6 @@ class OrdersController extends Controller
             'tables' => $tableName,
             'workerorders' => $originalTags,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -577,10 +536,12 @@ class OrdersController extends Controller
      * Displays a form to edit an existing order entity.
      *
      */
-    public function editAction($id, Request $request)
+    public function editAction($id, Request $request, TableMeta $tableMeta)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $orders = $entityManager->getRepository(Orders::class)->find($id);
+
+        $tableName = $tableMeta->getTableName($entityManager);
 
         $step = 0;
         
@@ -905,21 +866,7 @@ class OrdersController extends Controller
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars = [];
-        $tableCars[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$entityManager->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
         // render some form template
         return $this->render('orders/edit.html.twig', array(
             'order' => $orders,
@@ -928,8 +875,6 @@ class OrdersController extends Controller
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 

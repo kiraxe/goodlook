@@ -5,6 +5,7 @@ namespace kiraxe\AdminCrmBundle\Controller;
 use kiraxe\AdminCrmBundle\Entity\BodyType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 
 /**
  * Bodytype controller.
@@ -16,29 +17,17 @@ class BodyTypeController extends Controller
      * Lists all bodyType entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, TableMeta $tableMeta)
     {
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
 
         $bodyTypes = $em->getRepository('kiraxeAdminCrmBundle:BodyType')->findBy(['active' => '1']);
 
 
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableCars = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
         for($i = 0; $i < count($bodyTypes); $i++) {
             $deleteForm[$bodyTypes[$i]->getName()] = $this->createDeleteForm($bodyTypes[$i])->createView();
         }
@@ -55,8 +44,6 @@ class BodyTypeController extends Controller
             'tables' => $tableName,
             'user' => $user,
             'pagination' => $pagination,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
             'delete_form' => $deleteForm
         ));
     }
@@ -65,7 +52,7 @@ class BodyTypeController extends Controller
      * Creates a new bodyType entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, TableMeta $tableMeta)
     {
         $bodyType = new Bodytype();
         $form = $this->createForm('kiraxe\AdminCrmBundle\Form\BodyTypeType', $bodyType);
@@ -73,21 +60,8 @@ class BodyTypeController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableCars = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
+        $tableName = $tableMeta->getTableName($em);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $bodyType->setActive(true);
@@ -102,8 +76,6 @@ class BodyTypeController extends Controller
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -111,35 +83,20 @@ class BodyTypeController extends Controller
      * Finds and displays a bodyType entity.
      *
      */
-    public function showAction(BodyType $bodyType)
+    public function showAction(BodyType $bodyType, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($bodyType);
 
         $em = $this->getDoctrine()->getManager();
+        $tableName = $tableMeta->getTableName($em);
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableCars = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
+
 
         return $this->render('bodytype/show.html.twig', array(
             'bodyType' => $bodyType,
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 
@@ -147,29 +104,16 @@ class BodyTypeController extends Controller
      * Displays a form to edit an existing bodyType entity.
      *
      */
-    public function editAction(Request $request, BodyType $bodyType)
+    public function editAction(Request $request, BodyType $bodyType, TableMeta $tableMeta)
     {
         $deleteForm = $this->createDeleteForm($bodyType);
         $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\BodyTypeType', $bodyType);
         $editForm->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
+
+        $tableName = $tableMeta->getTableName($em);
         $user = $this->getUser();
-        $tableName = [];
-        $tableSettingsName = [];
-        $tableCars = [];
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Workers')->getTableName()] = "Сотрудники";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Services')->getTableName()] = "Услуги";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:User')->getTableName()] = "Пользователи";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName()] = "Материалы";
-        $tableSettingsName[$em->getClassMetadata('kiraxeAdminCrmBundle:Measure')->getTableName()] = "Единицы измерения";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Clientele')->getTableName()] = "Клиенты";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName()] = "Заказ-наряд";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName()] = "Расход";
-        $tableName[$em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName()] = "Календарь";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Brand')->getTableName()] = "Бренд автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:Model')->getTableName()] = "Модель автомобиля";
-        $tableCars[$em->getClassMetadata('kiraxeAdminCrmBundle:BodyType')->getTableName()] = "Тип кузова";
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -183,8 +127,6 @@ class BodyTypeController extends Controller
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
-            'tableSettingsName' => $tableSettingsName,
-            'tableCars' => $tableCars,
         ));
     }
 

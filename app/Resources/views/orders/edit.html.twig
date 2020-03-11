@@ -130,7 +130,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 10px; padding-bottom: 10px;"><p><b>{% if not order.close %}Предварительный {% endif %} Заказ-Наряд №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 10px; padding-bottom: 10px;"><p><b>{% if not order.close %}Предварительный {% endif %} Заказ-Наряд №{% if order.dateOpen %}{{ order.id }}<!--{{ order.dateOpen|date('w') }}-->{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>
@@ -250,7 +250,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td style="padding-top: 10px; padding-bottom: 10px;"><p><b>Наряд на работу №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                    <td style="padding-top: 10px; padding-bottom: 10px;"><p><b>Наряд на работу №{% if order.dateOpen %}{{ order.id }}<!--{{ order.dateOpen|date('w') }}-->{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
                 </tr>
                 <tr>
                     <td>
@@ -384,7 +384,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>{% if not order.close %}Предварительный {% endif %} Заказ-Наряд №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>{% if not order.close %}Предварительный {% endif %} Заказ-Наряд №{% if order.dateOpen %}{{ order.id }}<!--{{ order.dateOpen|date('w') }}-->{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>
@@ -492,7 +492,7 @@
             </thead>
             <tbody>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Наряд на работу №{% if order.dateOpen %}{{ order.dateOpen|date('w') }}{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><p><b>Наряд на работу №{% if order.dateOpen %}{{ order.id }}<!--{{ order.dateOpen|date('w') }}-->{% endif %} от {% if order.dateOpen %}{{ order.dateOpen|date('Y-m-d') }}{% endif %}</b></p></td>
             </tr>
             <tr>
                 <td>

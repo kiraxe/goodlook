@@ -30,6 +30,10 @@ kiraxe_admin_crm_expenses:
     resource: "@kiraxeAdminCrmBundle/Resources/config/routing/expenses.yml"
     prefix:   /expenses
 
+kiraxe_admin_crm_certificates:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/certificates.yml"
+    prefix:   /certificates
+
 kiraxe_admin_crm_model:
     resource: "@kiraxeAdminCrmBundle/Resources/config/routing/model.yml"
     prefix:   /model
