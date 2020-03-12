@@ -2,7 +2,7 @@
 
 namespace kiraxe\AdminCrmBundle\Controller;
 
-use kiraxe\AdminCrmBundle\Entity\Expenses;
+use kiraxe\AdminCrmBundle\Entity\Revenue;
 use kiraxe\AdminCrmBundle\Services\DumpDbs;
 use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * Expense controller.
+ * Revenue controller.
  *
  */
-class ExpensesController extends Controller
+class RevenueController extends Controller
 {
     /**
-     * Lists all expense entities.
+     * Lists all revenue entities.
      *
      */
     public function indexAction(Request $request, TableMeta $tableMeta)
@@ -29,12 +29,12 @@ class ExpensesController extends Controller
 
         $tableName = $tableMeta->getTableName($em);
 
-        $expenses = $em->getRepository('kiraxeAdminCrmBundle:Expenses')->findBy(array(),array('date' => 'DESC'));//findAll();
+        $revenue = $em->getRepository('kiraxeAdminCrmBundle:Revenue')->findBy(array(),array('date' => 'DESC'));//findAll();
 
         $deleteForm = [];
 
-        for($i = 0; $i < count($expenses); $i++) {
-            $deleteForm[$expenses[$i]->getId()] = $this->createDeleteForm($expenses[$i])->createView();
+        for($i = 0; $i < count($revenue); $i++) {
+            $deleteForm[$revenue[$i]->getId()] = $this->createDeleteForm($revenue[$i])->createView();
         }
 
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -42,18 +42,18 @@ class ExpensesController extends Controller
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
 
-        $sqlExpenses = "SELECT e FROM kiraxeAdminCrmBundle:Expenses e where";
+        $sqlRevenue = "SELECT e FROM kiraxeAdminCrmBundle:Revenue e where";
 
         if (!empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['dateTo'])) {
             $dateFrom = $request->query->get('form')['dateFrom'];
             $dateFrom = str_replace("-", "", $dateFrom);
-            $sqlExpenses .= " date(e.date) =".$dateFrom;
+            $sqlRevenue .= " date(e.date) =".$dateFrom;
         }
 
         if (empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
             $dateTo = $request->query->get('form')['dateTo'];
             $dateTo = str_replace("-", "", $dateTo);
-            $sqlExpenses .= " date(e.date) =".$dateTo;
+            $sqlRevenue .= " date(e.date) =".$dateTo;
         }
 
         if (!empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
@@ -61,11 +61,11 @@ class ExpensesController extends Controller
             $dateTo = $request->query->get('form')['dateTo'];
             $dateFrom = str_replace("-", "", $dateFrom);
             $dateTo = str_replace("-", "", $dateTo);
-            $sqlExpenses .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
+            $sqlRevenue .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
         }
 
         if (!empty($request->query->get('form')['dateFrom'])) {
-            $expenses = $em->createQuery($sqlExpenses)->getResult();
+            $revenue = $em->createQuery($sqlRevenue)->getResult();
         }
 
         $form = $this->get("form.factory")->createNamedBuilder("form")
@@ -85,14 +85,13 @@ class ExpensesController extends Controller
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $expenses, /* query NOT result */
+            $revenue, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
             50 /*limit per page*/
         );
 
-
-        return $this->render('expenses/index.html.twig', array(
-            'expenses' => $expenses,
+        return $this->render('revenue/index.html.twig', array(
+            'revenue' => $revenue,
             'form' => $form->createView(),
             'delete_form' => $deleteForm,
             'tables' => $tableName,
@@ -102,13 +101,13 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Creates a new expense entity.
+     * Creates a new revenue entity.
      *
      */
     public function newAction(Request $request, TableMeta $tableMeta)
     {
-        $expense = new Expenses();
-        $form = $this->createForm('kiraxe\AdminCrmBundle\Form\ExpensesType', $expense);
+        $revenue = new Revenue();
+        $form = $this->createForm('kiraxe\AdminCrmBundle\Form\RevenueType', $revenue);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
 
@@ -120,14 +119,14 @@ class ExpensesController extends Controller
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($expense);
+            $em->persist($revenue);
             $em->flush();
 
-            return $this->redirectToRoute('expenses_show', array('id' => $expense->getId()));
+            return $this->redirectToRoute('revenue_show', array('id' => $revenue->getId()));
         }
 
-        return $this->render('expenses/new.html.twig', array(
-            'expense' => $expense,
+        return $this->render('revenue/new.html.twig', array(
+            'revenue' => $revenue,
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
@@ -135,12 +134,12 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Finds and displays a expense entity.
+     * Finds and displays a revenue entity.
      *
      */
-    public function showAction(Expenses $expense, TableMeta $tableMeta)
+    public function showAction(Revenue $revenue, TableMeta $tableMeta)
     {
-        $deleteForm = $this->createDeleteForm($expense);
+        $deleteForm = $this->createDeleteForm($revenue);
 
         $em = $this->getDoctrine()->getManager();
 
@@ -151,8 +150,8 @@ class ExpensesController extends Controller
         $user = $this->getUser();
 
 
-        return $this->render('expenses/show.html.twig', array(
-            'expense' => $expense,
+        return $this->render('revenue/show.html.twig', array(
+            'revenue' => $revenue,
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
             'user' => $user,
@@ -160,22 +159,22 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing expense entity.
+     * Displays a form to edit an existing revenue entity.
      *
      */
-    public function editAction(Request $request, Expenses $expense, TableMeta $tableMeta)
+    public function editAction(Request $request, Revenue $revenue, TableMeta $tableMeta)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
         $tableName = $tableMeta->getTableName($entityManager);
-        $deleteForm = $this->createDeleteForm($expense);
-        $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\ExpensesType', $expense);
+        $deleteForm = $this->createDeleteForm($revenue);
+        $editForm = $this->createForm('kiraxe\AdminCrmBundle\Form\RevenueType', $revenue);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('expenses_edit', array('id' => $expense->getId()));
+            return $this->redirectToRoute('revenue_edit', array('id' => $revenue->getId()));
         }
 
         $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
@@ -183,8 +182,8 @@ class ExpensesController extends Controller
         $user = $this->getUser();
 
 
-        return $this->render('expenses/edit.html.twig', array(
-            'expense' => $expense,
+        return $this->render('revenue/edit.html.twig', array(
+            'revenue' => $revenue,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'tables' => $tableName,
@@ -193,36 +192,36 @@ class ExpensesController extends Controller
     }
 
     /**
-     * Deletes a expense entity.
+     * Deletes a revenue entity.
      *
      */
-    public function deleteAction(Request $request, Expenses $expense)
+    public function deleteAction(Request $request, Revenue $revenue)
     {
-        $form = $this->createDeleteForm($expense);
+        $form = $this->createDeleteForm($revenue);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($expense);
+            $em->remove($revenue);
             $em->flush();
         }
 
-        return $this->redirectToRoute('expenses_index');
+        return $this->redirectToRoute('revenue_index');
     }
 
     /**
-     * Creates a form to delete a expense entity.
+     * Creates a form to delete a revenue entity.
      *
-     * @param Expenses $expense The expense entity
+     * @param Revenue $revenue The revenue entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Expenses $expense)
+    private function createDeleteForm(Revenue $revenue)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('expenses_delete', array('id' => $expense->getId())))
+            ->setAction($this->generateUrl('revenue_delete', array('id' => $revenue->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

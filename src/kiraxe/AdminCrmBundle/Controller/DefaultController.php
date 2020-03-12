@@ -34,14 +34,17 @@ class DefaultController extends Controller
 
         $sql = "SELECT o FROM kiraxeAdminCrmBundle:Orders o where o.close = 1";
         $sqlExpenses = "SELECT e FROM kiraxeAdminCrmBundle:Expenses e where";
+        $sqlRevenues = "SELECT r FROM kiraxeAdminCrmBundle:Revenue r where";
         $orders = null;
         $expenses = null;
+        $revenues = null;
 
         if (!empty($request->query->get('form')['dateFrom']) && empty($request->query->get('form')['dateTo'])) {
             $dateFrom = $request->query->get('form')['dateFrom'];
             $dateFrom = str_replace("-", "", $dateFrom);
             $sql .= " and date(o.dateClose) =".$dateFrom;
             $sqlExpenses .= " date(e.date) =".$dateFrom;
+            $sqlRevenues .= " date(r.date) =".$dateFrom;
         }
 
         if (empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
@@ -49,6 +52,7 @@ class DefaultController extends Controller
             $dateTo = str_replace("-", "", $dateTo);
             $sql .= " and date(o.dateClose) =".$dateTo;
             $sqlExpenses .= " date(e.date) =".$dateTo;
+            $sqlRevenues .= " date(r.date) =".$dateTo;
         }
 
         if (!empty($request->query->get('form')['dateFrom']) && !empty($request->query->get('form')['dateTo'])) {
@@ -58,11 +62,13 @@ class DefaultController extends Controller
             $dateTo = str_replace("-", "", $dateTo);
             $sql .= " and date(o.dateClose) between " . $dateFrom . " and " . $dateTo;
             $sqlExpenses .= " date(e.date) between " . $dateFrom . " and " . $dateTo;
+            $sqlRevenues .= " date(r.date) between " . $dateFrom . " and " . $dateTo;
         }
 
         if (!empty($request->query->get('form')['dateFrom'])) {
             $orders = $em->createQuery($sql)->getResult();
             $expenses = $em->createQuery($sqlExpenses)->getResult();
+            $revenues = $em->createQuery($sqlRevenues)->getResult();
         }
 
         $form = $this->get("form.factory")->createNamedBuilder("form")
@@ -86,6 +92,7 @@ class DefaultController extends Controller
         $totalExpensesOne = 0;
         $totalExpensesSecond = 0;
         $partExpenses = 0;
+        $partRevenue = 0;
         $interestpayments = 0;
         $earnings = 0;
         $workers_id = [];
@@ -97,6 +104,14 @@ class DefaultController extends Controller
                 $partExpenses += $expense->getAmount();
             }
         }
+
+        if ($revenues != null) {
+            foreach ($revenues as $revenue) {
+                $partRevenue += $revenue->getAmount();
+            }
+        }
+
+        $price += $partRevenue;
 
         if ($orders != null) {
             $step = 0;

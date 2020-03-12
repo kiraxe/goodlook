@@ -1,3 +1,7 @@
+kiraxe_admin_crm_revenue:
+    resource: "@kiraxeAdminCrmBundle/Controller/RevenueController.php"
+    type:     annotation
+
 kiraxe_admin_crm_certificates:
   resource: "@kiraxeAdminCrmBundle/Controller/CertificatesController.php"
   type:     annotation

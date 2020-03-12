@@ -2,38 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/certificates/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/certificates/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/certificates/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/certificates/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/CertificatesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Certificates.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/CertificatesType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Repository/CertificatesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/certificates.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/TableMeta/TableMeta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Tests/Controller/CertificatesControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/public/images/certificates.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/revenue/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/revenue/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/revenue/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/revenue/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/RevenueController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Revenue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/RevenueType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Repository/RevenueRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/revenue.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Tests/Controller/RevenueControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/revenue.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BodyTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BodyTypeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/BrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/CalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/CalendarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ClienteleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ClienteleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MaterialsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ModelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ServicesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/WorkersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/WorkersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/TableMeta/TableMeta.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/TableMeta/TableMeta.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/money.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,14 +338,8 @@
       <workItem from="1583481931466" duration="657000" />
       <workItem from="1583501037974" duration="4665000" />
       <workItem from="1583824493375" duration="19206000" />
-      <workItem from="1583910773508" duration="27769000" />
-    </task>
-    <task id="LOCAL-00138" summary="goodlook-crm first commit">
-      <created>1580896660821</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1580896660821</updated>
+      <workItem from="1583910773508" duration="27901000" />
+      <workItem from="1583997816072" duration="5955000" />
     </task>
     <task id="LOCAL-00139" summary="goodlook-crm first commit">
       <created>1580911127136</created>
@@ -694,7 +677,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583918867494</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="goodlook-crm first commit">
+      <created>1583943114881</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1583943114881</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -748,10 +738,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583929567884" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1583918859643">
+    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1583943108609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583918859643" />
+    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583943108609" />
     <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1583321494899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -768,10 +758,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581064680556" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583910802999">
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583997830257">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583910802999" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583997830257" />
     <state x="667" y="154" width="586" height="732" key="find.popup" timestamp="1581322340575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

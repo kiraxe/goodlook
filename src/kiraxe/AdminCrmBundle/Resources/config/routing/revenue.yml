@@ -1,0 +1,24 @@
+revenue_index:
+  path:     /
+  defaults: { _controller: "kiraxeAdminCrmBundle:Revenue:index" }
+  methods:  GET
+
+revenue_show:
+  path:     /{id}/show
+  defaults: { _controller: "kiraxeAdminCrmBundle:Revenue:show" }
+  methods:  GET
+
+revenue_new:
+  path:     /new
+  defaults: { _controller: "kiraxeAdminCrmBundle:Revenue:new" }
+  methods:  [GET, POST]
+
+revenue_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "kiraxeAdminCrmBundle:Revenue:edit" }
+  methods:  [GET, POST]
+
+revenue_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "kiraxeAdminCrmBundle:Revenue:delete" }
+  methods:  DELETE

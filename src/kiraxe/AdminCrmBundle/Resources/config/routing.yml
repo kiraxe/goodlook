@@ -38,6 +38,10 @@ kiraxe_admin_crm_model:
     resource: "@kiraxeAdminCrmBundle/Resources/config/routing/model.yml"
     prefix:   /model
 
+kiraxe_admin_crm_revenue:
+    resource: "@kiraxeAdminCrmBundle/Resources/config/routing/revenue.yml"
+    prefix:   /revenue
+
 kiraxe_admin_crm_bodytype:
     resource: "@kiraxeAdminCrmBundle/Resources/config/routing/bodytype.yml"
     prefix:   /body_type

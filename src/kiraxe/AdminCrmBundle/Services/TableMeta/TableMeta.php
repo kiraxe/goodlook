@@ -15,6 +15,7 @@ class TableMeta
 
             $em->getClassMetadata('kiraxeAdminCrmBundle:Orders')->getTableName() => "Заказ-наряд",
             $em->getClassMetadata('kiraxeAdminCrmBundle:Calendar')->getTableName() => "Календарь",
+            $em->getClassMetadata('kiraxeAdminCrmBundle:Revenue')->getTableName() => "Доход",
             $em->getClassMetadata('kiraxeAdminCrmBundle:Expenses')->getTableName() => "Расход",
             $em->getClassMetadata('kiraxeAdminCrmBundle:Certificates')->getTableName() => "Сертификаты",
             $em->getClassMetadata('kiraxeAdminCrmBundle:Materials')->getTableName() => "Материалы",

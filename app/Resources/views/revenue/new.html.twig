@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Создать доход</h1>
+                </div>
+                <div class="col-md-6">
+                    {{ form_start(form) }}
+                    <div class="formItem">{{ form_row(form.name) }}</div>
+                    <div class="formItem">{{ form_row(form.amount) }}</div>
+                    <div class="formItem">{{ form_row(form.type) }}</div>
+                    <div class="formItem">{{ form_row(form.date) }}</div>
+                    <div class="formItem">{{ form_row(form.comment) }}</div>
+                    <div class="formItem form-button">
+                        <ul>
+                            <li><input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Создать" /></li>
+                            <li><a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('revenue_index') }}">Назад</a></li>
+                        </ul>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
