@@ -130,6 +130,27 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript">
+
+
+        function getDateTime() {
+            let options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long',
+                timezone: 'UTC',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric'
+            };
+            let dt = document.querySelector('#datatime');
+            let data = new Date().toLocaleTimeString("ru", options);
+            dt.textContent = data;
+        }
+
+        setInterval(getDateTime, 1000);
+    </script>
 </main>
 {% else %}
     <main id="login">
