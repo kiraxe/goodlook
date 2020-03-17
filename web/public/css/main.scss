@@ -463,9 +463,12 @@ body {
           font-size: 24px;
           width: 100%;
           border-bottom: 1px solid #000;
+          display: flex;
+          align-items: center;
           margin-bottom: 10px;
           border-radius: 5px;
           padding-left: 10px;
+          position: relative;
           box-shadow: 2px 2px 3px rgba(0, 0, 0, .5);
         }
 
@@ -510,11 +513,12 @@ body {
 
           ul {
             padding: 0;
-
+            .remove-tag {
+              position: absolute;
+              right: 10px;
+              font-size: 20px;
+            }
             li {
-              .remove-tag {
-                margin-bottom: 20px;
-              }
 
               .workerorder-box {
                 display: flex;

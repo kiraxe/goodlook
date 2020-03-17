@@ -26,6 +26,7 @@
                     <div class="formItem"><img src="{{ asset('public/images/new-order/11.svg') }}">{{ form_row(edit_form.color) }}</div>
                     <div class="formItem full-width"><img src="{{ asset('public/images/new-order/12.svg') }}">{{ form_row(edit_form.description) }}</div>
                     <div class="formItem full-width"><img src="{{ asset('public/images/new-order/13.svg') }}">{{ form_row(edit_form.damages) }}</div>
+                    <div class="formItem full-width"><img src="{{ asset('public/images/new-order/12.svg') }}">{{ form_row(edit_form.recommendations) }}</div>
 
                     <div class="order-subtitle">Контакты</div>
 
@@ -47,11 +48,10 @@
                             data-prototype="{{foo}}{{  form_widget(edit_form.workerorders.vars.prototype)|e('html_attr') }}"
                             data-widget-tags="{{ '<li></li>'|e }}">
                             {% for workerordersField in edit_form.workerorders %}
-                                <div class="order-subtitle">Сотрудник</div>
+                                <div class="order-subtitle">Сотрудник<i class="far fa-times-circle remove-tag"></i></div>
                                 <li>
                                     {{ form_errors(workerordersField) }}
                                     {{ form_widget(workerordersField) }}
-                                    <a href="#" class="remove-tag btn btn-danger">Удалить</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -201,6 +201,11 @@
             <tr>
                 <td colspan="2">
                     <p><b>При приеме ДТС имеет следующие повреждения:</b> {% if order.damages %}{{ order.damages }}{% endif %}</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><b>Рекомендации:</b> {% if order.recommendations %}{{ order.recommendations }}{% endif %}</p>
                 </td>
             </tr>
             </tbody>
@@ -455,6 +460,11 @@
             <tr>
                 <td colspan="2">
                     <p><b>При приеме ДТС имеет следующие повреждения:</b> {% if order.damages %}{{ order.damages }}{% endif %}</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p><b>Рекомендации:</b> {% if order.recommendations %}{{ order.recommendations }}{% endif %}</p>
                 </td>
             </tr>
             </tbody>

@@ -135,6 +135,10 @@ class OrdersType extends AbstractType
                     'placeholder' => 'Автомобиль загрязнен. Фотофиксация после мойки кузова автомобиля.'
                 )*/
             ))
+            ->add('recommendations', TextareaType::class ,array(
+                'label' => 'Рекомендации',
+                'required' => false,
+            ))
             ->add('phone',TextType::class ,array('label' => 'Телефон', 'attr'=> ['class' => "phone ajax-autocomplete" , 'data-type' => 'phone']))
             ->add('email', EmailType::class ,array(
                 'label' => 'E-mail',

@@ -161,6 +161,12 @@ class Orders
      */
     private $description;
 
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="recommendations", type="text", nullable=true)
+     */
+    private $recommendations;
 
     /**
      * @var text
@@ -505,6 +511,16 @@ class Orders
         return $this->description;
     }
 
+    public function setRecommendations($recommendations)
+    {
+        $this->recommendations = $recommendations;
+        return $this;
+    }
+
+    public function getRecommendations()
+    {
+        return $this->recommendations;
+    }
 
     public function setDamages($damages)
     {

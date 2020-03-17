@@ -23,8 +23,11 @@ $(document).ready(function(){
 
         // create a new list element and add it to the list
         var newElem = $(list.attr('data-widget-tags')).html(newWidget);
-        var remove_tag = '<a href="#" class="remove-tag btn btn-danger">Удалить</a>';
-        newElem.append(remove_tag);
+        var subtitle = newElem.find('.order-subtitle');
+        console.log(subtitle);
+        var remove_tag = '<i class="far fa-times-circle remove-tag"></i>';
+        //newElem.append(remove_tag);
+        subtitle.append(remove_tag);
         newElem.appendTo(list);
 
         price = $('input[id*="workerorders"][id$="price"]');
@@ -78,7 +81,7 @@ $(document).ready(function(){
     $('body').on( 'click', '.remove-tag', function(e) {
         e.preventDefault();
 
-        $(this).parent().remove();
+        $(this).parent().parent().remove();
 
         price = $('input[id*="workerorders"][id$="price"]');
 
