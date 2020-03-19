@@ -48,8 +48,8 @@
                             data-prototype="{{foo}}{{  form_widget(edit_form.workerorders.vars.prototype)|e('html_attr') }}"
                             data-widget-tags="{{ '<li></li>'|e }}">
                             {% for workerordersField in edit_form.workerorders %}
-                                <div class="order-subtitle">Сотрудник<i class="far fa-times-circle remove-tag"></i></div>
                                 <li>
+                                    <div class="order-subtitle">Сотрудник<i class="far fa-times-circle remove-tag"></i></div>
                                     {{ form_errors(workerordersField) }}
                                     {{ form_widget(workerordersField) }}
                                 </li>
