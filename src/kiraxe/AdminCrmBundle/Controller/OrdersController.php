@@ -255,6 +255,8 @@ class OrdersController extends Controller
                     if ($val->getServices()->getId() == $serviceparent) {
                         if ($workerorders->getMaterials()) {
                             $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();
+                        } else {
+                            $unitprice = null;
                         }
                         if ($unitprice == 0) {
                             $workerorders->setSalary(($workerorders->getPrice() / 100) * $val->getPercent());
@@ -632,6 +634,8 @@ class OrdersController extends Controller
                     if ($val->getServices()->getId() == $serviceparent) {
                         if ($workerorders->getMaterials()) {
                             $unitprice = $workerorders->getMaterials()->getPriceUnit() * $workerorders->getMarriage();
+                        } else {
+                            $unitprice = null;
                         }
                         if ($unitprice == 0) {
                             $workerorders->setSalary(($workerorders->getPrice() / 100) * $val->getPercent());

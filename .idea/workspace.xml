@@ -1,46 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="">
+    <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@fullcalendar/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <executable path="composer" />
+      <executable />
     </execution>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="package.json" />
-        <option value="CSS File" />
-        <option value="Sass File" />
-        <option value="SCSS File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -112,57 +93,21 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1P4Sk6cyO0Dke4uEUC16Rkismqd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
+  <component name="ProjectId" id="1ZZvEx5M8lhTk74mrEUtpQSiwev" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Shell Script" />
-    <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="SCSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Controller" />
-      <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Resources\config\routing" />
-      <recent name="C:\OSPanel\domains\localhost\goodlook-crm\src\kiraxe\AdminCrmBundle\Resources\config\routing" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\domains\localhost\gl\web\public" />
-      <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump" />
-      <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump\Dump" />
-      <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump\interface" />
-      <recent name="C:\OSPanel\domains\localhost\gl\src\kiraxe\AdminCrmBundle\Services\DbDump\class" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
-      <method v="2" />
-    </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>
@@ -171,504 +116,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e6f91ee0-d9da-4a17-8df3-c8c28a89f0d6" name="Default Changelist" comment="" />
-      <created>1560165846999</created>
+      <changelist id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="" />
+      <created>1585059322527</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1560165846999</updated>
-      <workItem from="1560165852099" duration="1921000" />
-      <workItem from="1560253318306" duration="1284000" />
-      <workItem from="1560256248016" duration="3056000" />
-      <workItem from="1560259553695" duration="1751000" />
-      <workItem from="1560261324488" duration="5696000" />
-      <workItem from="1560424346157" duration="1951000" />
-      <workItem from="1560426325249" duration="48000" />
-      <workItem from="1560426391660" duration="3807000" />
-      <workItem from="1560431146472" duration="9206000" />
-      <workItem from="1560496031284" duration="26456000" />
-      <workItem from="1560755949952" duration="15285000" />
-      <workItem from="1560843033726" duration="4033000" />
-      <workItem from="1560932114847" duration="24176000" />
-      <workItem from="1561014407798" duration="17026000" />
-      <workItem from="1561108468014" duration="53000" />
-      <workItem from="1561108595163" duration="10091000" />
-      <workItem from="1561374818857" duration="13002000" />
-      <workItem from="1561446457320" duration="23854000" />
-      <workItem from="1561533077559" duration="25996000" />
-      <workItem from="1561621521380" duration="23501000" />
-      <workItem from="1561705275526" duration="20916000" />
-      <workItem from="1561964580070" duration="26434000" />
-      <workItem from="1562051182922" duration="25902000" />
-      <workItem from="1562137457057" duration="19099000" />
-      <workItem from="1562223982180" duration="76000" />
-      <workItem from="1562224083266" duration="22874000" />
-      <workItem from="1562310499053" duration="19754000" />
-      <workItem from="1562569512658" duration="21533000" />
-      <workItem from="1562656870226" duration="23822000" />
-      <workItem from="1562742304860" duration="27025000" />
-      <workItem from="1562828830121" duration="25203000" />
-      <workItem from="1562914804653" duration="27219000" />
-      <workItem from="1563175449718" duration="16000" />
-      <workItem from="1563175489129" duration="25739000" />
-      <workItem from="1563260756297" duration="23184000" />
-      <workItem from="1563347553631" duration="14429000" />
-      <workItem from="1563433694384" duration="1275000" />
-      <workItem from="1563451636996" duration="14281000" />
-      <workItem from="1563520240769" duration="23797000" />
-      <workItem from="1563779176144" duration="27707000" />
-      <workItem from="1564142140346" duration="15177000" />
-      <workItem from="1564470911006" duration="25221000" />
-      <workItem from="1564657753626" duration="6809000" />
-      <workItem from="1564674300426" duration="959000" />
-      <workItem from="1564735135345" duration="1489000" />
-      <workItem from="1565132029037" duration="872000" />
-      <workItem from="1565165044019" duration="17344000" />
-      <workItem from="1567168536185" duration="14165000" />
-      <workItem from="1567406670281" duration="29511000" />
-      <workItem from="1567494570676" duration="16607000" />
-      <workItem from="1552970892153" duration="16263000" />
-      <workItem from="1567667436713" duration="3333000" />
-      <workItem from="1567674555125" duration="28000" />
-      <workItem from="1567674603065" duration="24449000" />
-      <workItem from="1567753867687" duration="28186000" />
-      <workItem from="1568099875527" duration="626000" />
-      <workItem from="1568102693774" duration="16168000" />
-      <workItem from="1568185824862" duration="4194000" />
-      <workItem from="1568205936547" duration="5036000" />
-      <workItem from="1568272275714" duration="26485000" />
-      <workItem from="1568357439760" duration="28867000" />
-      <workItem from="1568618282462" duration="119000" />
-      <workItem from="1568618504956" duration="24470000" />
-      <workItem from="1568704202747" duration="7901000" />
-      <workItem from="1568722729710" duration="479000" />
-      <workItem from="1568732819839" duration="1128000" />
-      <workItem from="1568791769412" duration="69000" />
-      <workItem from="1568791867724" duration="13482000" />
-      <workItem from="1568820977272" duration="2971000" />
-      <workItem from="1568877525289" duration="1347000" />
-      <workItem from="1568880268512" duration="830000" />
-      <workItem from="1568902669520" duration="71000" />
-      <workItem from="1568964974912" duration="3954000" />
-      <workItem from="1569237974075" duration="17070000" />
-      <workItem from="1569338964081" duration="78000" />
-      <workItem from="1569398240124" duration="1072000" />
-      <workItem from="1569576344388" duration="6600000" />
-      <workItem from="1569828271708" duration="2988000" />
-      <workItem from="1569833233447" duration="17000" />
-      <workItem from="1570534693866" duration="36000" />
-      <workItem from="1574841253546" duration="3214000" />
-      <workItem from="1574844910899" duration="2209000" />
-      <workItem from="1574848982790" duration="563000" />
-      <workItem from="1574856024145" duration="3810000" />
-      <workItem from="1574945253464" duration="238000" />
-      <workItem from="1576146968349" duration="53000" />
-      <workItem from="1577088389441" duration="2402000" />
-      <workItem from="1577451195073" duration="481000" />
-      <workItem from="1577454412237" duration="628000" />
-      <workItem from="1577702635622" duration="792000" />
-      <workItem from="1577709186677" duration="19000" />
-      <workItem from="1579077988824" duration="23032000" />
-      <workItem from="1579158165292" duration="5390000" />
-      <workItem from="1579165213215" duration="18700000" />
-      <workItem from="1579250153515" duration="19210000" />
-      <workItem from="1579521515044" duration="244000" />
-      <workItem from="1579685382475" duration="5472000" />
-      <workItem from="1579698518908" duration="8255000" />
-      <workItem from="1579763965057" duration="27209000" />
-      <workItem from="1579850122349" duration="11642000" />
-      <workItem from="1580114030082" duration="609000" />
-      <workItem from="1580114823576" duration="16655000" />
-      <workItem from="1580195806562" duration="20392000" />
-      <workItem from="1580281934418" duration="27197000" />
-      <workItem from="1580368280942" duration="4363000" />
-      <workItem from="1580389686408" duration="7909000" />
-      <workItem from="1580459342917" duration="17002000" />
-      <workItem from="1580481670912" duration="1317000" />
-      <workItem from="1580719331506" duration="12729000" />
-      <workItem from="1580742559508" duration="3173000" />
-      <workItem from="1580807774366" duration="20337000" />
-      <workItem from="1580886675694" duration="22242000" />
-      <workItem from="1580972876662" duration="6854000" />
-      <workItem from="1580986693525" duration="10149000" />
-      <workItem from="1581002524881" duration="849000" />
-      <workItem from="1581059096502" duration="25418000" />
-      <workItem from="1581318383980" duration="10668000" />
-      <workItem from="1581340697604" duration="91000" />
-      <workItem from="1581341076422" duration="3000" />
-      <workItem from="1581341174846" duration="2000" />
-      <workItem from="1581341242381" duration="5000" />
-      <workItem from="1581405358713" duration="13521000" />
-      <workItem from="1582701553271" duration="2074000" />
-      <workItem from="1582802848421" duration="1153000" />
-      <workItem from="1582902374785" duration="85000" />
-      <workItem from="1582902494742" duration="5000" />
-      <workItem from="1582902648254" duration="173000" />
-      <workItem from="1582902861263" duration="483000" />
-      <workItem from="1582903364842" duration="368000" />
-      <workItem from="1582903765718" duration="2894000" />
-      <workItem from="1583132858836" duration="612000" />
-      <workItem from="1583133586159" duration="142000" />
-      <workItem from="1583133899741" duration="555000" />
-      <workItem from="1583134488477" duration="516000" />
-      <workItem from="1583136323935" duration="59000" />
-      <workItem from="1583136978714" duration="8635000" />
-      <workItem from="1583219304526" duration="54000" />
-      <workItem from="1583222779824" duration="601000" />
-      <workItem from="1583236016790" duration="4000" />
-      <workItem from="1583245959185" duration="632000" />
-      <workItem from="1583320865919" duration="1286000" />
-      <workItem from="1583481931466" duration="657000" />
-      <workItem from="1583501037974" duration="4665000" />
-      <workItem from="1583824493375" duration="19206000" />
-      <workItem from="1583910773508" duration="27901000" />
-      <workItem from="1583997816072" duration="7878000" />
-      <workItem from="1584435689501" duration="10297000" />
-      <workItem from="1584628965877" duration="1014000" />
+      <updated>1585059322527</updated>
+      <workItem from="1585059323966" duration="952000" />
+      <workItem from="1585060404900" duration="7094000" />
     </task>
-    <task id="LOCAL-00144" summary="goodlook-crm first commit">
-      <created>1580911999521</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1580911999521</updated>
-    </task>
-    <task id="LOCAL-00145" summary="goodlook-crm first commit">
-      <created>1580987757670</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1580987757671</updated>
-    </task>
-    <task id="LOCAL-00146" summary="goodlook-crm first commit">
-      <created>1580989362944</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1580989362945</updated>
-    </task>
-    <task id="LOCAL-00147" summary="goodlook-crm first commit">
-      <created>1580989455228</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1580989455229</updated>
-    </task>
-    <task id="LOCAL-00148" summary="goodlook-crm first commit">
-      <created>1580990420597</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1580990420597</updated>
-    </task>
-    <task id="LOCAL-00149" summary="goodlook-crm first commit">
-      <created>1580990533412</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1580990533413</updated>
-    </task>
-    <task id="LOCAL-00150" summary="goodlook-crm first commit">
-      <created>1580990622751</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1580990622751</updated>
-    </task>
-    <task id="LOCAL-00151" summary="goodlook-crm first commit">
-      <created>1580990715658</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1580990715658</updated>
-    </task>
-    <task id="LOCAL-00152" summary="goodlook-crm first commit">
-      <created>1580991179389</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1580991179389</updated>
-    </task>
-    <task id="LOCAL-00153" summary="goodlook-crm first commit">
-      <created>1580991642290</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1580991642290</updated>
-    </task>
-    <task id="LOCAL-00154" summary="goodlook-crm first commit">
-      <created>1580991774541</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1580991774541</updated>
-    </task>
-    <task id="LOCAL-00155" summary="goodlook-crm first commit">
-      <created>1580992306209</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1580992306210</updated>
-    </task>
-    <task id="LOCAL-00156" summary="goodlook-crm first commit">
-      <created>1580993640948</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1580993640948</updated>
-    </task>
-    <task id="LOCAL-00157" summary="goodlook-crm first commit">
-      <created>1580993887580</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1580993887580</updated>
-    </task>
-    <task id="LOCAL-00158" summary="goodlook-crm first commit">
-      <created>1580994428779</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1580994428779</updated>
-    </task>
-    <task id="LOCAL-00159" summary="goodlook-crm first commit">
-      <created>1580994538778</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1580994538779</updated>
-    </task>
-    <task id="LOCAL-00160" summary="goodlook-crm first commit">
-      <created>1580994551569</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1580994551569</updated>
-    </task>
-    <task id="LOCAL-00161" summary="goodlook-crm first commit">
-      <created>1580994627723</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1580994627723</updated>
-    </task>
-    <task id="LOCAL-00162" summary="goodlook-crm first commit">
-      <created>1580994801475</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1580994801475</updated>
-    </task>
-    <task id="LOCAL-00163" summary="goodlook-crm first commit">
-      <created>1580994914323</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1580994914323</updated>
-    </task>
-    <task id="LOCAL-00164" summary="goodlook-crm first commit">
-      <created>1580995041900</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1580995041900</updated>
-    </task>
-    <task id="LOCAL-00165" summary="goodlook-crm first commit">
-      <created>1580995205167</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1580995205167</updated>
-    </task>
-    <task id="LOCAL-00166" summary="goodlook-crm first commit">
-      <created>1580995485631</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1580995485631</updated>
-    </task>
-    <task id="LOCAL-00167" summary="goodlook-crm first commit">
-      <created>1580995592222</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1580995592222</updated>
-    </task>
-    <task id="LOCAL-00168" summary="goodlook-crm first commit">
-      <created>1580995641712</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1580995641712</updated>
-    </task>
-    <task id="LOCAL-00169" summary="goodlook-crm first commit">
-      <created>1580995973047</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1580995973047</updated>
-    </task>
-    <task id="LOCAL-00170" summary="goodlook-crm first commit">
-      <created>1580996217516</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1580996217516</updated>
-    </task>
-    <task id="LOCAL-00171" summary="goodlook-crm first commit">
-      <created>1581411673862</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1581411673863</updated>
-    </task>
-    <task id="LOCAL-00172" summary="goodlook-crm first commit">
-      <created>1581414411673</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1581414411673</updated>
-    </task>
-    <task id="LOCAL-00173" summary="goodlook-crm first commit">
-      <created>1581435114006</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1581435114006</updated>
-    </task>
-    <task id="LOCAL-00174" summary="goodlook-crm first commit">
-      <created>1583157647211</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1583157647211</updated>
-    </task>
-    <task id="LOCAL-00175" summary="goodlook-crm first commit">
-      <created>1583506540509</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1583506540510</updated>
-    </task>
-    <task id="LOCAL-00176" summary="goodlook-crm first commit">
-      <created>1583828967124</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1583828967125</updated>
-    </task>
-    <task id="LOCAL-00177" summary="goodlook-crm first commit">
-      <created>1583838889065</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1583838889065</updated>
-    </task>
-    <task id="LOCAL-00178" summary="goodlook-crm first commit">
-      <created>1583839907410</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1583839907410</updated>
-    </task>
-    <task id="LOCAL-00179" summary="goodlook-crm first commit">
-      <created>1583839975628</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL-00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1583839975628</updated>
-    </task>
-    <task id="LOCAL-00180" summary="goodlook-crm first commit">
-      <created>1583841808637</created>
-      <option name="number" value="00180" />
-      <option name="presentableId" value="LOCAL-00180" />
-      <option name="project" value="LOCAL" />
-      <updated>1583841808637</updated>
-    </task>
-    <task id="LOCAL-00181" summary="goodlook-crm first commit">
-      <created>1583844814755</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1583844814755</updated>
-    </task>
-    <task id="LOCAL-00182" summary="goodlook-crm first commit">
-      <created>1583845498595</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1583845498595</updated>
-    </task>
-    <task id="LOCAL-00183" summary="goodlook-crm first commit">
-      <created>1583848494546</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1583848494546</updated>
-    </task>
-    <task id="LOCAL-00184" summary="goodlook-crm first commit">
-      <created>1583853519169</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1583853519169</updated>
-    </task>
-    <task id="LOCAL-00185" summary="goodlook-crm first commit">
-      <created>1583854615681</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1583854615681</updated>
-    </task>
-    <task id="LOCAL-00186" summary="goodlook-crm first commit">
-      <created>1583918867493</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1583918867494</updated>
-    </task>
-    <task id="LOCAL-00187" summary="goodlook-crm first commit">
-      <created>1583943114881</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1583943114881</updated>
-    </task>
-    <task id="LOCAL-00188" summary="goodlook-crm first commit">
-      <created>1584007299642</created>
-      <option name="number" value="00188" />
-      <option name="presentableId" value="LOCAL-00188" />
-      <option name="project" value="LOCAL" />
-      <updated>1584007299643</updated>
-    </task>
-    <task id="LOCAL-00189" summary="goodlook-crm first commit">
-      <created>1584444564729</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1584444564730</updated>
-    </task>
-    <task id="LOCAL-00190" summary="goodlook-crm first commit">
-      <created>1584454675123</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1584454675123</updated>
-    </task>
-    <task id="LOCAL-00191" summary="goodlook-crm first commit">
-      <created>1584456343684</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1584456343684</updated>
-    </task>
-    <task id="LOCAL-00192" summary="goodlook-crm first commit">
-      <created>1584456867468</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1584456867468</updated>
-    </task>
-    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,85 +134,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="goodlook-crm second commit" />
-    <MESSAGE value="goodlook-crm first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="goodlook-crm first commit" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="552" y="181" key="#Inspections" timestamp="1583855996992">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="181" key="#Inspections/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583855996992" />
-    <state x="552" y="182" key="#SQL_Dialects" timestamp="1580902619630">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="182" key="#SQL_Dialects/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580902619630" />
-    <state x="552" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580903229316">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580903229316" />
-    <state x="600" y="294" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1580745502403">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="600" y="294" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580745502403" />
-    <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582902414803">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1582902414803" />
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1580471016813">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580471016813" />
-    <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583929567884">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583929567884" />
-    <state x="598" y="118" key="CommitChangelistDialog2" timestamp="1584456863940">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="598" y="118" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1584456863940" />
-    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1584459334915">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1584459334915" />
-    <state x="542" y="442" key="NewPhpClassDialog" timestamp="1583927218866">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="542" y="442" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583927218866" />
-    <state x="794" y="452" key="NewPhpFileDialog" timestamp="1583928936200">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="794" y="452" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583928936200" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581064680556">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581064680556" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583997830257">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1583997830257" />
-    <state x="614" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584435851866">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="614" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1584435851866" />
-    <state x="667" y="154" width="586" height="732" key="find.popup" timestamp="1581322340575">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="154" width="586" height="732" key="find.popup/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1581322340575" />
-    <state x="2365" y="146" width="586" height="693" key="find.popup/0.0.1920.1040/1920.0.1280.984@1920.0.1280.984" timestamp="1579700871386" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1580739703031">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1580739703031" />
   </component>
 </project>

@@ -8,12 +8,13 @@
                     <h1>Список пользователей</h1>
                 </div>
                 <div class="col-md-12">
-                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0;">
+                    <ul style="list-style-type: none; margin:0 0 20px 0; padding:0; display: flex;">
                         <li>
                             <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('user_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
-
-
+                        <li>
+                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders base" href="{{ path('user_getdump') }}">Скачать базу данных</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-12">
@@ -59,6 +60,18 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    {{ form_start(form) }}
+                                    <ul id="filter-date">
+                                        <li>{{ form_row(form.brochure)}}</li>
+                                        <li><input style="margin-top: 20px; border:none;" class="button-top-orders base" type="submit" value="Отправить" /></li>
+                                    </ul>
+                                    {{ form_end(form) }}
+                                </td>
+                            </tr>
+                        </table>
                         <span class="delete-all-checkbox">Удалить выделенные</span>
                     </div>
                 </div>
