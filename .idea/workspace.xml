@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/goodlook-crm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/goodlook-crm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@fullcalendar/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +16,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -97,7 +96,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -122,8 +121,18 @@
       <option name="presentableId" value="Default" />
       <updated>1585059322527</updated>
       <workItem from="1585059323966" duration="952000" />
-      <workItem from="1585060404900" duration="7094000" />
+      <workItem from="1585060404900" duration="9213000" />
+      <workItem from="1585118514580" duration="1387000" />
+      <workItem from="1585138600434" duration="2742000" />
     </task>
+    <task id="LOCAL-00001" summary="update 24.03.2020">
+      <created>1585068239751</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585068239751</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,10 +143,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update 24.03.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 24.03.2020" />
   </component>
 </project>

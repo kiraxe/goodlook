@@ -154,6 +154,7 @@ class OrdersType extends AbstractType
                 ]
             ))
             ->add('price', HiddenType::class ,array('label' => 'Стоимость'))
+            ->add('notification', null ,array('label' => 'Оповещение'))
             ->add('close', null ,array('label' => 'Закрыт'));
     }/**
      * {@inheritdoc}

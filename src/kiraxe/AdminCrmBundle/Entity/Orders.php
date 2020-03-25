@@ -91,6 +91,13 @@ class Orders
     private $close;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="notification", type="boolean")
+     */
+    private $notification;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="color", type="string", length=255, nullable=true)
@@ -421,7 +428,7 @@ class Orders
     }
 
     /**
-     * Get close
+     * Get notification
      *
      * @return bool
      */
@@ -429,6 +436,32 @@ class Orders
     {
         return $this->close;
     }
+
+
+    /**
+     * Set notification
+     *
+     * @param boolean $notification
+     *
+     * @return Orders
+     */
+    public function setNotification($notification)
+    {
+        $this->notification = $notification;
+
+        return $this;
+    }
+
+    /**
+     * Get notification
+     *
+     * @return bool
+     */
+    public function getNotification()
+    {
+        return $this->notification;
+    }
+
 
     public function getWorkerorders()
     {
