@@ -87,7 +87,7 @@
                         {% else %}
                             {% if key != "workers" and key != "expenses" and key != "settings" %}
                                 {% if table is iterable %}
-                                    <li class="nav-item settings"><img src="{{ asset('public/images/')}}{{key}}.svg">
+                                    <li class="nav-item {% if key == "Настройки" %}settings{% endif %}"><img src="{{ asset('public/images/')}}{% if key == "Настройки" %}settings{% elseif key == "Автомобиль" %}avto{% endif %}.svg">
                                         <a
                                                 class="nav-link nav-link-collapse"
                                                 href="#"

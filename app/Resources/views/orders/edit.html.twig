@@ -2,7 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="form">
+    <div id="form" {% if is_granted('ROLE_SUPER_ADMIN') %} style="pointer-events: all;"{% else %} style="pointer-events: none;" {% endif %}>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -68,19 +68,15 @@
                             <div class="formItem" style="display: none;">{{ form_row(edit_form.close, {'attr': {'checked': 'checked'}}) }}</div>
                         {% endif %}
                     {% endif %}
-                    <div class="formItem">{{ form_row(edit_form.notification) }}</div>
+                    <div class="formItem" style="pointer-events: all">{{ form_row(edit_form.notification) }}</div>
 
                     <div class="formItem form-button" style="width:100%">
                         <ul>
                             <li>
                                 {% if not order.close %}
-                                    <input style="margin-top: 20px;" class="btn btn-primary" type="submit" value="Сохранить" />
+                                    <input style="margin-top: 20px; pointer-events: all;" class="btn btn-primary" type="submit" value="Сохранить" />
                                 {% else %}
-                                    {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                        <input style="margin-top: 20px;" class="btn btn-primary" type="submit" value="Сохранить"/>
-                                    {% else %}
-                                        <input style="margin-top: 20px;" class="btn btn-primary" type="submit" value="Сохранить" disabled />
-                                    {% endif %}
+                                    <input style="margin-top: 20px; pointer-events: all;" class="btn btn-primary" type="submit" value="Сохранить"/>
                                 {% endif %}
                                 {{ form_end(edit_form) }}
                             </li>
@@ -96,7 +92,7 @@
                                 {% endif %}
                             </li>
                             <li>
-                                <a style="margin-top: 20px;" class="btn btn-primary" href="{{ path('orders_index') }}">Назад</a>
+                                <a style="margin-top: 20px; pointer-events: all" class="btn btn-primary" href="{{ path('orders_index') }}">Назад</a>
                             </li>
                         </ul>
                     </div>

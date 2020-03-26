@@ -58,6 +58,7 @@
                             <th scope="col">Время закрытия</th>
                             <th scope="col">Время оплаты</th>
                             <th scope="col">Заказ закрыл</th>
+                            <th scope="col">Оповещение</th>
                             <th scope="col">ФИО</th>
                             <th scope="col">Бренд</th>
                             <th scope="col">Автомобиль</th>
@@ -84,6 +85,14 @@
                                 <td>
                                     {% if order.workerclose  %}
                                         {{ order.workerclose.name }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if order.notification%}
+                                        <p>Оповестили</p>
+                                    {% elseif order.notification == false %}
+                                        <p>Оповестить</p>
+                                        {{ order.dateClose|date_modify("+245 day")|date("Y-m-d") }}
                                     {% endif %}
                                 </td>
                                 <td>{{ order.name }}</td>
