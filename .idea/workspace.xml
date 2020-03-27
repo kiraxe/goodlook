@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/MeasureController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +121,8 @@
       <workItem from="1585060404900" duration="9213000" />
       <workItem from="1585118514580" duration="1387000" />
       <workItem from="1585138600434" duration="3545000" />
-      <workItem from="1585211474707" duration="3186000" />
+      <workItem from="1585211474707" duration="3933000" />
+      <workItem from="1585295851680" duration="811000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -137,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585141504219</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update 25.03.2020">
+      <created>1585214784541</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1585214784541</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

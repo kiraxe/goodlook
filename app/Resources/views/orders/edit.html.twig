@@ -2,7 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="form" {% if is_granted('ROLE_SUPER_ADMIN') %} style="pointer-events: all;"{% else %} style="pointer-events: none;" {% endif %}>
+    <div id="form" {% if is_granted('ROLE_SUPER_ADMIN') %} style="pointer-events: all;"{% else %} {% if order.close %}style="pointer-events: none;" {% endif %}{% endif %}>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

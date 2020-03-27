@@ -26,8 +26,8 @@ class MeasureController extends Controller
         $measures = $em->getRepository('kiraxeAdminCrmBundle:Measure')->findBy(['active' => '1']);
 
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
+        //$hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
+        //$this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
 
         for($i = 0; $i < count($measures); $i++) {

@@ -100,7 +100,11 @@
                                         <ul class="nav-second-level collapse" id="collapseSubItems{{key}}" data-parent="#navAccordion">
                                             {% if table %}
                                                 {% for key, table in table %}
-                                                    <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                                    {% if table == 'Пользователи' %}
+                                                        <li style="display:none;" class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                                    {% else %}
+                                                        <li class="nav-item"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                                    {% endif %}
                                                 {% endfor %}
                                             {% endif %}
                                         </ul>
