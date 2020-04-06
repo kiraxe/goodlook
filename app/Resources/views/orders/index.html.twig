@@ -58,7 +58,6 @@
                             <th scope="col">Время закрытия</th>
                             <th scope="col">Время оплаты</th>
                             <th scope="col">Заказ закрыл</th>
-                            <th scope="col">Оповещение</th>
                             <th scope="col">ФИО</th>
                             <th scope="col">Бренд</th>
                             <th scope="col">Автомобиль</th>
@@ -66,6 +65,7 @@
                             <th scope="col">Гос. номер</th>
                             <th scope="col">Телефон</th>
                             <th scope="col">Стоимость</th>
+                            <th scope="col">Оповещение</th>
                             <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
                         </tr>
                         </thead>
@@ -87,14 +87,6 @@
                                         {{ order.workerclose.name }}
                                     {% endif %}
                                 </td>
-                                <td>
-                                    {% if order.notification%}
-                                        <p>Оповестили</p>
-                                    {% elseif order.notification == false %}
-                                        <p>Оповестить</p>
-                                        {{ order.dateClose|date_modify("+245 day")|date("Y-m-d") }}
-                                    {% endif %}
-                                </td>
                                 <td>{{ order.name }}</td>
                                 <td>{% if order.brandId  %}{{ order.brandId.name }}{% endif %}</td>
                                 <td>{{ order.carId.name }}</td>
@@ -102,7 +94,13 @@
                                 <td>{{ order.number }}</td>
                                 <td>{{ order.phone }}</td>
                                 <td>{{ order.price }}</td>
-
+                                <td>
+                                    {% if order.notification%}
+                                        <p>Да</p>
+                                    {% elseif order.notification == false %}
+                                        <p>Нет</p>
+                                    {% endif %}
+                                </td>
                                 <td>
                                     <ul style="list-style-type: none; margin:0; padding:0;" class="button-active">
                                        <!-- <li>
