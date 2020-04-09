@@ -70,7 +70,6 @@ class OrdersController extends Controller
 
         }
 
-
         if (!empty($request->query->get('form')['manager'])) {
             $manager = $request->query->get('form')['manager'];
 
@@ -279,6 +278,8 @@ class OrdersController extends Controller
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
 
+        $freelancerPrice = null;
+
         if ($form->isValid()) {
 
             foreach ($order->getWorkerorders() as $workerorders) {
@@ -307,10 +308,18 @@ class OrdersController extends Controller
                         }
                     }
                 }
+                if ($workerorders->getWorkers()->getFreelancer()) {
+                    $freelancerPrice += $workerorders->getSalary();
+                }
             }
 
             $order->setPrice($price);
-            $priceOrder = $order->getPrice();
+
+            if(!$freelancerPrice) {
+                $priceOrder = $order->getPrice();
+            } else {
+                $priceOrder = $order->getPrice() - $freelancerPrice;
+            }
 
             if ($order->getWorkeropen() && $order->getWorkerclose()) {
 
@@ -654,6 +663,7 @@ class OrdersController extends Controller
         $serviceparent = null;
         $price = null;
         $unitprice = null;
+        $freelancerPrice = null;
 
         $editForm->handleRequest($request);
 
@@ -685,6 +695,10 @@ class OrdersController extends Controller
                         }
                     }
                 }
+
+                if ($workerorders->getWorkers()->getFreelancer()) {
+                    $freelancerPrice += $workerorders->getSalary();
+                }
             }
 
             foreach ($originalTags as $tag) {
@@ -704,7 +718,12 @@ class OrdersController extends Controller
             }
 
             $orders->setPrice($price);
-            $priceOrder = $orders->getPrice();
+
+            if(!$freelancerPrice) {
+                $priceOrder = $orders->getPrice();
+            } else {
+                $priceOrder = $orders->getPrice() - $freelancerPrice;
+            }
 
             if ($orders->getWorkeropen()) {
                 foreach ($orders->getWorkeropen()->getManagerPercent() as $percent) {

@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
 
@@ -54,7 +55,12 @@ class WorkersType extends AbstractType
                 'by_reference' => false,
                 'allow_delete' => true,
                 'label' => false
-            ]);
+            ])
+            ->add('freelancer', CheckboxType::class ,array(
+                    'label' => 'Фрилансер',
+                    'required' => false,
+                )
+            );
     }/**
      * {@inheritdoc}
      */

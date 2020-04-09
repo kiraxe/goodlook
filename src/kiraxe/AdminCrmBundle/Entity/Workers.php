@@ -58,6 +58,13 @@ class Workers
      */
     private $typeworkers;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="freelancer", type="boolean", options={"default" : 0})
+     */
+    private $freelancer;
+
     // ...
 
     /**
@@ -191,6 +198,15 @@ class Workers
 
     public function setTypeworkers($typeworkers) {
         $this->typeworkers = $typeworkers;
+    }
+
+
+    public function getFreelancer() {
+        return $this->freelancer;
+    }
+
+    public function setFreelancer($freelancer) {
+        $this->freelancer = $freelancer;
     }
 
     /**
