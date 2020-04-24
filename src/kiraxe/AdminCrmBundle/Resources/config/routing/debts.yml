@@ -1,0 +1,24 @@
+debts_index:
+  path:     /
+  defaults: { _controller: "kiraxeAdminCrmBundle:Debts:index" }
+  methods:  GET
+
+debts_show:
+  path:     /{id}/show
+  defaults: { _controller: "kiraxeAdminCrmBundle:Debts:show" }
+  methods:  GET
+
+debts_new:
+  path:     /new
+  defaults: { _controller: "kiraxeAdminCrmBundle:Debts:new" }
+  methods:  [GET, POST]
+
+debts_edit:
+  path:     /{id}/edit
+  defaults: { _controller: "kiraxeAdminCrmBundle:Debts:edit" }
+  methods:  [GET, POST]
+
+debts_delete:
+  path:     /{id}/delete
+  defaults: { _controller: "kiraxeAdminCrmBundle:Debts:delete" }
+  methods:  DELETE

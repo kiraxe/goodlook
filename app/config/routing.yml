@@ -10,6 +10,10 @@ kiraxe_admin_crm_user:
   resource: "@kiraxeAdminCrmBundle/Controller/UserController.php"
   type:     annotation
 
+kiraxe_admin_crm_debts:
+    resource: "@kiraxeAdminCrmBundle/Controller/DebtsController.php"
+    type:     annotation
+
 kiraxe_admin_crm_services:
   resource: "@kiraxeAdminCrmBundle/Controller/ServicesController.php"
   type:     annotation
