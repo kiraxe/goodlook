@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DebtsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Debts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/DebtsType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Repository/DebtsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing/debts.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/goodlook-crm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/goodlook-crm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Resources/config/routing.yml" afterDir="false" />
-    </list>
+    <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,6 +88,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -131,7 +121,7 @@
       <workItem from="1587739306395" duration="543000" />
       <workItem from="1587739900254" duration="393000" />
       <workItem from="1587740382435" duration="191000" />
-      <workItem from="1587740667528" duration="4666000" />
+      <workItem from="1587740667528" duration="5001000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -175,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586443822118</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update 24.04.2020">
+      <created>1587745546529</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587745546529</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,13 +194,18 @@
     <MESSAGE value="update 24.03.2020" />
     <MESSAGE value="update 25.03.2020" />
     <MESSAGE value="update 06.04.2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 06.04.2020" />
+    <MESSAGE value="update 24.04.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 24.04.2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587741159463">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1587745536957">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1587745536957" />
     <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587740572999">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
