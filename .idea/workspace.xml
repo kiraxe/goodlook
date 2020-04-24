@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="" />
+    <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/debts/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/debts/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/debts/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/debts/show.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +126,7 @@
       <workItem from="1587739306395" duration="543000" />
       <workItem from="1587739900254" duration="393000" />
       <workItem from="1587740382435" duration="191000" />
-      <workItem from="1587740667528" duration="5001000" />
+      <workItem from="1587740667528" duration="5320000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -172,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587745546529</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update 24.04.2020">
+      <created>1587745915627</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587745915627</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,10 +214,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
-    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1587745536957">
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1587745913588">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1587745536957" />
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1587745913588" />
     <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587740572999">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
