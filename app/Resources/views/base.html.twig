@@ -83,7 +83,7 @@
                                     </ul>
                                 </li>
                             {% else %}
-                                <li class="{% if key == actionUrl[2] %}active {% endif %}nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}/">{{table}}</a></li>
+                                <li class="{% if key == actionUrl[2] or (key == 'expenses' and actionUrl[2] == 'debts') %}active {% endif %}nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}/">{{table}}</a></li>
                             {% endif %}
                         {% else %}
                             {% if key != "workers" and key != "expenses" and key != "settings" %}
@@ -111,7 +111,7 @@
                                         </ul>
                                     </li>
                                 {% else %}
-                                    <li class="{% if key == actionUrl[2] %}active {% endif %}nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}/">{{table}}</a></li>
+                                    <li class="{% if key == actionUrl[2] or (key == 'expenses' and actionUrl[2] == 'debts') %}active {% endif %}nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}/">{{table}}</a></li>
                                 {% endif %}
                             {% endif %}
                         {% endif  %}
