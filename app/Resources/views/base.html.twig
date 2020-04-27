@@ -30,6 +30,7 @@
     </script>
 </head>
 <body>
+{% set actionUrl = app.request.requestUri|split('/') %}
 <main>
     {% if app.request.requestUri != '/login/' %}
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
@@ -58,12 +59,12 @@
         <div id="bars"><i class="fas fa-bars"></i></div>
         <div class=" navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
-                <li class="nav-item"> <img src="{{ asset('public/images/home.svg') }}"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/">Главная</a></li>
+                <li class="{% if not actionUrl[2] %}active {% endif %} nav-item"> <img src="{{ asset('public/images/home.svg') }}"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/">Главная</a></li>
                 {% if tables %}
                     {% for key, table in tables %}
                         {% if is_granted('ROLE_SUPER_ADMIN') %}
                             {% if table is iterable %}
-                                <li class="nav-item {% if key == "Настройки" %}settings{% endif %}"><img src="{{ asset('public/images/')}}{% if key == "Настройки" %}settings{% elseif key == "Автомобиль" %}avto{% endif %}.svg">
+                                <li class="{% if (key == "Настройки" and  (actionUrl[2] == 'measure' or actionUrl[2] == 'app_users')) or (key == "Автомобиль" and actionUrl[2] == 'brand' or actionUrl[2] == 'model' or actionUrl[2] == 'body_type') %}active {% endif %}nav-item {% if key == "Настройки" %}settings{% endif %}"><img src="{{ asset('public/images/')}}{% if key == "Настройки" %}settings{% elseif key == "Автомобиль" %}avto{% endif %}.svg">
                                     <a
                                             class="nav-link nav-link-collapse"
                                             href="#"
@@ -82,12 +83,12 @@
                                     </ul>
                                 </li>
                             {% else %}
-                                <li class="nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                <li class="{% if key == actionUrl[2] %}active {% endif %}nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}/">{{table}}</a></li>
                             {% endif %}
                         {% else %}
                             {% if key != "workers" and key != "expenses" and key != "settings" %}
                                 {% if table is iterable %}
-                                    <li class="nav-item {% if key == "Настройки" %}settings{% endif %}"><img src="{{ asset('public/images/')}}{% if key == "Настройки" %}settings{% elseif key == "Автомобиль" %}avto{% endif %}.svg">
+                                    <li class="{% if (key == "Настройки" and  (actionUrl[2] == 'measure' or actionUrl[2] == 'app_users')) or (key == "Автомобиль" and actionUrl[2] == 'brand' or actionUrl[2] == 'model' or actionUrl[2] == 'body_type') %}active {% endif %} nav-item {% if key == "Настройки" %}settings{% endif %}"><img src="{{ asset('public/images/')}}{% if key == "Настройки" %}settings{% elseif key == "Автомобиль" %}avto{% endif %}.svg">
                                         <a
                                                 class="nav-link nav-link-collapse"
                                                 href="#"
@@ -110,7 +111,7 @@
                                         </ul>
                                     </li>
                                 {% else %}
-                                    <li class="nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}">{{table}}</a></li>
+                                    <li class="{% if key == actionUrl[2] %}active {% endif %}nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"><a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}/">{{table}}</a></li>
                                 {% endif %}
                             {% endif %}
                         {% endif  %}

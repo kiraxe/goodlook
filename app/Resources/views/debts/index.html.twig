@@ -12,8 +12,11 @@
                         <li>
                             <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('debts_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
-
-
+                        <li class="breadcrumbLocal">
+                            <a href="{{ path('expenses_index') }}">Расходы</a>
+                            <span>/</span>
+                            <a class="active" ref="{{ path('debts_index') }}">Долги</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-12">

@@ -12,8 +12,10 @@
                         <li>
                             <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('expenses_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
-                        <li>
-                            <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('debts_index') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/debts.png') }}"></a>
+                        <li class="breadcrumbLocal">
+                            <a class="active" href="{{ path('expenses_index') }}">Расходы</a>
+                            <span>/</span>
+                            <a href="{{ path('debts_index') }}">Долги</a>
                         </li>
                     </ul>
                 </div>

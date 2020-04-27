@@ -448,6 +448,21 @@ body {
     position: relative;
     -webkit-font-smoothing: subpixel-antialiased;
 
+    .breadcrumbLocal {
+      position: relative;
+      top: -12px;
+        a {
+          color: #000;
+          text-decoration: none;
+          &.active {
+            border-bottom: 1px solid #000;
+          }
+          &:hover {
+            border-bottom: 1px solid #000;
+          }
+        }
+    }
+
     //Создать заказ наряд
     .new-order {
       form {

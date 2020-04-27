@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/debts/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/debts/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +128,9 @@
       <workItem from="1587739306395" duration="543000" />
       <workItem from="1587739900254" duration="393000" />
       <workItem from="1587740382435" duration="191000" />
-      <workItem from="1587740667528" duration="5368000" />
+      <workItem from="1587740667528" duration="5424000" />
+      <workItem from="1587979482321" duration="55000" />
+      <workItem from="1587986523246" duration="6296000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -188,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587746071416</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update 24.04.2020">
+      <created>1587746122104</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587746122104</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,14 +232,14 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
-    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1587746069695">
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1587746120614">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1587746069695" />
-    <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587740572999">
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1587746120614" />
+    <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587979556359">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="420" y="246" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1587740572999" />
+    <state x="420" y="246" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1587979556359" />
     <state x="417" y="240" key="NewPhpClassDialog" timestamp="1587743589939">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
