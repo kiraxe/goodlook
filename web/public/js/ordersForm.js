@@ -445,13 +445,13 @@ $(document).ready(function(){
         if ($(this).val() == $('#' + id).attr('data-pricefr')) {
             parent.find('label[for$="pricefr"]').addClass('active');
             parent.find('input[id$="pricefr"]').addClass('active');
-            parent[j].find('input[id$="pricefrAction"]').val(true);
+            parent.find('input[id$="pricefrAction"]').val(true);
         } else if (parent.find('input[id$="pricefr"]').hasClass('active')) {
             parent.find('label[for$="pricefr"]').removeClass('active');
             parent.find('input[id$="pricefr"]').removeClass('active');
             parent.find('input[id$="pricefr"]').val('');
             parent.find('input[id$="pricefr"]').attr('value', '');
-            parent[j].find('input[id$="pricefrAction"]').val(false);
+            parent.find('input[id$="pricefrAction"]').val(false);
         }
 
         if ($(this).val() == $('#' + id).attr('data-free-pricefr')) {
@@ -459,7 +459,7 @@ $(document).ready(function(){
             parent.find('textarea[id$="free"]').addClass('active');
             parent.find('label[for$="pricefr"]').addClass('active');
             parent.find('input[id$="pricefr"]').addClass('active');
-            parent[j].find('input[id$="pricefrAction"]').val(true);
+            parent.find('input[id$="pricefrAction"]').val(true);
         } else if (parent.find('input[id$="pricefr"]').hasClass('active') && parent.find('textarea[id$="free"]').hasClass('active')) {
             parent.find('label[for$="free"]').removeClass('active');
             parent.find('textarea[id$="free"]').removeClass('active');
@@ -468,7 +468,7 @@ $(document).ready(function(){
             parent.find('input[id$="pricefr"]').removeClass('active');
             parent.find('input[id$="pricefr"]').val('');
             parent.find('input[id$="pricefr"]').attr('value', '');
-            parent[j].find('input[id$="pricefrAction"]').val(false);
+            parent.find('input[id$="pricefrAction"]').val(false);
         }
 
     });
