@@ -5,30 +5,38 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+    let calendarEl = document.getElementById('calendar');
 
     function timestampToDate(ts) {
-        var d = new Date();
+        let d = new Date();
         d.setTime(ts);
         return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2) + " " + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
     }
-    var result;
+    let result;
 
     if (typeof notes != "undefined") {
 
         try {
-            var result = JSON.parse(notes);
+            result = JSON.parse(notes);
         } catch(e) {
             result = notes;
         }
     }
 
-    var calendar = new Calendar(calendarEl, {
+    let newArray = result.map(element => {
+        let re = /\\n/gi;
+        element.title = element.title.replace(re, `\n`);
+        return element;
+    });
+
+    console.log(newArray);
+
+    let calendar = new Calendar(calendarEl, {
         plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
         selectable: true,
         navLinks: true,
         locale: 'ru',
-        events: result,
+        events: newArray,
         eventLimit: true,
         eventLimitText: 'больше',
         eventColor: "black",
@@ -45,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         dateClick: function (info) {
 
-            var start = timestampToDate(Date.parse(info.date));
-            var start1 = start.split(" ");
+            let start = timestampToDate(Date.parse(info.date));
+            let start1 = start.split(" ");
 
             $('#kiraxe_admincrmbundle_calendar_date_date').val(start1[0]);
             $('#kiraxe_admincrmbundle_calendar_date_time').val(start1[1]);
@@ -79,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         eventClick: function(calEvent, jsEvent, view){
 
-
             $.ajax({
                 type: "POST",
                 url: Routing.generate('calendar_ajaxdeletform'),
@@ -92,12 +99,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            var start = timestampToDate(Date.parse(calEvent.event.start));
-            var end = timestampToDate(Date.parse(calEvent.event.end));
-            var title = calEvent.event.title.split('\n');
+            let start = timestampToDate(Date.parse(calEvent.event.start));
+            let end = timestampToDate(Date.parse(calEvent.event.end));
+            let title = calEvent.event.title.split(`\n`);
 
-            var start1 = start.split(" ");
-            var end1 = end.split(" ");
+            let start1 = start.split(" ");
+            let end1 = end.split(" ");
 
             $('#kiraxe_admincrmbundle_calendar_id').val(calEvent.event.id);
             $('#kiraxe_admincrmbundle_calendar_name').val(title[1]);

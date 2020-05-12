@@ -86,6 +86,6 @@
         </li>
     </ul>-->
     <script>
-        var notes = '{{ calendars|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }}';
+        let notes = {{ calendars|json_encode(constant('JSON_UNESCAPED_UNICODE'))|raw }};
     </script>
 {% endblock %}
