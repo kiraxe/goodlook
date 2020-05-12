@@ -29,8 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return element;
     });
 
-    console.log(newArray);
-
     let calendar = new Calendar(calendarEl, {
         plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
         selectable: true,
