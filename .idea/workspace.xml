@@ -1,148 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/FileUploaderImages/FileUploaderImages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expenses/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/ExpensesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/web/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app_dev.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app_dev.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/fonts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/media.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/media.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/print.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/fonts/Gilroy-Bold.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/fonts/Gilroy-Bold.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/fonts/Gilroy-Medium.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/fonts/Gilroy-Medium.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/fonts/Gilroy-Regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/fonts/Gilroy-Regular.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/fonts/Gilroy-Semibold.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/fonts/Gilroy-Semibold.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/fonts/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/fonts/fonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/avto.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/avto.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/calendar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/calendar.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/certificates.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/certificates.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/clientele.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/clientele.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/close.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/close.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/delete.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/delete.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/detail.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/detail.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/downasaur.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/downasaur.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/edit.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/edit.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/expenses.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/expenses.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/home.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/home.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/logotype.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/logotype.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/logout.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/logout.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/materials.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/materials.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order-top-button/AddOrder.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order-top-button/AddOrder.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order-top-button/searchPanel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order-top-button/searchPanel.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order-top-button/settingsCols.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order-top-button/settingsCols.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/10.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/10.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/11.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/11.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/12.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/12.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/13.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/13.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/14.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/14.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/15.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/15.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/16.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/16.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/17.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/17.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/18.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/18.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/19.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/19.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/21.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/21.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/22.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/22.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/23.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/23.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/24.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/24.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/25.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/25.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/26.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/26.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/3.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/4.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/4.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/5.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/5.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/6.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/6.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/7.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/7.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/8.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/8.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/new-order/9.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/new-order/9.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/orders.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/orders.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/revenue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/revenue.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/services.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/services.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/settings.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/settings.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/images/workers.svg" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/images/workers.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/ajaxAutocom.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ajaxAutocom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/ajaxAutocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ajaxAutocomplete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/cldr.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/cldr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/ordersForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/ordersForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/AUTHORS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/AUTHORS.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/external/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/external/jquery/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery-ui-1.12.1.custom/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/demo/datepicker.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/demo/datepicker.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/demo/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/gruntfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/jquery.maskedinput.nuspec" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/jquery.maskedinput.nuspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/lib/jquery-1.8.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/lib/jquery-1.8.3.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/lib/jquery-1.9.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/lib/jquery-1.9.0.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Backspace.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Backspace.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Completed.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Completed.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Delete.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Delete.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Enter.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Enter.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Escape.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Escape.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Focus.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Focus.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Init.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Init.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Optional.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Optional.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Paste.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Paste.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Placeholder.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Placeholder.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Raw.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Raw.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Readonly.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Readonly.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Setup.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Setup.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Typing.Spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/Typing.Spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/BSD.LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/BSD.LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-be-calm.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-be-calm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-grammar.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-grammar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-reporting.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine-species/jasmine-reporting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/MIT.LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/MIT.LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine-html.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine-html.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jasmine/jasmine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jquery.keymasher.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/jquery.keymasher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/matchers.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/matchers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/setup.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/spec/lib/setup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/src/jquery.maskedinput.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/jquery.maskedinput-master/src/jquery.maskedinput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/simple-calendar/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/simple-calendar/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/simple-calendar/tcal.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/simple-calendar/tcal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/simple-calendar/tcal.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/simple-calendar/tcal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/libs/simple-calendar/tcal_en.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/libs/simple-calendar/tcal_en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/web/robots.txt" afterDir="false" />
-    </list>
+    <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="update 06.05.2020" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -268,7 +127,7 @@
       <workItem from="1588762241290" duration="11456000" />
       <workItem from="1588843574485" duration="3115000" />
       <workItem from="1589266653307" duration="14154000" />
-      <workItem from="1589290997072" duration="4794000" />
+      <workItem from="1589290997072" duration="5187000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -361,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588777152925</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update 06.05.2020">
+      <created>1589296048237</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1589296048237</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,10 +259,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
-    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589295990667">
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589296198028">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589295990667" />
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589296198028" />
     <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587994747338">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
