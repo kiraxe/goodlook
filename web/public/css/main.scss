@@ -494,6 +494,21 @@ body {
           width: 49%;
           position: relative;
 
+          &.gallery {
+            .form-group {
+                margin: 0 -10px;
+                display: flex;
+                flex-wrap: wrap;
+                img {
+                  padding: 10px;
+                  height: auto;
+                  width: 200px;
+                  position: relative;
+                  top: 0;
+                }
+            }
+          }
+
           img {
             height: 14px;
             width: 16px;

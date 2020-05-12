@@ -25,6 +25,8 @@ use Symfony\Component\Form\FormEvents;
 
 use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 
+use kiraxe\AdminCrmBundle\Services\FileUploaderImages\FileUploaderImages;
+
 
 /**
  * Order controller.
@@ -258,7 +260,7 @@ class OrdersController extends Controller
      * Creates a new order entity.
      *
      */
-    public function newAction(Request $request, TableMeta $tableMeta)
+    public function newAction(Request $request, TableMeta $tableMeta, FileUploaderImages $fileUploaderImages)
     {
         $order = new Orders();
         $managerorder = new ManagerOrders();
@@ -483,6 +485,15 @@ class OrdersController extends Controller
             }
 
 
+            $files = $order->getImages();
+            $fileNames = [];
+
+            foreach($files as $file) {
+                $fileNames[] = $fileUploaderImages->upload($file);
+            }
+
+            $order->setImages(json_encode($fileNames));
+
 
             $em->persist($order);
             $em->flush();
@@ -492,6 +503,7 @@ class OrdersController extends Controller
 
         return $this->render('orders/new.html.twig', array(
             'order' => $order,
+            'images' => json_decode($order->getImages()),
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
@@ -583,7 +595,7 @@ class OrdersController extends Controller
      * Displays a form to edit an existing order entity.
      *
      */
-    public function editAction($id, Request $request, TableMeta $tableMeta)
+    public function editAction($id, Request $request, TableMeta $tableMeta, FileUploaderImages $fileUploaderImages)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $orders = $entityManager->getRepository(Orders::class)->find($id);
@@ -916,6 +928,21 @@ class OrdersController extends Controller
 
             }
 
+
+            $files = $request->files->all();
+
+            if(!empty($files['kiraxe_admincrmbundle_orders']['images'])) {
+
+                $fileNames = [];
+
+                foreach ($files['kiraxe_admincrmbundle_orders']['images'] as $file) {
+                    $fileNames[] = $fileUploaderImages->upload($file);
+                }
+
+                $orders->setImages(json_encode($fileNames));
+            }
+
+
             $entityManager->persist($orders);
             $entityManager->flush();
 
@@ -929,6 +956,7 @@ class OrdersController extends Controller
         // render some form template
         return $this->render('orders/edit.html.twig', array(
             'order' => $orders,
+            'images' => json_decode($orders->getImages()),
             'workerCart' => $workerCart,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -4,6 +4,7 @@ namespace kiraxe\AdminCrmBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Orders
@@ -180,6 +181,21 @@ class Orders
      * @ORM\Column(name="damages", type="text", nullable=true)
      */
     private $damages;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="note", type="text", nullable=true)
+     */
+    private $note;
+
+    /**
+     * @ORM\Column(name="images", type="string")
+     */
+    private $images;
+
+
 
     public function __construct()
     {
@@ -621,5 +637,31 @@ class Orders
     public function getPayment()
     {
         return $this->payment;
+    }
+
+
+    public function setNote($note)
+    {
+        $this->note = $note;
+        return $this;
+    }
+
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function setImages($images)
+    {
+        if($images) {
+            $this->images = $images;
+        }
+
+        return $this;
     }
 }

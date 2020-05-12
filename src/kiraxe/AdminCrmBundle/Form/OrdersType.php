@@ -17,6 +17,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
 class OrdersType extends AbstractType
@@ -139,6 +140,15 @@ class OrdersType extends AbstractType
                 'label' => 'Рекомендации',
                 'required' => false,
             ))
+            ->add('note', TextareaType::class ,array(
+                'label' => 'Примечание',
+                'required' => false,
+            ))
+            ->add('images', FileType::class, [
+                'label' => 'Фотографии',
+                'multiple' => true,
+                'required' => false,
+            ])
             ->add('phone',TextType::class ,array('label' => 'Телефон', 'attr'=> ['class' => "phone ajax-autocomplete" , 'data-type' => 'phone']))
             ->add('email', EmailType::class ,array(
                 'label' => 'E-mail',

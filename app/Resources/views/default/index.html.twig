@@ -24,9 +24,11 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Общая сумма</th>
-                                <th>Общая зарплата</th>
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}<th>Общая зарплата</th> {% endif %}
+                                <th>Наличные</th>
+                                <th>Безналичные</th>
+                                <th>Расход</th>
                                 {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                    <th>Расход</th>
                                     <th>Выручка-зп-экв</th>
                                     <th>Выручка-зп-матириалы-экв</th>
                                     <th>Чистая прибль</th>
@@ -36,9 +38,11 @@
                         <tbody>
                             <tr>
                                 <td>{{ price }}</td>
-                                <td>{{ salary }}</td>
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}<td>{{ salary }}</td>{% endif %}
+                                <td>{{ priceInCash }}</td>
+                                <td>{{ priceNotCash }}</td>
+                                <td>{{ totalExpenses }}</td>
                                 {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                    <td>{{ totalExpenses }}</td>
                                     <td>{{ earnings }}</td>
                                     <td>{{ earningsOne }}</td>
                                     <td>{{ earningsSecond }}</td>

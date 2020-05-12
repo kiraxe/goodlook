@@ -38,8 +38,8 @@ class ExpensesController extends Controller
         }
 
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
+        //$hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
+        //$this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
 
         $sqlExpenses = "SELECT e FROM kiraxeAdminCrmBundle:Expenses e where";
@@ -114,8 +114,8 @@ class ExpensesController extends Controller
 
         $tableName = $tableMeta->getTableName($em);
 
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
+        //$hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
+        //$this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
 
 
@@ -178,8 +178,8 @@ class ExpensesController extends Controller
             return $this->redirectToRoute('expenses_edit', array('id' => $expense->getId()));
         }
 
-        $hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
+        //$hasAccess = $this->isGranted('ROLE_SUPER_ADMIN');
+        //$this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, "Вам доступ запрещен");
         $user = $this->getUser();
 
 

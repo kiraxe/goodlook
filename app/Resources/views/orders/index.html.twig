@@ -66,6 +66,7 @@
                             <th scope="col">Телефон</th>
                             <th scope="col">Стоимость</th>
                             <th scope="col">Оповещение</th>
+                            <th scope="col">Примечание</th>
                             <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
                         </tr>
                         </thead>
@@ -101,6 +102,7 @@
                                         <p>Нет</p>
                                     {% endif %}
                                 </td>
+                                <td>{{ order.note }}</td>
                                 <td>
                                     <ul style="list-style-type: none; margin:0; padding:0;" class="button-active">
                                        <!-- <li>
@@ -125,7 +127,7 @@
 
                                                             {% else %}
                                                                 <input  class="btn button-delete" type="submit" value="" id="btn-delete_{{ order.id }}"  disabled>
-                                                                <label  class="btn-delete" for="btn-delete_{{ order.id }}"><img src="{{ asset('public/images/close.svg') }}"></label>
+                                                                <!--<label  class="btn-delete" for="btn-delete_{{ order.id }}"><img src="{{ asset('public/images/close.svg') }}"></label>-->
 
                                                             {% endif %}
                                                         {% endif %}
@@ -139,8 +141,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
                      <span class="delete-all-checkbox">Удалить выделенные</span>
-
+                        {% endif %}
 
 
 

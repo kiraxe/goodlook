@@ -12,11 +12,13 @@
                         <li>
                             <a style="display:inline-block; margin-top: 20px;" class="button-top-orders" href="{{ path('expenses_new') }}"><img width="30px" src="{{ asset('public/images/new-order-top-button/AddOrder.svg') }}"></a>
                         </li>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
                         <li class="breadcrumbLocal">
                             <a class="active" href="{{ path('expenses_index') }}">Расходы</a>
                             <span>/</span>
                             <a href="{{ path('debts_index') }}">Долги</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="col-md-12">
@@ -44,7 +46,9 @@
                             <th scope="col">Тип оплаты</th>
                             <th scope="col">Дата</th>
                             <th scope="col">Комментарий</th>
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
                             <th scope="col"><img width="30px" src="{{ asset('public/images/detail.svg') }}"></th>
+                            {% endif %}
                         </tr>
                         </thead>
                         <tbody>
@@ -57,6 +61,7 @@
                                 <td>{% if expense.type %}Безналичный{% else %}Наличный{% endif %}</td>
                                 <td>{% if expense.date %}{{ expense.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                                 <td>{{ expense.comment }}</td>
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}
                                 <td>
                                     <ul style="list-style-type: none; margin:0; padding:0; display:flex; justify-content: center;">
                                     <!--    <li>
@@ -77,11 +82,14 @@
                                         </li>
                                     </ul>
                                 </td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
                     <span class="delete-all-checkbox">Удалить выделенные</span>
+                    {% endif %}
                 </div>
                 <div class="pagination col-md-12">
                     {{ knp_pagination_render(pagination) }}

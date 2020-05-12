@@ -46,6 +46,10 @@ services:
         arguments:
             $targetDirectory: '%kernel.project_dir%\web\public\crontab\'
 
+    kiraxe\AdminCrmBundle\Services\FileUploaderImages\FileUploaderImages:
+        arguments:
+            $targetDir: '%kernel.project_dir%\web\public\orders_images\'
+
     kiraxe\AdminCrmBundle\Services\Dump\DumpCommand:
         autowire: true
         arguments:

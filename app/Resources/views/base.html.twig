@@ -9,10 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css">
     <script src="https://kit.fontawesome.com/48f9136f03.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="print" href="{{ asset('public/css/print.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('public/build/app.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
 
     <script type="text/javascript">
@@ -83,7 +85,8 @@
                                 <li class="{% if key == actionUrl[2] or (key == 'expenses' and actionUrl[2] == 'debts') %}active {% endif %}nav-item"><img src="{{ asset('public/images/') }}{{ key }}.svg"> <a class="nav-link" style="display: block; text-decoration: none;" href="/admin/{{key}}/">{{table}}</a></li>
                             {% endif %}
                         {% else %}
-                            {% if key != "workers" and key != "expenses" and key != "settings" %}
+                            <!--and key != "expenses"-->
+                            {% if key != "workers" and key != "revenue" and key != "settings" %}
                                 {% if table is iterable %}
                                     <li class="{% if (key == "Настройки" and  (actionUrl[2] == 'measure' or actionUrl[2] == 'app_users')) or (key == "Автомобиль" and actionUrl[2] == 'brand' or actionUrl[2] == 'model' or actionUrl[2] == 'body_type') %}active {% endif %} nav-item {% if key == "Настройки" %}settings{% endif %}"><img src="{{ asset('public/images/')}}{% if key == "Настройки" %}settings{% elseif key == "Автомобиль" %}avto{% endif %}.svg">
                                         <a

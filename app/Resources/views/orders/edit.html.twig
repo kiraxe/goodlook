@@ -24,9 +24,18 @@
                     <div class="formItem"><img src="{{ asset('public/images/new-order/9.svg') }}">{% if edit_form.bodyId %}{{ form_row(edit_form.bodyId) }}{% endif %}</div>
                     <div class="formItem"><img src="{{ asset('public/images/new-order/10.svg') }}">{{ form_row(edit_form.number) }}</div>
                     <div class="formItem"><img src="{{ asset('public/images/new-order/11.svg') }}">{{ form_row(edit_form.color) }}</div>
+                    <div class="formItem full-width"><img src="{{ asset('public/images/new-order/27.svg') }}">{{ form_row(edit_form.images) }}</div>
+                    <div class="formItem full-width gallery">
+                        <div class="form-group">
+                            {% for img in images %}
+                                <a href="{{ asset('/public/orders_images/') }}{{ img }}" data-fancybox data-caption="Caption for single image"><img src="{{ asset('/public/orders_images/') }}{{ img }}"/></a>
+                            {% endfor %}
+                        </div>
+                    </div>
                     <div class="formItem full-width"><img src="{{ asset('public/images/new-order/12.svg') }}">{{ form_row(edit_form.description) }}</div>
                     <div class="formItem full-width"><img src="{{ asset('public/images/new-order/13.svg') }}">{{ form_row(edit_form.damages) }}</div>
                     <div class="formItem full-width"><img src="{{ asset('public/images/new-order/26.svg') }}">{{ form_row(edit_form.recommendations) }}</div>
+                    <div class="formItem full-width"><img src="{{ asset('public/images/new-order/27.svg') }}">{{ form_row(edit_form.note) }}</div>
 
                     <div class="order-subtitle">Контакты</div>
 
