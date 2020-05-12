@@ -191,7 +191,7 @@ class Orders
     private $note;
 
     /**
-     * @ORM\Column(name="images", type="string")
+     * @ORM\Column(name="images", type="string", nullable=true)
      */
     private $images;
 

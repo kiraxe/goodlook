@@ -485,14 +485,18 @@ class OrdersController extends Controller
             }
 
 
-            $files = $order->getImages();
-            $fileNames = [];
+            $files = $request->files->all();
 
-            foreach($files as $file) {
-                $fileNames[] = $fileUploaderImages->upload($file);
+            if(!empty($files['kiraxe_admincrmbundle_orders']['images'])) {
+
+                $fileNames = [];
+
+                foreach ($files['kiraxe_admincrmbundle_orders']['images'] as $file) {
+                    $fileNames[] = $fileUploaderImages->upload($file);
+                }
+
+                $order->setImages(json_encode($fileNames));
             }
-
-            $order->setImages(json_encode($fileNames));
 
 
             $em->persist($order);
