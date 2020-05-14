@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Form/OrdersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/print.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +139,7 @@
       <workItem from="1589266653307" duration="14154000" />
       <workItem from="1589290997072" duration="18712000" />
       <workItem from="1589363347637" duration="2596000" />
-      <workItem from="1589458080828" duration="1557000" />
+      <workItem from="1589458080828" duration="2444000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -284,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589310126739</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update 06.05.2020">
+      <created>1589459868353</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1589459868353</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,10 +320,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
-    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589310122416">
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589459851956">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589310122416" />
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589459851956" />
     <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587994747338">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
