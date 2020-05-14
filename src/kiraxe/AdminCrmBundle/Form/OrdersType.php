@@ -132,9 +132,9 @@ class OrdersType extends AbstractType
                 'label' => 'При приеме ДТС имеет следующие повреждения',
                 'required' => false,
                 'empty_data' => 'Автомобиль загрязнен. Фотофиксация после мойки кузова автомобиля.',
-                /*'attr' => array(
+                'attr' => array(
                     'placeholder' => 'Автомобиль загрязнен. Фотофиксация после мойки кузова автомобиля.'
-                )*/
+                )
             ))
             ->add('recommendations', TextareaType::class ,array(
                 'label' => 'Рекомендации',
