@@ -622,4 +622,121 @@ $(document).ready(function(){
     })
 }
 
+/* Загрузка фотографий */
+
+    let dropArea = document.getElementById('drop-area');
+    let galleryImg = document.getElementById('gallery');
+    let galleryLoaded = document.querySelectorAll('.gallery .img_close img');
+    let fileInputTitle = dropArea.querySelector('label');
+    let fileInput = dropArea.querySelector('#kiraxe_admincrmbundle_orders_images');
+
+    let files = [];
+    let filesPrev;
+
+        galleryLoaded.forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentNode.parentNode.remove();
+            }, false)
+        })
+
+        ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        })
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ;['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        })
+
+        ;['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        })
+
+        function highlight(e) {
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlight(e) {
+            dropArea.classList.remove('highlight');
+        }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+        fileInput.addEventListener('change', handleFile, false);
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let fls = dt.files;
+            let flsPrev = Array.from(fileInput.files);
+            let flsNew = Array.from(fls);
+            let files = flsPrev.concat(flsNew);
+            let dtNew = new DataTransfer();
+            for(let i = 0; files.length > i; i++) {
+                dtNew.items.add(files[i]);
+            }
+            fileInput.files = dtNew.files;
+            handleFiles(dtNew.files);
+        }
+
+        function handleFile(e) {
+            handleFiles(fileInput.files);
+        }
+
+        function handleFiles(fls) {
+            fls = Object.values(fls);
+            filesPrev = [...fls];
+            files = files.concat(fls);
+            filesPrev.forEach(previewFile);
+        }
+
+        function previewFile(file) {
+            galleryImg.innerHTML = "";
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            if (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/svg") {
+                reader.onloadend = function () {
+                    let div = document.createElement('div');
+                    let divCl = document.createElement('div');
+                    let imgCl = document.createElement('img');
+                    div.className = 'img_container';
+                    divCl.className = 'img_close';
+                    imgCl.src = '/public/images/new-order/3.svg';
+                    let img = document.createElement('img');
+                    img.src = reader.result;
+                    img.setAttribute('data-name', file.name);
+                    div.appendChild(img);
+                    divCl.appendChild(imgCl);
+                    div.appendChild(divCl);
+                    document.getElementById('gallery').appendChild(div);
+
+                    if (galleryImg.children.length > 0) {
+                        fileInputTitle.style.display = "none";
+                    }
+
+                    imgCl.addEventListener('click', deleteFile, false);
+                }
+            }
+        }
+
+        function deleteFile(e) {
+            const dt = new DataTransfer();
+            let element = e.target.parentElement.previousElementSibling;
+            element.parentElement.remove();
+            let files = Array.from(fileInput.files);
+            let newFl = files.map(item => {if (element.getAttribute('data-name') != item.name) return item});
+            for (let i = 0; newFl.length > i; i++) {
+                if(!!newFl[i]) {
+                    dt.items.add(newFl[i]);
+                }
+            }
+
+            fileInput.files = dt.files;
+            if (galleryImg.children.length == 0) {
+                fileInputTitle.style.display = "block";
+            }
+            console.log(fileInput.files);
+        }
 });

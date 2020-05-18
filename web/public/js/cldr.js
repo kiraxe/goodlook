@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#kiraxe_admincrmbundle_calendar_id').val(calEvent.event.id);
             $('#kiraxe_admincrmbundle_calendar_name').val(title[1]);
             $('#kiraxe_admincrmbundle_calendar_phone').val(title[2]);
-            $('#kiraxe_admincrmbundle_calendar_text').val(title[3]);
+            title.splice(0,3);
+            $('#kiraxe_admincrmbundle_calendar_text').val(title.join('\n'));
             $('#kiraxe_admincrmbundle_calendar_date_date').val(start1[0]);
             $('#kiraxe_admincrmbundle_calendar_date_time').val(start1[1]);
             $('#kiraxe_admincrmbundle_calendar_datecl_date').val(end1[0]);

@@ -24,11 +24,15 @@
                     <div class="formItem"><img src="{{ asset('public/images/new-order/9.svg') }}">{% if edit_form.bodyId %}{{ form_row(edit_form.bodyId) }}{% endif %}</div>
                     <div class="formItem"><img src="{{ asset('public/images/new-order/10.svg') }}">{{ form_row(edit_form.number) }}</div>
                     <div class="formItem"><img src="{{ asset('public/images/new-order/11.svg') }}">{{ form_row(edit_form.color) }}</div>
-                    <div class="formItem full-width"><img src="{{ asset('public/images/new-order/27.svg') }}">{{ form_row(edit_form.images) }}</div>
+                    <div class="formItem full-width"><!--<img src="{{ asset('public/images/new-order/27.svg') }}">--><div id="drop-area">{{ form_row(edit_form.images) }}<div id="gallery"></div></div></div>
                     <div class="formItem full-width gallery">
                         <div class="form-group">
                             {% for img in images %}
-                                <a href="{{ asset('/public/orders_images/') }}{{ img }}" data-fancybox data-caption="Caption for single image"><img src="{{ asset('/public/orders_images/') }}{{ img }}"/></a>
+                                <div class="img_container img_loaded">
+                                    <a href="{{ asset('/public/orders_images/order_') }}{{ order.id }}/{{ img }}" data-fancybox data-caption="Caption for single image"><img src="{{ asset('/public/orders_images/order_') }}{{ order.id }}/{{ img }}"/></a>
+                                    <div class="img_close"><img src="/public/images/new-order/3.svg"></div>
+                                    <input type="hidden" name=kiraxe_admincrmbundle_orders[loaded][]" value="{{ img }}">
+                                </div>
                             {% endfor %}
                         </div>
                     </div>

@@ -191,7 +191,7 @@ class Orders
     private $note;
 
     /**
-     * @ORM\Column(name="images", type="string", nullable=true)
+     * @ORM\Column(name="images", type="text", nullable=true)
      */
     private $images;
 
@@ -658,10 +658,7 @@ class Orders
 
     public function setImages($images)
     {
-        if($images) {
-            $this->images = $images;
-        }
-
+        $this->images = $images;
         return $this;
     }
 }

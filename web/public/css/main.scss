@@ -66,6 +66,68 @@ html {
 
 /*-------------------------------------------- */
 
+#drop-area {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 2px dashed #ccc;
+  width: 100%;
+  font-family: sans-serif;
+  margin: 10px auto;
+  padding: 20px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  &.highlight {
+    border-color:#F9B517;
+  }
+  .form-group {
+    margin-bottom: 0;
+    label {
+      display: inline-block;
+      color: #ccc;
+      font-size: 16px;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 0 !important;
+    }
+
+    #kiraxe_admincrmbundle_orders_images {
+      display: none;
+    }
+  }
+  #gallery {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      vertical-align: middle;
+      object-fit: contain;
+      position: relative!important;
+    }
+    .img_container {
+      position: relative;
+      .img_close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        img {
+          width: 14px;
+          height: auto;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+
 
 .print-content {
   position: absolute;
@@ -511,6 +573,19 @@ body {
                   width: 200px;
                   position: relative;
                   top: 0;
+                }
+                .img_container {
+                  position: relative;
+                  .img_close {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    img {
+                      width: 34px;
+                      height: auto;
+                      cursor: pointer;
+                    }
+                  }
                 }
             }
           }

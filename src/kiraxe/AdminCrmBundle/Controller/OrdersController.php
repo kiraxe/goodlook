@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 use PhpOffice\PhpWord\TemplateProcessor;
 use PhpOffice\PhpWord\PhpWord;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Filesystem\Filesystem;
 
 use kiraxe\AdminCrmBundle\Services\TableMeta\TableMeta;
 
@@ -489,25 +490,29 @@ class OrdersController extends Controller
 
             if(!empty($files['kiraxe_admincrmbundle_orders']['images'])) {
 
-                $fileNames = [];
+                //$fileNames = [];
+
+                $filesystem = new Filesystem();
+
+                //$filesystem->remove([$fileUploaderImages->getTargetDir().'order_'.$order->getId()]);
 
                 foreach ($files['kiraxe_admincrmbundle_orders']['images'] as $file) {
-                    $fileNames[] = $fileUploaderImages->upload($file);
+                    $fileNames[] = $fileUploaderImages->upload($file, $order);
                 }
 
                 $order->setImages(json_encode($fileNames));
             }
 
-
             $em->persist($order);
             $em->flush();
+
+            $filesystem->rename($fileUploaderImages->getTargetDir().'order_', $fileUploaderImages->getTargetDir().'order_'.$order->getId());
 
             return $this->redirectToRoute('orders_edit', array('id' => $order->getId()));
         }
 
         return $this->render('orders/new.html.twig', array(
             'order' => $order,
-            'images' => json_decode($order->getImages()),
             'form' => $form->createView(),
             'tables' => $tableName,
             'user' => $user,
@@ -605,6 +610,7 @@ class OrdersController extends Controller
         $orders = $entityManager->getRepository(Orders::class)->find($id);
 
         $tableName = $tableMeta->getTableName($entityManager);
+        $images = $orders->getImages();
 
         $step = 0;
         
@@ -683,8 +689,10 @@ class OrdersController extends Controller
 
         $editForm->handleRequest($request);
 
-        if ($editForm->isValid()) {
+
+        if ($editForm->isSubmitted()) {
             // remove the relationship between the tag and the Task
+
 
             foreach ($orders->getWorkerorders() as $workerorders) {
                 $price += $workerorders->getPrice();
@@ -935,15 +943,33 @@ class OrdersController extends Controller
 
             $files = $request->files->all();
 
+
             if(!empty($files['kiraxe_admincrmbundle_orders']['images'])) {
 
-                $fileNames = [];
+                //$fileNames = [];
+
+                //$filesystem = new Filesystem();
+
+                //$filesystem->remove([$fileUploaderImages->getTargetDir().'order_'.$orders->getId()]);
 
                 foreach ($files['kiraxe_admincrmbundle_orders']['images'] as $file) {
-                    $fileNames[] = $fileUploaderImages->upload($file);
+                    $fileNames[] = $fileUploaderImages->upload($file, $orders);
                 }
 
                 $orders->setImages(json_encode($fileNames));
+            }
+
+            if(isset($request->get('kiraxe_admincrmbundle_orders')['loaded'])) {
+                if(isset($fileNames)) {
+                    $fileNames = array_merge($fileNames, $request->get('kiraxe_admincrmbundle_orders')['loaded']);
+                } else {
+                    $fileNames = $request->get('kiraxe_admincrmbundle_orders')['loaded'];
+                }
+                $orders->setImages(json_encode($fileNames));
+            }
+
+            if (!isset($request->get('kiraxe_admincrmbundle_orders')['loaded']) && empty($files['kiraxe_admincrmbundle_orders']['images'])) {
+                $orders->setImages(null);
             }
 
 
@@ -957,10 +983,13 @@ class OrdersController extends Controller
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
 
+
+
+
         // render some form template
         return $this->render('orders/edit.html.twig', array(
             'order' => $orders,
-            'images' => json_decode($orders->getImages()),
+            'images' => json_decode($images),
             'workerCart' => $workerCart,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
