@@ -485,10 +485,11 @@ class OrdersController extends Controller
                 $em->persist($client);
             }
 
-
             $files = $request->files->all();
 
             if(!empty($files['kiraxe_admincrmbundle_orders']['images'])) {
+
+
 
                 //$fileNames = [];
 
@@ -501,12 +502,16 @@ class OrdersController extends Controller
                 }
 
                 $order->setImages(json_encode($fileNames));
+            } else {
+                $order->setImages(null);
             }
 
             $em->persist($order);
             $em->flush();
 
-            $filesystem->rename($fileUploaderImages->getTargetDir().'order_', $fileUploaderImages->getTargetDir().'order_'.$order->getId());
+            if(!empty($files['kiraxe_admincrmbundle_orders']['images'])) {
+                $filesystem->rename($fileUploaderImages->getTargetDir() . 'order_', $fileUploaderImages->getTargetDir() . 'order_' . $order->getId());
+            }
 
             return $this->redirectToRoute('orders_edit', array('id' => $order->getId()));
         }

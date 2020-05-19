@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/orders/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Controller/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Entity/Orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/FileUploaderImages/FileUploaderImages.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kiraxe/AdminCrmBundle/Services/FileUploaderImages/FileUploaderImages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/cldr.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/cldr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +143,10 @@
       <workItem from="1589532677384" duration="15138000" />
       <workItem from="1589782284871" duration="29429000" />
       <workItem from="1589823916054" duration="568000" />
-      <workItem from="1589825371259" duration="6633000" />
+      <workItem from="1589825371259" duration="7471000" />
+      <workItem from="1589877809584" duration="1449000" />
+      <workItem from="1589880003382" duration="397000" />
+      <workItem from="1589880471218" duration="349000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -308,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589460679824</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update 19.05.2020">
+      <created>1589832401859</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1589832401859</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,17 +334,18 @@
     <MESSAGE value="update 24.04.2020" />
     <MESSAGE value="update 27.04.2020" />
     <MESSAGE value="update 06.05.2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 06.05.2020" />
+    <MESSAGE value="update 19.05.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 19.05.2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587741159463">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
-    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589460676342">
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589832369845">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589460676342" />
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589832369845" />
     <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587994747338">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
