@@ -215,9 +215,7 @@ html {
   /*font-family: 'GilroyBold';*/
 }
 
-.workorder-new-oreder table tr:nth-child(4) p,
-.workorder-new-oreder table tr:nth-child(5) p,
-.workorder-new-oreder table tr:nth-child(6) p {
+.workorder-new-oreder table tr.pre-wrap p {
   white-space: pre-wrap;
 }
 
