@@ -631,7 +631,7 @@ $(document).ready(function(){
     let fileInput = dropArea.querySelector('#kiraxe_admincrmbundle_orders_images');
 
     let files = [];
-    let filesPrev;
+    let filesPrev = [];
 
         galleryLoaded.forEach(item => {
             item.addEventListener('click', () => {
@@ -682,6 +682,12 @@ $(document).ready(function(){
         }
 
         function handleFile(e) {
+            let flsPrev = Array.from(fileInput.files);
+            filesPrev = flsPrev.concat(filesPrev);
+            let dtNew = new DataTransfer();
+            for(let i = 0; filesPrev.length > i; i++) {
+                dtNew.items.add(filesPrev[i]);
+            }
             handleFiles(fileInput.files);
         }
 
