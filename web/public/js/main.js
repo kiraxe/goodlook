@@ -688,6 +688,7 @@ $(document).ready(function(){
             for(let i = 0; filesPrev.length > i; i++) {
                 dtNew.items.add(filesPrev[i]);
             }
+            fileInput.files = dtNew.files;
             handleFiles(dtNew.files);
         }
 
@@ -722,7 +723,7 @@ $(document).ready(function(){
                         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                             fileInputTitle.style.display = "block";
                         } else {
-                            fileInputTitle.style.display = "none";
+                            fileInputTitle.style.display = "block";
                         }
                     }
 
@@ -737,6 +738,8 @@ $(document).ready(function(){
             element.parentElement.remove();
             let files = Array.from(fileInput.files);
             let newFl = files.map(item => {if (element.getAttribute('data-name') != item.name) return item});
+            filesPrev = filesPrev.map(item => {if (element.getAttribute('data-name') != item.name) return item});
+            filesPrev = filesPrev.filter(x => {return x !== undefined && x !== null});
             for (let i = 0; newFl.length > i; i++) {
                 if(!!newFl[i]) {
                     dt.items.add(newFl[i]);

@@ -3,31 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eaaac0ad-1542-444c-9eb2-5983728e61a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/entrypoints.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Bold.9746ea5e.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Bold.a8b05996.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Bold.bb531262.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Bold.f84d858f.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-ExtraBold.51c20075.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-ExtraBold.989ae01f.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-ExtraBold.ed9369d2.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Light.21c8411f.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Light.433b9282.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Light.748d22e4.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Medium.6b59db93.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Medium.90b750e1.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Medium.98528635.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Medium.ebfa3b3e.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Regular.0e531ea2.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Regular.26cb4997.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Regular.31dc5269.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Regular.b5eadae8.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Semibold.1591d554.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Semibold.470350d6.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Semibold.8d1d9ece.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/build/fonts/Gilroy-Semibold.921e6e62.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/build/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +148,7 @@
       <workItem from="1589877809584" duration="1449000" />
       <workItem from="1589880003382" duration="397000" />
       <workItem from="1589880471218" duration="1109000" />
-      <workItem from="1589962728735" duration="3280000" />
+      <workItem from="1589962728735" duration="7944000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -370,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589966382483</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="update 20.05.2020 13:10">
+      <created>1589966514484</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1589966514484</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,10 +389,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
-    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589966376718">
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589966509770">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589966376718" />
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589966509770" />
     <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587994747338">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
