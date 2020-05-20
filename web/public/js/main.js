@@ -713,7 +713,11 @@ $(document).ready(function(){
                     document.getElementById('gallery').appendChild(div);
 
                     if (galleryImg.children.length > 0) {
-                        fileInputTitle.style.display = "none";
+                        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                            fileInputTitle.style.display = "block";
+                        } else {
+                            fileInputTitle.style.display = "none";
+                        }
                     }
 
                     imgCl.addEventListener('click', deleteFile, false);
@@ -737,6 +741,5 @@ $(document).ready(function(){
             if (galleryImg.children.length == 0) {
                 fileInputTitle.style.display = "block";
             }
-            console.log(fileInput.files);
         }
 });
