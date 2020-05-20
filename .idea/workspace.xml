@@ -148,7 +148,7 @@
       <workItem from="1589877809584" duration="1449000" />
       <workItem from="1589880003382" duration="397000" />
       <workItem from="1589880471218" duration="1109000" />
-      <workItem from="1589962728735" duration="2574000" />
+      <workItem from="1589962728735" duration="3156000" />
     </task>
     <task id="LOCAL-00001" summary="update 24.03.2020">
       <created>1585068239751</created>
@@ -332,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589964339944</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="update 20.05.2020 13:10">
+      <created>1589965881376</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1589965881376</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,17 +367,18 @@
     <MESSAGE value="update 19.05.2020" />
     <MESSAGE value="update 20.05.2020" />
     <MESSAGE value="update 20.05.2020 12:45" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20.05.2020 12:45" />
+    <MESSAGE value="update 20.05.2020 13:10" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20.05.2020 13:10" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587741159463">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="449" y="308" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.984@0.0.1280.984" timestamp="1587741159463" />
-    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589964328044">
+    <state x="265" y="59" key="CommitChangelistDialog2" timestamp="1589965875524">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589964328044" />
+    <state x="265" y="59" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589965875524" />
     <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1587994747338">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

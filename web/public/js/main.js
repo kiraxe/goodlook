@@ -688,7 +688,7 @@ $(document).ready(function(){
             for(let i = 0; filesPrev.length > i; i++) {
                 dtNew.items.add(filesPrev[i]);
             }
-            handleFiles(fileInput.files);
+            handleFiles(dtNew.files);
         }
 
         function handleFiles(fls) {
@@ -722,7 +722,7 @@ $(document).ready(function(){
                         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                             fileInputTitle.style.display = "block";
                         } else {
-                            fileInputTitle.style.display = "none";
+                            fileInputTitle.style.display = "block";
                         }
                     }
 
