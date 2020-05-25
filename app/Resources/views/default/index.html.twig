@@ -27,6 +27,8 @@
                                 {% if is_granted('ROLE_SUPER_ADMIN') %}<th>Общая зарплата</th> {% endif %}
                                 <th>Наличные</th>
                                 <th>Безналичные</th>
+                                <th>Эквайринг</th>
+                                <th>Оплата по счету</th>
                                 <th>Расход</th>
                                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                                     <th>Выручка-зп-экв</th>
@@ -41,6 +43,8 @@
                                 {% if is_granted('ROLE_SUPER_ADMIN') %}<td>{{ salary }}</td>{% endif %}
                                 <td>{{ priceInCash }}</td>
                                 <td>{{ priceNotCash }}</td>
+                                <td>{{ acquiring }}</td>
+                                <td>{{ paymentByInvoice}}</td>
                                 <td>{{ totalExpenses }}</td>
                                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                                     <td>{{ earnings }}</td>

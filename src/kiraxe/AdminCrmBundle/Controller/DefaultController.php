@@ -95,8 +95,10 @@ class DefaultController extends Controller
         $partRevenue = 0;
         $interestpayments = 0;
         $earnings = 0;
+        $paymentByInvoice = 0;
         $priceInCash = 0;
         $priceNotCash = 0;
+        $acquiring = 0;
         $workers_id = [];
         $workerCart = [];
 
@@ -122,12 +124,14 @@ class DefaultController extends Controller
                 if ($order->getPayment() == 2) {
                     $interestpayments += ($order->getPrice() / 100) * 1.85;
                     $priceNotCash += $order->getPrice();
+                    $acquiring += $order->getPrice();
                 }
                 if ($order->getPayment() == 0) {
                     $priceInCash += $order->getPrice();
                 }
                 if ($order->getPayment() == 1) {
                     $priceNotCash += $order->getPrice();
+                    $paymentByInvoice += $order->getPrice();
                 }
                 foreach ($order->getWorkerorders() as $workerorder) {
                     $salary += $workerorder->getSalary();
@@ -227,6 +231,8 @@ class DefaultController extends Controller
             'interestpayments'  => round($interestpayments, 1, PHP_ROUND_HALF_EVEN),
             'priceNotCash' => $priceNotCash,
             'priceInCash' => $priceInCash,
+            'acquiring' => $acquiring,
+            'paymentByInvoice' => $paymentByInvoice
         ));
     }
 
